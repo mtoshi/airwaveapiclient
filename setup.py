@@ -52,7 +52,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(here, 'README.rst')) as _file:
     README = _file.read()
 
-requires = []
+requires = ['requests']
 
 with open('requirements.txt', 'w') as _file:
     _file.write('\n'.join(requires))
