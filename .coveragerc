@@ -1,0 +1,12 @@
+[run]
+source=
+    airwaveapiclient/
+    ; airwaveapiclient.py
+
+omit=
+    */__*,
+    */tests/*,
+    */migrations/*
+
+[html]
+directory=docs/htmlcov

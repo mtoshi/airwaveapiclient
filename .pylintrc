@@ -1,0 +1,8 @@
+[MASTER]
+load-plugins=
+
+[MESSAGES CONTROL]
+disable=
+    too-few-public-methods,
+    invalid-name,
+    no-member

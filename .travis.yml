@@ -1,0 +1,16 @@
+language: python
+sudo: false
+python:
+- 2.7
+- 3.3
+- 3.4
+
+install:
+- pip install virtualenv tox docutils coveralls
+
+script:
+- python setup.py test
+- python setup.py check -r
+
+after_success:
+- coveralls

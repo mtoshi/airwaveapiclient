@@ -1,0 +1,15 @@
+*.pyc
+*.egg
+*.eggs/
+*.egg-info/
+*.pyc
+*requirements*
+.coverage
+.tox/
+_build/
+build/
+dist/
+.coverage
+.cache/
+htmlcov/
+migrations/

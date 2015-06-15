@@ -1,0 +1,9 @@
+#!/bin/sh -e
+
+rootdir=$(git rev-parse --show-toplevel)
+cd $rootdir
+(
+find ./ -name '*.pyc' -delete
+python setup.py test
+python setup.py check -r
+)

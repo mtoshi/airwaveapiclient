@@ -1,0 +1,6 @@
+include MANIFEST.in
+include README.rst
+include LICENSE
+include requirements.txt
+recursive-include docs *.rst
+recursive-include airwaveapiclient *.py *.txt
