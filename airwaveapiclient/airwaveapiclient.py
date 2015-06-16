@@ -3,6 +3,7 @@
 """airwaveapiclient."""
 
 
+import xmltodict
 import requests
 
 
@@ -80,3 +81,8 @@ class AirWaveAPIClient(object):
     def id_params(ap_ids):
         """Make access point id dict. """
         return '&'.join(["id=%s" % ap_id for ap_id in ap_ids])
+
+    @staticmethod
+    def xml_to_dict(xml):
+        """Change XML to dict."""
+        return xmltodict.parse(xml)
