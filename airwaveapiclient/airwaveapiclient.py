@@ -43,20 +43,33 @@ class AirWaveAPIClient(object):
         """API URL."""
         return 'https://%s/%s' % (self.address, path)
 
-    def ap_list(self):
+    def ap_list(self, ap_ids=None):
         """Get Access Point list."""
         url = self.api_path('ap_list.xml')
-        query = '<access_points><ap /></access_points>'
-        params = {'aps': query}
-        return self.session.post(url,
-                                 params=params,
-                                 verify=False)
+        if ap_ids:
+            params = AirWaveAPIClient.id_params(ap_ids)
+            return self.session.get(url, verify=False, params=params)
+        return self.session.get(url, verify=False)
 
     def ap_detail(self, ap_id):
-        """Get Access Point detail."""
-        url = self.api_path('ap_list.xml')  # "ap_detail.xml" could not use.
-        query = '<access_points><ap id="%s" /></access_points>' % ap_id
-        params = {'aps': query}
-        return self.session.post(url,
-                                 params=params,
-                                 verify=False)
+        """Get Access Point detail inforamtion."""
+        url = self.api_path('ap_detail.xml')
+        params = {'id': ap_id}
+        return self.session.get(url, verify=False, params=params)
+
+    def client_detail(self, mac):
+        """Client detail inforamtion."""
+        url = self.api_path('client_detail.xml')
+        params = {'mac': mac}
+        return self.session.get(url, verify=False, params=params)
+
+    def rogue_detail(self, ap_id):
+        """Rogue detail inforamtion."""
+        url = self.api_path('rogue_detail.xml')
+        params = {'id': ap_id}
+        return self.session.get(url, verify=False, params=params)
+
+    @staticmethod
+    def id_params(ap_ids):
+        """Make access point id dict. """
+        return '&'.join(["id=%s" % ap_id for ap_id in ap_ids])
