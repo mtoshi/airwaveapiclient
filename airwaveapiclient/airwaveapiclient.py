@@ -22,6 +22,7 @@ class AirWaveAPIClient(object):
 
     def login(self):
         """Login."""
+        requests.packages.urllib3.disable_warnings()
         self.session = requests.Session()
         url = 'https://%s/LOGIN' % self.address
         destination = '/'
