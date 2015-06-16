@@ -54,7 +54,7 @@ class AirWaveAPIClient(object):
 
     def ap_detail(self, ap_id):
         """Get Access Point detail."""
-        url = self.api_path('ap_list.xml')
+        url = self.api_path('ap_list.xml')  # "ap_detail.xml" could not use.
         query = '<access_points><ap id="%s" /></access_points>' % ap_id
         params = {'aps': query}
         return self.session.post(url,
