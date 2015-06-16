@@ -70,6 +70,12 @@ class AirWaveAPIClient(object):
         params = {'id': ap_id}
         return self.session.get(url, verify=False, params=params)
 
+    def report_detail(self, report_id):
+        """Report detail inforamtion."""
+        url = self.api_path('/nf/report_detail')
+        params = {'id': report_id, 'format': 'xml'}
+        return self.session.get(url, verify=False, params=params)
+
     @staticmethod
     def id_params(ap_ids):
         """Make access point id dict. """
