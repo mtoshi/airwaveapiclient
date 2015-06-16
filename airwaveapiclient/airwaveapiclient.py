@@ -5,6 +5,7 @@
 
 import xmltodict
 import requests
+import json
 
 
 class AirWaveAPIClient(object):
@@ -86,3 +87,8 @@ class AirWaveAPIClient(object):
     def xml_to_dict(xml):
         """Change XML to dict."""
         return xmltodict.parse(xml)
+
+    @staticmethod
+    def dict_to_json(dict_obj):
+        """Change dict to json."""
+        return json.dumps(dict_obj)
