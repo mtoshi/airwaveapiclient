@@ -51,6 +51,7 @@ class AirWaveAPIClient(object):
         url = self.api_path('ap_list.xml')
         if ap_ids:
             params = AirWaveAPIClient.id_params(ap_ids)
+            params = AirWaveAPIClient.urlencode(params)
             return self.session.get(url, verify=False, params=params)
         return self.session.get(url, verify=False)
 
@@ -58,24 +59,28 @@ class AirWaveAPIClient(object):
         """Get Access Point detail inforamtion."""
         url = self.api_path('ap_detail.xml')
         params = {'id': ap_id}
+        params = AirWaveAPIClient.urlencode(params)
         return self.session.get(url, verify=False, params=params)
 
     def client_detail(self, mac):
         """Client detail inforamtion."""
         url = self.api_path('client_detail.xml')
         params = {'mac': mac}
+        params = AirWaveAPIClient.urlencode(params)
         return self.session.get(url, verify=False, params=params)
 
     def rogue_detail(self, ap_id):
         """Rogue detail inforamtion."""
         url = self.api_path('rogue_detail.xml')
         params = {'id': ap_id}
+        params = AirWaveAPIClient.urlencode(params)
         return self.session.get(url, verify=False, params=params)
 
     def report_detail(self, report_id):
         """Report detail inforamtion."""
         url = self.api_path('/nf/report_detail')
         params = {'id': report_id, 'format': 'xml'}
+        params = AirWaveAPIClient.urlencode(params)
         return self.session.get(url, verify=False, params=params)
 
     def graph_url(self, params):
@@ -83,7 +88,7 @@ class AirWaveAPIClient(object):
         url = self.api_path('/nf/rrd_graph')
         params['start'] = '-%ss' % params['start']
         params['end'] = '-%ss' % params['end']
-        params = AirWaveAPIClient.url_params(params)
+        params = AirWaveAPIClient.urlencode(params)
         return '%s?%s' % (url, params)
 
     def graph_url_ap_base(self, graph_type, **kwargs):
@@ -210,3 +215,8 @@ class AirWaveAPIClient(object):
     def dict_to_json(dict_obj):
         """Change dict to json."""
         return json.dumps(dict_obj)
+
+    @staticmethod
+    def urlencode(params):
+        """URL Encode."""
+        return requests.packages.urllib3.request.urlencode(params)
