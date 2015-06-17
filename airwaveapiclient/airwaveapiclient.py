@@ -86,10 +86,14 @@ class AirWaveAPIClient(object):
         params = AirWaveAPIClient.url_params(params)
         return '%s?%s' % (url, params)
 
-    def graph_url_ap_client_count(self, ap_id, radio_index, start, end=0):
-        """RRD Graph URL for API Client Count.
+    def graph_url_ap_base(self, graph_type, **kwargs):
+        """RRD Graph URL for Access Point Base.
 
         Args :
+
+            :graph_type (str): Graph Type.
+
+        Keyword Args :
 
             :ap_id (int): Access Point ID.
             :radio_index (int): Access Point Radio type index.
@@ -108,51 +112,38 @@ class AirWaveAPIClient(object):
 
         """
 
-        params = {'id': ap_id,
-                  'radio_index': radio_index,
-                  'start': start,
-                  'end': end,
-                  'type': 'ap_client_count'}
+        params = {'id': kwargs['ap_id'],
+                  'radio_index': kwargs['radio_index'],
+                  'start': kwargs['start'],
+                  'end': kwargs.get('end', 0),
+                  'type': graph_type}
         return self.graph_url(params)
 
-    def graph_url_ap_bandwidth(self, ap_id, radio_index, start, end=0):
-        """RRD Graph URL for Access Point Bandwidth.
+    def graph_url_ap_client_count(self, **kwargs):
+        """RRD Graph URL for Access Point Client Count."""
+        return self.graph_url_ap_base('ap_client_count', **kwargs)
+
+    def graph_url_ap_bandwidth(self, **kwargs):
+        """RRD Graph URL for Access Point Bandwidth."""
+        return self.graph_url_ap_base('ap_bandwidth', **kwargs)
+
+    def graph_url_dot11_counters(self, **kwargs):
+        """RRD Graph URL for 802.11 Counters."""
+        return self.graph_url_ap_base('dot11_counters', **kwargs)
+
+    def graph_url_radio_base(self, graph_type, **kwargs):
+        """RRD Graph URL for Radio Base.
 
         Args :
 
-            :ap_id (int): Access Point ID.
-            :radio_index (int): Access Point Radio type index.
-            :start (int): Graph start time.
-                 Seconds of current time difference.
-                 1 hour ago is 3600.
-                 2 hours ago is 7200.
-                 3 days ago is 259200(3600sec x 24H x 3days).
-            :end (int, optional): Graph end time.
-                 Seconds of current time difference.
-                 Default is 0.
+            :graph_type (str): Graph Type.
 
-        Returns:
-
-            :str: Graph URL string.
-
-        """
-
-        params = {'id': ap_id,
-                  'radio_index': radio_index,
-                  'start': start,
-                  'end': end,
-                  'type': 'ap_bandwidth'}
-        return self.graph_url(params)
-
-    def graph_url_radio_channel(self, ap_uid, radio_index, radio_interface,
-                                start, end=0):
-        """RRD Graph URL for Radio Channel.
-
-        Args :
+        Keyword Args :
 
             :ap_uid (str): Access Point UID.
             :radio_index (int): Access Point Radio type index.
             :radio_interface (int): Radio Interface.
+            :graph_type (str): Graph type name.
             :start (int): Graph start time.
                  Seconds of current time difference.
                  1 hour ago is 3600.
@@ -168,109 +159,37 @@ class AirWaveAPIClient(object):
 
         """
 
-        params = {'ap_uid': ap_uid,
-                  'radio_index': radio_index,
-                  'radio_interface': radio_interface,
-                  'start': start,
-                  'end': end,
-                  'type': 'radio_channel'}
+        params = {'ap_uid': kwargs['ap_uid'],
+                  'radio_index': kwargs['radio_index'],
+                  'radio_interface': kwargs['radio_interface'],
+                  'start': kwargs['start'],
+                  'end': kwargs.get('end', 0),
+                  'type': graph_type}
         return self.graph_url(params)
 
-    def graph_url_radio_noise(self, ap_uid, radio_index, radio_interface,
-                              start, end=0):
-        """RRD Graph URL for Radio Noise.
+    def graph_url_radio_channel(self, **kwargs):
+        """RRD Graph URL for Radio Channel."""
+        return self.graph_url_radio_base('radio_channel', **kwargs)
 
-        Args :
+    def graph_url_radio_noise(self, **kwargs):
+        """RRD Graph URL for Radio Noise."""
+        return self.graph_url_radio_base('radio_noise', **kwargs)
 
-            :ap_uid (str): Access Point UID.
-            :radio_index (int): Access Point Radio type index.
-            :radio_interface (int): Radio Interface.
-            :start (int): Graph start time.
-                 Seconds of current time difference.
-                 1 hour ago is 3600.
-                 2 hours ago is 7200.
-                 3 days ago is 259200(3600sec x 24H x 3days).
-            :end (int, optional): Graph end time.
-                 Seconds of current time difference.
-                 Default is 0.
+    def graph_url_radio_power(self, **kwargs):
+        """RRD Graph URL for Radio Power."""
+        return self.graph_url_radio_base('radio_power', **kwargs)
 
-        Returns:
+    def graph_url_radio_errors(self, **kwargs):
+        """RRD Graph URL for Radio Errors."""
+        return self.graph_url_radio_base('radio_errors', **kwargs)
 
-            :str: Graph URL string.
+    def graph_url_radio_goodput(self, **kwargs):
+        """RRD Graph URL for Radio GoodPut."""
+        return self.graph_url_radio_base('radio_goodput', **kwargs)
 
-        """
-
-        params = {'ap_uid': ap_uid,
-                  'radio_index': radio_index,
-                  'radio_interface': radio_interface,
-                  'start': start,
-                  'end': end,
-                  'type': 'radio_noise'}
-        return self.graph_url(params)
-
-    def graph_url_radio_power(self, ap_uid, radio_index, radio_interface,
-                              start, end=0):
-        """RRD Graph URL for Radio Noise.
-
-        Args :
-
-            :ap_uid (str): Access Point UID.
-            :radio_index (int): Access Point Radio type index.
-            :radio_interface (int): Radio Interface.
-            :start (int): Graph start time.
-                 Seconds of current time difference.
-                 1 hour ago is 3600.
-                 2 hours ago is 7200.
-                 3 days ago is 259200(3600sec x 24H x 3days).
-            :end (int, optional): Graph end time.
-                 Seconds of current time difference.
-                 Default is 0.
-
-        Returns:
-
-            :str: Graph URL string.
-
-        """
-
-        params = {'ap_uid': ap_uid,
-                  'radio_index': radio_index,
-                  'radio_interface': radio_interface,
-                  'start': start,
-                  'end': end,
-                  'type': 'radio_power'}
-        return self.graph_url(params)
-
-    def graph_url_radio_errors(self, ap_uid, radio_index, radio_interface,
-                               start, end=0):
-        """RRD Graph URL for Radio Errors.
-
-        Args :
-
-            :ap_uid (str): Access Point UID.
-            :radio_index (int): Access Point Radio type index.
-            :radio_interface (int): Radio Interface.
-            :start (int): Graph start time.
-                 Seconds of current time difference.
-                 1 hour ago is 3600.
-                 2 hours ago is 7200.
-                 3 days ago is 259200(3600sec x 24H x 3days).
-            :end (int, optional): Graph end time.
-                 Seconds of current time difference.
-                 Default is 0.
-
-        Returns:
-
-            :str: Graph URL string.
-
-        """
-
-        params = {'ap_uid': ap_uid,
-                  'radio_index': radio_index,
-                  'radio_interface': radio_interface,
-                  'start': start,
-                  'end': end,
-                  'type': 'radio_errors'}
-        return self.graph_url(params)
+    def graph_url_channel_utilization(self, **kwargs):
+        """RRD Graph URL for Channel utilization."""
+        return self.graph_url_radio_base('channel_utilization', **kwargs)
 
     @staticmethod
     def id_params(ap_ids):
