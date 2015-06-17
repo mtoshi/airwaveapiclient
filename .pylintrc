@@ -3,6 +3,7 @@ load-plugins=
 
 [MESSAGES CONTROL]
 disable=
+    too-many-arguments,
     too-few-public-methods,
     invalid-name,
     no-member

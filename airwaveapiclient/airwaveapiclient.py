@@ -78,10 +78,209 @@ class AirWaveAPIClient(object):
         params = {'id': report_id, 'format': 'xml'}
         return self.session.get(url, verify=False, params=params)
 
+    def graph_url(self, params):
+        """RRD Graph URL. """
+        url = self.api_path('/nf/rrd_graph')
+        params['start'] = '-%ss' % params['start']
+        params['end'] = '-%ss' % params['end']
+        params = AirWaveAPIClient.url_params(params)
+        return '%s?%s' % (url, params)
+
+    def graph_url_ap_client_count(self, ap_id, radio_index, start, end=0):
+        """RRD Graph URL for API Client Count.
+
+        Args :
+
+            :ap_id (int): Access Point ID.
+            :radio_index (int): Access Point Radio type index.
+            :start (int): Graph start time.
+                 Seconds of current time difference.
+                 1 hour ago is 3600.
+                 2 hours ago is 7200.
+                 3 days ago is 259200(3600sec x 24H x 3days).
+            :end (int, optional): Graph end time.
+                 Seconds of current time difference.
+                 Default is 0.
+
+        Returns:
+
+            :str: Graph URL string.
+
+        """
+
+        params = {'id': ap_id,
+                  'radio_index': radio_index,
+                  'start': start,
+                  'end': end,
+                  'type': 'ap_client_count'}
+        return self.graph_url(params)
+
+    def graph_url_ap_bandwidth(self, ap_id, radio_index, start, end=0):
+        """RRD Graph URL for Access Point Bandwidth.
+
+        Args :
+
+            :ap_id (int): Access Point ID.
+            :radio_index (int): Access Point Radio type index.
+            :start (int): Graph start time.
+                 Seconds of current time difference.
+                 1 hour ago is 3600.
+                 2 hours ago is 7200.
+                 3 days ago is 259200(3600sec x 24H x 3days).
+            :end (int, optional): Graph end time.
+                 Seconds of current time difference.
+                 Default is 0.
+
+        Returns:
+
+            :str: Graph URL string.
+
+        """
+
+        params = {'id': ap_id,
+                  'radio_index': radio_index,
+                  'start': start,
+                  'end': end,
+                  'type': 'ap_bandwidth'}
+        return self.graph_url(params)
+
+    def graph_url_radio_channel(self, ap_uid, radio_index, radio_interface,
+                                start, end=0):
+        """RRD Graph URL for Radio Channel.
+
+        Args :
+
+            :ap_uid (str): Access Point UID.
+            :radio_index (int): Access Point Radio type index.
+            :radio_interface (int): Radio Interface.
+            :start (int): Graph start time.
+                 Seconds of current time difference.
+                 1 hour ago is 3600.
+                 2 hours ago is 7200.
+                 3 days ago is 259200(3600sec x 24H x 3days).
+            :end (int, optional): Graph end time.
+                 Seconds of current time difference.
+                 Default is 0.
+
+        Returns:
+
+            :str: Graph URL string.
+
+        """
+
+        params = {'ap_uid': ap_uid,
+                  'radio_index': radio_index,
+                  'radio_interface': radio_interface,
+                  'start': start,
+                  'end': end,
+                  'type': 'radio_channel'}
+        return self.graph_url(params)
+
+    def graph_url_radio_noise(self, ap_uid, radio_index, radio_interface,
+                              start, end=0):
+        """RRD Graph URL for Radio Noise.
+
+        Args :
+
+            :ap_uid (str): Access Point UID.
+            :radio_index (int): Access Point Radio type index.
+            :radio_interface (int): Radio Interface.
+            :start (int): Graph start time.
+                 Seconds of current time difference.
+                 1 hour ago is 3600.
+                 2 hours ago is 7200.
+                 3 days ago is 259200(3600sec x 24H x 3days).
+            :end (int, optional): Graph end time.
+                 Seconds of current time difference.
+                 Default is 0.
+
+        Returns:
+
+            :str: Graph URL string.
+
+        """
+
+        params = {'ap_uid': ap_uid,
+                  'radio_index': radio_index,
+                  'radio_interface': radio_interface,
+                  'start': start,
+                  'end': end,
+                  'type': 'radio_noise'}
+        return self.graph_url(params)
+
+    def graph_url_radio_power(self, ap_uid, radio_index, radio_interface,
+                              start, end=0):
+        """RRD Graph URL for Radio Noise.
+
+        Args :
+
+            :ap_uid (str): Access Point UID.
+            :radio_index (int): Access Point Radio type index.
+            :radio_interface (int): Radio Interface.
+            :start (int): Graph start time.
+                 Seconds of current time difference.
+                 1 hour ago is 3600.
+                 2 hours ago is 7200.
+                 3 days ago is 259200(3600sec x 24H x 3days).
+            :end (int, optional): Graph end time.
+                 Seconds of current time difference.
+                 Default is 0.
+
+        Returns:
+
+            :str: Graph URL string.
+
+        """
+
+        params = {'ap_uid': ap_uid,
+                  'radio_index': radio_index,
+                  'radio_interface': radio_interface,
+                  'start': start,
+                  'end': end,
+                  'type': 'radio_power'}
+        return self.graph_url(params)
+
+    def graph_url_radio_errors(self, ap_uid, radio_index, radio_interface,
+                               start, end=0):
+        """RRD Graph URL for Radio Errors.
+
+        Args :
+
+            :ap_uid (str): Access Point UID.
+            :radio_index (int): Access Point Radio type index.
+            :radio_interface (int): Radio Interface.
+            :start (int): Graph start time.
+                 Seconds of current time difference.
+                 1 hour ago is 3600.
+                 2 hours ago is 7200.
+                 3 days ago is 259200(3600sec x 24H x 3days).
+            :end (int, optional): Graph end time.
+                 Seconds of current time difference.
+                 Default is 0.
+
+        Returns:
+
+            :str: Graph URL string.
+
+        """
+
+        params = {'ap_uid': ap_uid,
+                  'radio_index': radio_index,
+                  'radio_interface': radio_interface,
+                  'start': start,
+                  'end': end,
+                  'type': 'radio_errors'}
+        return self.graph_url(params)
+
     @staticmethod
     def id_params(ap_ids):
-        """Make access point id dict. """
+        """Make access point id string."""
         return '&'.join(["id=%s" % ap_id for ap_id in ap_ids])
+
+    @staticmethod
+    def url_params(params):
+        """Make url params string."""
+        return '&'.join(['%s=%s' % (key, val) for key, val in params.items()])
 
     @staticmethod
     def xml_to_dict(xml):
