@@ -51,9 +51,16 @@ class AirWaveAPIClient(object):
         url = self.api_path('ap_list.xml')
         if ap_ids:
             params = AirWaveAPIClient.id_params(ap_ids)
-            params = AirWaveAPIClient.urlencode(params)
             return self.session.get(url, verify=False, params=params)
         return self.session.get(url, verify=False)
+
+    def ap_nodes(self, ap_ids=None):
+        """Get Access Point node list."""
+        res = self.ap_list(ap_ids)
+        if res.status_code == 200:
+            obj = AirWaveAPIClient.xml_to_dict(res.text)
+            return obj['amp:amp_ap_list']['ap']
+        return []
 
     def ap_detail(self, ap_id):
         """Get Access Point detail inforamtion."""
@@ -195,6 +202,152 @@ class AirWaveAPIClient(object):
     def graph_url_channel_utilization(self, **kwargs):
         """RRD Graph URL for Channel utilization."""
         return self.graph_url_radio_base('channel_utilization', **kwargs)
+
+    def ap_graphs(self, ap_node):
+        """Access Point Graph list."""
+        graphs = {}
+        start_times = [
+            {'name': '1 hour', 'time': 3600},
+            {'name': '2 hours', 'time': 3600*2},
+            {'name': '3 hours', 'time': 3600*3},
+            {'name': '12 hours', 'time': 3600*12},
+            {'name': '1 day', 'time': 3600*24},
+            {'name': '2 days', 'time': 3600*24*2},
+            {'name': '3 days', 'time': 3600*24*3},
+            {'name': '7 days', 'time': 3600*24*7},
+            {'name': '30 days', 'time': 3600*24*30},
+            {'name': '90 days', 'time': 3600*24*90},
+            {'name': '180 days', 'time': 3600*24*180},
+            {'name': '360 days', 'time': 3600*24*360},
+        ]
+
+        if 'radio' in ap_node:
+            for radio in ap_node['radio']:
+
+                # AP CLIENT COUNT
+                key = 'ap_client_count'
+                graphs[key] = []
+                for start in start_times:
+                    url = self.graph_url_ap_client_count(
+                        ap_id=ap_node['@id'],
+                        radio_index=radio['@index'],
+                        start=start['time'],
+                    )
+                    graphs[key].append(
+                        {'name': 'AP Client Count %s.' % (start['name']),
+                         'url': url})
+
+                # AP BANDWIDTH
+                key = 'ap_bandwidth'
+                graphs[key] = []
+                for start in start_times:
+                    url = self.graph_url_ap_bandwidth(
+                        ap_id=ap_node['@id'],
+                        radio_index=radio['@index'],
+                        start=start['time'],
+                    )
+                    graphs[key].append(
+                        {'name': 'AP Bandwidth %s.' % (start['name']),
+                         'url': url})
+
+                # DOT11 COUNTERS
+                key = 'dot11_counters'
+                graphs[key] = []
+                for start in start_times:
+                    url = self.graph_url_dot11_counters(
+                        ap_id=ap_node['@id'],
+                        radio_index=radio['@index'],
+                        start=start['time'],
+                    )
+                    graphs[key].append(
+                        {'name': '802.11 Counters %s.' % (start['name']),
+                         'url': url})
+
+                # RADIO CHANNEL
+                key = 'radio_channel'
+                graphs[key] = []
+                for start in start_times:
+                    url = self.graph_url_radio_channel(
+                        ap_uid=ap_node['lan_mac'],
+                        radio_index=radio['@index'],
+                        radio_interface=radio['radio_interface'],
+                        start=start['time'],
+                    )
+                    graphs[key].append(
+                        {'name': 'Radio Channel %s.' % (start['name']),
+                         'url': url})
+
+                # RADIO NOISE
+                key = 'radio_noise'
+                graphs[key] = []
+                for start in start_times:
+                    url = self.graph_url_radio_noise(
+                        ap_uid=ap_node['lan_mac'],
+                        radio_index=radio['@index'],
+                        radio_interface=radio['radio_interface'],
+                        start=start['time'],
+                    )
+                    graphs[key].append(
+                        {'name': 'Radio Noise %s.' % (start['name']),
+                         'url': url})
+
+                # RADIO ERRORS
+                key = 'radio_erros'
+                graphs[key] = []
+                for start in start_times:
+                    url = self.graph_url_radio_errors(
+                        ap_uid=ap_node['lan_mac'],
+                        radio_index=radio['@index'],
+                        radio_interface=radio['radio_interface'],
+                        start=start['time'],
+                    )
+                    graphs[key].append(
+                        {'name': 'Radio Errors %s.' % (start['name']),
+                         'url': url})
+
+                # RADIO POWER
+                key = 'radio_power'
+                graphs[key] = []
+                for start in start_times:
+                    url = self.graph_url_radio_power(
+                        ap_uid=ap_node['lan_mac'],
+                        radio_index=radio['@index'],
+                        radio_interface=radio['radio_interface'],
+                        start=start['time'],
+                    )
+                    graphs[key].append(
+                        {'name': 'Radio Power %s.' % (start['name']),
+                         'url': url})
+
+                # RADIO GOODPUT
+                key = 'radio_goodput'
+                graphs[key] = []
+                for start in start_times:
+                    url = self.graph_url_radio_goodput(
+                        ap_uid=ap_node['lan_mac'],
+                        radio_index=radio['@index'],
+                        radio_interface=radio['radio_interface'],
+                        start=start['time'],
+                    )
+                    graphs[key].append(
+                        {'name': 'Radio Good Put %s.' % (start['name']),
+                         'url': url})
+
+                # CHANNEL CUTILIZATION
+                key = 'channel_utilization'
+                graphs[key] = []
+                for start in start_times:
+                    url = self.graph_url_channel_utilization(
+                        ap_uid=ap_node['lan_mac'],
+                        radio_index=radio['@index'],
+                        radio_interface=radio['radio_interface'],
+                        start=start['time'],
+                    )
+                    graphs[key].append(
+                        {'name': 'Channel Utilization %s.' % (start['name']),
+                         'url': url})
+
+        return graphs
 
     @staticmethod
     def id_params(ap_ids):
