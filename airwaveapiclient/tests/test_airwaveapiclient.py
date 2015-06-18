@@ -24,6 +24,24 @@ class UnitTests(unittest.TestCase):
         """test airwaveapiclient."""
         # self.assertEqual(self.obj, True)
 
+    def test_start_time_init(self):
+        """Test start time initialize."""
+        start_times = (60,
+                       3600,
+                       7200)
+        obj = AirWaveAPIClient(username='admin',
+                               password='password',
+                               address='192.168.1.1',
+                               start_times=start_times)
+        self.assertEqual(obj.start_times[0], start_times[0])
+        self.assertEqual(obj.start_times[1], start_times[1])
+        self.assertEqual(obj.start_times[2], start_times[2])
+
+        obj = AirWaveAPIClient(username='admin',
+                               password='password',
+                               address='192.168.1.1')
+        self.assertEqual(len(obj.start_times), 12)
+
     def test_time_label(self):
         """Test time_label."""
         label = AirWaveAPIClient.time_label(3600*24*180)

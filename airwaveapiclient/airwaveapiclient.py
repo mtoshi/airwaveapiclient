@@ -15,12 +15,13 @@ class AirWaveAPIClient(object):
 
     """
 
-    def __init__(self, **kwargs):
+    def __init__(self, start_times=None, **kwargs):
         """Constructor."""
         self.username = kwargs['username']
         self.password = kwargs['password']
         self.address = kwargs['address']
         self.session = None
+        self.start_times = AirWaveAPIClient.set_graph_start_times(start_times)
 
     def login(self):
         """Login."""
@@ -206,18 +207,6 @@ class AirWaveAPIClient(object):
     def ap_graphs(self, ap_node):
         """Access Point Graph list."""
         graphs = {}
-        start_times = (3600,
-                       3600*2,
-                       3600*3,
-                       3600*12,
-                       3600*24,
-                       3600*24*2,
-                       3600*24*3,
-                       3600*24*7,
-                       3600*24*30,
-                       3600*24*90,
-                       3600*24*180,
-                       3600*24*360)
 
         if 'radio' in ap_node:
             for radio in ap_node['radio']:
@@ -225,7 +214,7 @@ class AirWaveAPIClient(object):
                 # AP CLIENT COUNT
                 key = 'ap_client_count'
                 graphs[key] = []
-                for start in start_times:
+                for start in self.start_times:
                     url = self.graph_url_ap_client_count(
                         ap_id=ap_node['@id'],
                         radio_index=radio['@index'],
@@ -237,7 +226,7 @@ class AirWaveAPIClient(object):
                 # AP BANDWIDTH
                 key = 'ap_bandwidth'
                 graphs[key] = []
-                for start in start_times:
+                for start in self.start_times:
                     url = self.graph_url_ap_bandwidth(
                         ap_id=ap_node['@id'],
                         radio_index=radio['@index'],
@@ -249,7 +238,7 @@ class AirWaveAPIClient(object):
                 # DOT11 COUNTERS
                 key = 'dot11_counters'
                 graphs[key] = []
-                for start in start_times:
+                for start in self.start_times:
                     url = self.graph_url_dot11_counters(
                         ap_id=ap_node['@id'],
                         radio_index=radio['@index'],
@@ -261,7 +250,7 @@ class AirWaveAPIClient(object):
                 # RADIO CHANNEL
                 key = 'radio_channel'
                 graphs[key] = []
-                for start in start_times:
+                for start in self.start_times:
                     url = self.graph_url_radio_channel(
                         ap_uid=ap_node['lan_mac'],
                         radio_index=radio['@index'],
@@ -274,7 +263,7 @@ class AirWaveAPIClient(object):
                 # RADIO NOISE
                 key = 'radio_noise'
                 graphs[key] = []
-                for start in start_times:
+                for start in self.start_times:
                     url = self.graph_url_radio_noise(
                         ap_uid=ap_node['lan_mac'],
                         radio_index=radio['@index'],
@@ -287,7 +276,7 @@ class AirWaveAPIClient(object):
                 # RADIO ERRORS
                 key = 'radio_erros'
                 graphs[key] = []
-                for start in start_times:
+                for start in self.start_times:
                     url = self.graph_url_radio_errors(
                         ap_uid=ap_node['lan_mac'],
                         radio_index=radio['@index'],
@@ -300,7 +289,7 @@ class AirWaveAPIClient(object):
                 # RADIO POWER
                 key = 'radio_power'
                 graphs[key] = []
-                for start in start_times:
+                for start in self.start_times:
                     url = self.graph_url_radio_power(
                         ap_uid=ap_node['lan_mac'],
                         radio_index=radio['@index'],
@@ -313,7 +302,7 @@ class AirWaveAPIClient(object):
                 # RADIO GOODPUT
                 key = 'radio_goodput'
                 graphs[key] = []
-                for start in start_times:
+                for start in self.start_times:
                     url = self.graph_url_radio_goodput(
                         ap_uid=ap_node['lan_mac'],
                         radio_index=radio['@index'],
@@ -326,7 +315,7 @@ class AirWaveAPIClient(object):
                 # CHANNEL CUTILIZATION
                 key = 'channel_utilization'
                 graphs[key] = []
-                for start in start_times:
+                for start in self.start_times:
                     url = self.graph_url_channel_utilization(
                         ap_uid=ap_node['lan_mac'],
                         radio_index=radio['@index'],
@@ -337,6 +326,24 @@ class AirWaveAPIClient(object):
                     graphs[key].append({'label': label, 'url': url})
 
         return graphs
+
+    @staticmethod
+    def set_graph_start_times(start_times):
+        """Default graph start time."""
+        if start_times:
+            return start_times
+        return (3600,
+                3600*2,
+                3600*3,
+                3600*12,
+                3600*24,
+                3600*24*2,
+                3600*24*3,
+                3600*24*7,
+                3600*24*30,
+                3600*24*90,
+                3600*24*180,
+                3600*24*360)
 
     @staticmethod
     def id_params(ap_ids):
