@@ -204,6 +204,7 @@ class AirWaveAPIClient(object):
         """RRD Graph URL for Channel utilization."""
         return self.graph_url_radio_base('channel_utilization', **kwargs)
 
+    # pylint: disable=too-many-statements
     def ap_graphs(self, ap_node):
         """Access Point Graph list."""
         graphs = {}
@@ -221,6 +222,7 @@ class AirWaveAPIClient(object):
                         start=start,
                     )
                     label = AirWaveAPIClient.time_label(start)
+                    label = 'AP Client Count %s.' % label
                     graphs[key].append({'label': label, 'url': url})
 
                 # AP BANDWIDTH
@@ -233,6 +235,7 @@ class AirWaveAPIClient(object):
                         start=start,
                     )
                     label = AirWaveAPIClient.time_label(start)
+                    label = 'AP Bandwidth %s.' % label
                     graphs[key].append({'label': label, 'url': url})
 
                 # DOT11 COUNTERS
@@ -245,6 +248,7 @@ class AirWaveAPIClient(object):
                         start=start,
                     )
                     label = AirWaveAPIClient.time_label(start)
+                    label = '802.11 Counters %s.' % label
                     graphs[key].append({'label': label, 'url': url})
 
                 # RADIO CHANNEL
@@ -258,6 +262,7 @@ class AirWaveAPIClient(object):
                         start=start,
                     )
                     label = AirWaveAPIClient.time_label(start)
+                    label = 'Radio Channel %s.' % label
                     graphs[key].append({'label': label, 'url': url})
 
                 # RADIO NOISE
@@ -271,6 +276,7 @@ class AirWaveAPIClient(object):
                         start=start,
                     )
                     label = AirWaveAPIClient.time_label(start)
+                    label = 'Radio Noise %s.' % label
                     graphs[key].append({'label': label, 'url': url})
 
                 # RADIO ERRORS
@@ -284,6 +290,7 @@ class AirWaveAPIClient(object):
                         start=start,
                     )
                     label = AirWaveAPIClient.time_label(start)
+                    label = 'Radio Errors %s.' % label
                     graphs[key].append({'label': label, 'url': url})
 
                 # RADIO POWER
@@ -297,6 +304,7 @@ class AirWaveAPIClient(object):
                         start=start,
                     )
                     label = AirWaveAPIClient.time_label(start)
+                    label = 'Radio Power %s.' % label
                     graphs[key].append({'label': label, 'url': url})
 
                 # RADIO GOODPUT
@@ -310,6 +318,7 @@ class AirWaveAPIClient(object):
                         start=start,
                     )
                     label = AirWaveAPIClient.time_label(start)
+                    label = 'Radio Good Put %s.' % label
                     graphs[key].append({'label': label, 'url': url})
 
                 # CHANNEL CUTILIZATION
@@ -323,6 +332,7 @@ class AirWaveAPIClient(object):
                         start=start,
                     )
                     label = AirWaveAPIClient.time_label(start)
+                    label = 'Channel Utilization %s.' % label
                     graphs[key].append({'label': label, 'url': url})
 
         return graphs
