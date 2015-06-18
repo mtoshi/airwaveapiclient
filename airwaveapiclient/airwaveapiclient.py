@@ -206,20 +206,18 @@ class AirWaveAPIClient(object):
     def ap_graphs(self, ap_node):
         """Access Point Graph list."""
         graphs = {}
-        start_times = [
-            {'name': '1 hour', 'time': 3600},
-            {'name': '2 hours', 'time': 3600*2},
-            {'name': '3 hours', 'time': 3600*3},
-            {'name': '12 hours', 'time': 3600*12},
-            {'name': '1 day', 'time': 3600*24},
-            {'name': '2 days', 'time': 3600*24*2},
-            {'name': '3 days', 'time': 3600*24*3},
-            {'name': '7 days', 'time': 3600*24*7},
-            {'name': '30 days', 'time': 3600*24*30},
-            {'name': '90 days', 'time': 3600*24*90},
-            {'name': '180 days', 'time': 3600*24*180},
-            {'name': '360 days', 'time': 3600*24*360},
-        ]
+        start_times = (3600,
+                       3600*2,
+                       3600*3,
+                       3600*12,
+                       3600*24,
+                       3600*24*2,
+                       3600*24*3,
+                       3600*24*7,
+                       3600*24*30,
+                       3600*24*90,
+                       3600*24*180,
+                       3600*24*360)
 
         if 'radio' in ap_node:
             for radio in ap_node['radio']:
@@ -231,11 +229,10 @@ class AirWaveAPIClient(object):
                     url = self.graph_url_ap_client_count(
                         ap_id=ap_node['@id'],
                         radio_index=radio['@index'],
-                        start=start['time'],
+                        start=start,
                     )
-                    graphs[key].append(
-                        {'name': 'AP Client Count %s.' % (start['name']),
-                         'url': url})
+                    label = AirWaveAPIClient.time_label(start)
+                    graphs[key].append({'label': label, 'url': url})
 
                 # AP BANDWIDTH
                 key = 'ap_bandwidth'
@@ -244,11 +241,10 @@ class AirWaveAPIClient(object):
                     url = self.graph_url_ap_bandwidth(
                         ap_id=ap_node['@id'],
                         radio_index=radio['@index'],
-                        start=start['time'],
+                        start=start,
                     )
-                    graphs[key].append(
-                        {'name': 'AP Bandwidth %s.' % (start['name']),
-                         'url': url})
+                    label = AirWaveAPIClient.time_label(start)
+                    graphs[key].append({'label': label, 'url': url})
 
                 # DOT11 COUNTERS
                 key = 'dot11_counters'
@@ -257,11 +253,10 @@ class AirWaveAPIClient(object):
                     url = self.graph_url_dot11_counters(
                         ap_id=ap_node['@id'],
                         radio_index=radio['@index'],
-                        start=start['time'],
+                        start=start,
                     )
-                    graphs[key].append(
-                        {'name': '802.11 Counters %s.' % (start['name']),
-                         'url': url})
+                    label = AirWaveAPIClient.time_label(start)
+                    graphs[key].append({'label': label, 'url': url})
 
                 # RADIO CHANNEL
                 key = 'radio_channel'
@@ -271,11 +266,10 @@ class AirWaveAPIClient(object):
                         ap_uid=ap_node['lan_mac'],
                         radio_index=radio['@index'],
                         radio_interface=radio['radio_interface'],
-                        start=start['time'],
+                        start=start,
                     )
-                    graphs[key].append(
-                        {'name': 'Radio Channel %s.' % (start['name']),
-                         'url': url})
+                    label = AirWaveAPIClient.time_label(start)
+                    graphs[key].append({'label': label, 'url': url})
 
                 # RADIO NOISE
                 key = 'radio_noise'
@@ -285,11 +279,10 @@ class AirWaveAPIClient(object):
                         ap_uid=ap_node['lan_mac'],
                         radio_index=radio['@index'],
                         radio_interface=radio['radio_interface'],
-                        start=start['time'],
+                        start=start,
                     )
-                    graphs[key].append(
-                        {'name': 'Radio Noise %s.' % (start['name']),
-                         'url': url})
+                    label = AirWaveAPIClient.time_label(start)
+                    graphs[key].append({'label': label, 'url': url})
 
                 # RADIO ERRORS
                 key = 'radio_erros'
@@ -299,11 +292,10 @@ class AirWaveAPIClient(object):
                         ap_uid=ap_node['lan_mac'],
                         radio_index=radio['@index'],
                         radio_interface=radio['radio_interface'],
-                        start=start['time'],
+                        start=start,
                     )
-                    graphs[key].append(
-                        {'name': 'Radio Errors %s.' % (start['name']),
-                         'url': url})
+                    label = AirWaveAPIClient.time_label(start)
+                    graphs[key].append({'label': label, 'url': url})
 
                 # RADIO POWER
                 key = 'radio_power'
@@ -313,11 +305,10 @@ class AirWaveAPIClient(object):
                         ap_uid=ap_node['lan_mac'],
                         radio_index=radio['@index'],
                         radio_interface=radio['radio_interface'],
-                        start=start['time'],
+                        start=start,
                     )
-                    graphs[key].append(
-                        {'name': 'Radio Power %s.' % (start['name']),
-                         'url': url})
+                    label = AirWaveAPIClient.time_label(start)
+                    graphs[key].append({'label': label, 'url': url})
 
                 # RADIO GOODPUT
                 key = 'radio_goodput'
@@ -327,11 +318,10 @@ class AirWaveAPIClient(object):
                         ap_uid=ap_node['lan_mac'],
                         radio_index=radio['@index'],
                         radio_interface=radio['radio_interface'],
-                        start=start['time'],
+                        start=start,
                     )
-                    graphs[key].append(
-                        {'name': 'Radio Good Put %s.' % (start['name']),
-                         'url': url})
+                    label = AirWaveAPIClient.time_label(start)
+                    graphs[key].append({'label': label, 'url': url})
 
                 # CHANNEL CUTILIZATION
                 key = 'channel_utilization'
@@ -341,11 +331,10 @@ class AirWaveAPIClient(object):
                         ap_uid=ap_node['lan_mac'],
                         radio_index=radio['@index'],
                         radio_interface=radio['radio_interface'],
-                        start=start['time'],
+                        start=start,
                     )
-                    graphs[key].append(
-                        {'name': 'Channel Utilization %s.' % (start['name']),
-                         'url': url})
+                    label = AirWaveAPIClient.time_label(start)
+                    graphs[key].append({'label': label, 'url': url})
 
         return graphs
 
