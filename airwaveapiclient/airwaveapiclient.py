@@ -84,6 +84,15 @@ class AirWaveAPIClient(object):
         params = AirWaveAPIClient.urlencode(params)
         return self.session.get(url, verify=False, params=params)
 
+    def report_list(self, reports_search_title=None):
+        """Report list inforamtion."""
+        url = self.api_path('/nf/reports_list')
+        params = {'format': 'xml'}
+        if reports_search_title:
+            params['reports_search_title'] = reports_search_title
+        params = AirWaveAPIClient.urlencode(params)
+        return self.session.get(url, verify=False, params=params)
+
     def report_detail(self, report_id):
         """Report detail inforamtion."""
         url = self.api_path('/nf/report_detail')
