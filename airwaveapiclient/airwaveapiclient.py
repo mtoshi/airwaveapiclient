@@ -373,3 +373,21 @@ class AirWaveAPIClient(object):
     def urlencode(params):
         """URL Encode."""
         return requests.packages.urllib3.request.urlencode(params)
+
+    @staticmethod
+    def time_label(sec):
+        """Time labeling for graph time."""
+        if sec > 0:
+            day = 3600*24
+            hour = 3600
+            minute = 60
+            if sec >= day:
+                val = sec / day
+                return '%d day(s)' % val
+            elif sec >= hour:
+                val = sec / hour
+                return '%d hour(s)' % val
+            elif sec >= minute:
+                val = sec / minute
+                return '%d minute(s)' % val
+        return '%d second(s)' % sec
