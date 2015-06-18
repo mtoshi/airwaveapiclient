@@ -61,7 +61,7 @@ with open('requirements.txt', 'w') as _file:
 setup(
     name="airwaveapiclient",
     version="0.0.0",
-    description='airwaveapiclient',
+    description='Aruba Networks AirWave API Client.',
     long_description=README,
     author='Toshikatsu Murakoshi',
     author_email='mtoshi.g@gmail.com',
