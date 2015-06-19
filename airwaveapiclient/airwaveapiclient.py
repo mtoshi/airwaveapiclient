@@ -86,7 +86,7 @@ class AirWaveAPIClient(object):
 
     def report_list(self, reports_search_title=None):
         """Report list inforamtion."""
-        url = self.api_path('/nf/reports_list')
+        url = self.api_path('nf/reports_list')
         params = {'format': 'xml'}
         if reports_search_title:
             params['reports_search_title'] = reports_search_title
@@ -95,14 +95,14 @@ class AirWaveAPIClient(object):
 
     def report_detail(self, report_id):
         """Report detail inforamtion."""
-        url = self.api_path('/nf/report_detail')
+        url = self.api_path('nf/report_detail')
         params = {'id': report_id, 'format': 'xml'}
         params = AirWaveAPIClient.urlencode(params)
         return self.session.get(url, verify=False, params=params)
 
     def graph_url(self, params):
         """RRD Graph URL. """
-        url = self.api_path('/nf/rrd_graph')
+        url = self.api_path('nf/rrd_graph')
         params['start'] = '-%ss' % params['start']
         params['end'] = '-%ss' % params['end']
         params = AirWaveAPIClient.urlencode(params)
