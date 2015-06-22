@@ -29,11 +29,14 @@ class AirWaveAPIClient(object):
         self.session = requests.Session()
         url = 'https://%s/LOGIN' % self.address
         destination = '/'
+        next_action = ''
         params = {'credential_0': self.username,
                   'credential_1': self.password,
                   'login': 'Log In',
-                  'destination': destination}
-        res = self.session.get(url, params=params, verify=False)
+                  'destination': destination,
+                  'next_action': next_action}
+        # res = self.session.get(url, params=params, verify=False)
+        res = self.session.post(url, params=params, verify=False)
         return {
             'status_code': res.status_code,
             'cookies': self.session.cookies.get_dict()
