@@ -35,7 +35,6 @@ class AirWaveAPIClient(object):
                   'login': 'Log In',
                   'destination': destination,
                   'next_action': next_action}
-        # res = self.session.get(url, params=params, verify=False)
         res = self.session.post(url, params=params, verify=False)
         return {
             'status_code': res.status_code,
