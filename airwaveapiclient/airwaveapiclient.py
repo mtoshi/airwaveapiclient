@@ -10,7 +10,7 @@ import json
 
 class AirWaveAPIClient(object):
 
-    """Aruba networks Air Wave API client.
+    """Aruba networks AirWave API client.
 
 
     """
