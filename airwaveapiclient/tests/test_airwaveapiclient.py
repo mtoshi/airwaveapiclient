@@ -63,14 +63,14 @@ class UnitTests(unittest.TestCase):
 
     def test_ap_list(self):
         """Test ap_list."""
-        with HTTMock(UnitTests.content_api):
+        with HTTMock(UnitTests.content_api_xml):
             res = self.obj.ap_list()
         self.assertEqual(res.status_code, 200)
 
         url = 'https://%s/%s' % (self.address, self.path_ap_list)
         self.assertEqual(res.url, url)
 
-        with HTTMock(UnitTests.content_api):
+        with HTTMock(UnitTests.content_api_xml):
             ap_ids = [1, 2, 3]
             res = self.obj.ap_list(ap_ids)
         self.assertEqual(res.status_code, 200)
@@ -83,7 +83,7 @@ class UnitTests(unittest.TestCase):
 
     def test_ap_detail(self):
         """Test ap_detail."""
-        with HTTMock(UnitTests.content_api):
+        with HTTMock(UnitTests.content_api_xml):
             ap_id = 1
             res = self.obj.ap_detail(ap_id)
         self.assertEqual(res.status_code, 200)
@@ -97,7 +97,7 @@ class UnitTests(unittest.TestCase):
 
     def test_client_detail(self):
         """Test client detail."""
-        with HTTMock(UnitTests.content_api):
+        with HTTMock(UnitTests.content_api_xml):
             mac = '12:34:56:78:90:AB'
             params = {'mac': mac}
             params = self.obj.urlencode(params)
@@ -111,7 +111,7 @@ class UnitTests(unittest.TestCase):
 
     def test_rogue_detail(self):
         """Test rogue detail."""
-        with HTTMock(UnitTests.content_api):
+        with HTTMock(UnitTests.content_api_xml):
             ap_id = 1
             params = {'id': ap_id}
             params = self.obj.urlencode(params)
@@ -138,10 +138,21 @@ class UnitTests(unittest.TestCase):
 
     @staticmethod
     @all_requests
-    def content_api(url, request):
-        """Test content for api."""
+    def content_api_xml(url, request):
+        """Test content for api xml."""
         headers = {'content-type': 'application/xml'}
         content = 'xml string'
+        return response(status_code=200,
+                        content=content,
+                        headers=headers,
+                        request=request)
+
+    @staticmethod
+    @all_requests
+    def content_api_xhtml(url, request):
+        """Test content for api xhtml."""
+        headers = {'content-type': 'application/xhtml'}
+        content = 'xhtml string'
         return response(status_code=200,
                         content=content,
                         headers=headers,
