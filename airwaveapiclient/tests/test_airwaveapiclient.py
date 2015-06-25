@@ -26,6 +26,7 @@ class UnitTests(unittest.TestCase):
         self.path_client_detail = 'client_detail.xml'
         self.path_rogue_detail = 'rogue_detail.xml'
         self.path_report_list = 'nf/reports_list'
+        self.path_report_detail = 'nf/report_detail'
 
         self.obj = AirWaveAPIClient(username=self.username,
                                     password=self.password,
@@ -134,6 +135,20 @@ class UnitTests(unittest.TestCase):
         params = self.obj.urlencode(params)
         url = 'https://%s/%s?%s' % (self.address,
                                     self.path_report_list,
+                                    params)
+        self.assertEqual(res.url, url)
+
+    def test_report_detail(self):
+        """Test report detail."""
+        report_id = 1
+        with HTTMock(UnitTests.content_api_xhtml):
+            res = self.obj.report_detail(report_id)
+        self.assertEqual(res.status_code, 200)
+
+        params = {'format': 'xml', 'id': report_id}
+        params = self.obj.urlencode(params)
+        url = 'https://%s/%s?%s' % (self.address,
+                                    self.path_report_detail,
                                     params)
         self.assertEqual(res.url, url)
 

@@ -115,12 +115,16 @@ class AirWaveAPIClient(object):
             Get all Acces Point.
 
             >>> res = obj.ap_list()
+            >>> res.url
+            'https://192.168.1.1/ap_list.xml'
 
             Get specified Acces Point.
 
             >>> res = obj.ap_list([123, 124, 125])
             >>> res.status_code
             200
+            >>> res.url
+            'https://192.168.1.1/ap_list.xml?id=123&id=124&id=125'
             >>> res.text  # xml output.
             '<?xml version="1.0" encoding="utf-8" ...'
 
@@ -152,6 +156,8 @@ class AirWaveAPIClient(object):
             >>> res = obj.ap_detail(123)
             >>> res.status_code
             200
+            >>> res.url
+            'https://192.168.1.1/ap_detail.xml?id=123'
             >>> res.text  # xml output.
             '<?xml version="1.0" encoding="utf-8" ...'
 
@@ -251,6 +257,8 @@ class AirWaveAPIClient(object):
             >>> res = obj.report_list('Weekly Report')
             >>> res.status_code
             200
+            >>> res.url
+            'https://192.168.1.1/nf/reports_list?format=xml'
             >>> res.text  # xhtml output.
             '\n\n<?xml version="1.0"?>\n<!DOCTYPE html ...'
 
@@ -283,6 +291,8 @@ class AirWaveAPIClient(object):
             >>> res = obj.report_detail(123)
             >>> res.status_code
             200
+            >>> res.url
+            'https://192.1681.1/nf/report_detail?id=123&format=xml'
             >>> res.text  # xhtml output.
             '\n\n<?xml version="1.0"?>\n<!DOCTYPE html ...'
 
