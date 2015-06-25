@@ -7,6 +7,7 @@ from httmock import all_requests, response, HTTMock
 from airwaveapiclient import AirWaveAPIClient
 
 
+# pylint: disable=unused-argument, too-many-instance-attributes
 class UnitTests(unittest.TestCase):
 
     """Class UnitTests.
@@ -22,9 +23,13 @@ class UnitTests(unittest.TestCase):
         self.address = '192.168.1.1'
         self.path_ap_list = 'ap_list.xml'
         self.path_ap_detail = 'ap_detail.xml'
+        self.path_client_detail = 'client_detail.xml'
+        self.path_rogue_detail = 'rogue_detail.xml'
+
         self.obj = AirWaveAPIClient(username=self.username,
                                     password=self.password,
                                     address=self.address)
+
         with HTTMock(UnitTests.content_login):
             self.res = self.obj.login()
 
@@ -45,6 +50,12 @@ class UnitTests(unittest.TestCase):
         ap_ids = [1, 2, 3]
         params = self.obj.id_params(ap_ids)
         self.assertEqual(params, 'id=1&id=2&id=3')
+
+    def test_urlencode(self):
+        """Test urlencode."""
+        params = {'mac': '12:34:56:78:90:AB'}
+        res = self.obj.urlencode(params)
+        self.assertEqual(res, 'mac=12%3A34%3A56%3A78%3A90%3AAB')
 
     def test_login(self):
         """Test login."""
@@ -84,7 +95,34 @@ class UnitTests(unittest.TestCase):
                                     params)
         self.assertEqual(res.url, url)
 
-    # pylint: disable=unused-argument
+    def test_client_detail(self):
+        """Test client detail."""
+        with HTTMock(UnitTests.content_api):
+            mac = '12:34:56:78:90:AB'
+            params = {'mac': mac}
+            params = self.obj.urlencode(params)
+            res = self.obj.client_detail(mac)
+        self.assertEqual(res.status_code, 200)
+
+        url = 'https://%s/%s?%s' % (self.address,
+                                    self.path_client_detail,
+                                    params)
+        self.assertEqual(res.url, url)
+
+    def test_rogue_detail(self):
+        """Test rogue detail."""
+        with HTTMock(UnitTests.content_api):
+            ap_id = 1
+            params = {'id': ap_id}
+            params = self.obj.urlencode(params)
+            res = self.obj.rogue_detail(ap_id)
+        self.assertEqual(res.status_code, 200)
+
+        url = 'https://%s/%s?%s' % (self.address,
+                                    self.path_rogue_detail,
+                                    params)
+        self.assertEqual(res.url, url)
+
     @staticmethod
     @all_requests
     def content_login(url, request):
@@ -98,7 +136,6 @@ class UnitTests(unittest.TestCase):
                         headers=headers,
                         request=request)
 
-    # pylint: disable=unused-argument
     @staticmethod
     @all_requests
     def content_api(url, request):

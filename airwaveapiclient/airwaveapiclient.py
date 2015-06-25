@@ -182,6 +182,8 @@ class AirWaveAPIClient(object):
             >>> res = obj.client_detail('12:34:56:78:90:AB')
             >>> res.status_code
             200
+            >>> res.url
+            'https://192.168.1.1/client_detail.xml?mac=12%3A34%3A56%3A78%3A90%3AAB'
             >>> res.text  # xml output.
             '<?xml version="1.0" encoding="utf-8" ...'
 
