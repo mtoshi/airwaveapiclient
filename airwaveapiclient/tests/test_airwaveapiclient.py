@@ -147,6 +147,19 @@ class UnitTests(unittest.TestCase):
                                     params)
         self.assertEqual(res.url, url)
 
+        reports_search_title = 'Weeky Report'
+        with HTTMock(UnitTests.content_api_xhtml):
+            res = self.obj.report_list(reports_search_title)
+        self.assertEqual(res.status_code, 200)
+
+        params = {'format': 'xml',
+                  'reports_search_title': reports_search_title}
+        params = self.obj.urlencode(params)
+        url = 'https://%s/%s?%s' % (self.address,
+                                    self.path_report_list,
+                                    params)
+        self.assertEqual(res.url, url)
+
     def test_report_detail(self):
         """Test report detail."""
         report_id = 1

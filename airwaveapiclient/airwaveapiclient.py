@@ -251,6 +251,8 @@ class AirWaveAPIClient(object):
             Get report list.
 
             >>> res = obj.report_list()
+            >>> res.url
+            'https://192.168.1.1/nf/reports_list?format=xml'
 
             Get specified report list with title.
 
@@ -258,7 +260,7 @@ class AirWaveAPIClient(object):
             >>> res.status_code
             200
             >>> res.url
-            'https://192.168.1.1/nf/reports_list?format=xml'
+            'https://192.168.1.1/nf/reports_list?reports_search_title=Weekly+Report&format=xml'
             >>> res.text  # xhtml output.
             '\n\n<?xml version="1.0"?>\n<!DOCTYPE html ...'
 
