@@ -35,11 +35,16 @@ class UnitTests(unittest.TestCase):
         with HTTMock(UnitTests.content_login):
             self.res = self.obj.login()
 
+    def tearDown(self):
+        """Tear down."""
+        self.obj.logout()
+
     def test_init(self):
         """Test init."""
         self.assertEqual(self.obj.username, self.username)
         self.assertEqual(self.obj.password, self.password)
         self.assertEqual(self.obj.address, self.address)
+        self.assertNotEqual(self.obj.session, None)
 
     def test_api_path(self):
         """Test API path."""
@@ -62,6 +67,10 @@ class UnitTests(unittest.TestCase):
     def test_login(self):
         """Test login."""
         self.assertEqual(self.res.status_code, 200)
+
+    def test_logout(self):
+        """Test logout."""
+        self.assertEqual(self.obj.logout(), None)
 
     def test_ap_list(self):
         """Test ap_list."""
