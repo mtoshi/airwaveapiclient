@@ -48,9 +48,15 @@ class AirWaveAPIClient(object):
     def login(self):
         """Login.
 
-        Returns ::
+        Returns:
 
-            {'status_code': int, 'cookies': dict}
+            requests.models.Response
+
+        Usage ::
+
+            >>> res = obj.login()
+            >>> res.status_code
+            200
 
 
         """
@@ -64,11 +70,7 @@ class AirWaveAPIClient(object):
                   'login': 'Log In',
                   'destination': destination,
                   'next_action': next_action}
-        res = self.session.post(url, params=params, verify=False)
-        return {
-            'status_code': res.status_code,
-            'cookies': self.session.cookies.get_dict()
-        }
+        return self.session.post(url, params=params, verify=False)
 
     def logout(self):
         """Logout.
