@@ -23,6 +23,8 @@ class UnitTests(unittest.TestCase):
         self.obj = AirWaveAPIClient(username=self.username,
                                     password=self.password,
                                     address=self.address)
+        with HTTMock(UnitTests.content_login):
+            self.res = self.obj.login()
 
     def test_init(self):
         """Test init."""
@@ -32,8 +34,12 @@ class UnitTests(unittest.TestCase):
 
     def test_login(self):
         """Test login."""
+        self.assertEqual(self.res.status_code, 200)
+
+    def test_ap_list(self):
+        """Test ap_list."""
         with HTTMock(UnitTests.content_login):
-            res = self.obj.login()
+            res = self.obj.ap_list()
         self.assertEqual(res.status_code, 200)
 
     # pylint: disable=unused-argument
@@ -48,6 +54,16 @@ class UnitTests(unittest.TestCase):
         return response(status_code=200,
                         content=content,
                         headers=headers,
-                        reason=None,
-                        elapsed=5,
+                        request=request)
+
+    # pylint: disable=unused-argument
+    @staticmethod
+    @all_requests
+    def content_ap_list(url, request):
+        """Test content for ap_list."""
+        headers = {'content-type': 'application/xml'}
+        content = 'xml string'
+        return response(status_code=200,
+                        content=content,
+                        headers=headers,
                         request=request)
