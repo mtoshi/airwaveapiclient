@@ -3,7 +3,7 @@
 """UnitTests for airwaveapiclient."""
 
 import unittest
-from airwaveapiclient.airwaveapiclient import AirWaveAPIClient
+from airwaveapiclient import AirWaveAPIClient
 
 
 class UnitTests(unittest.TestCase):
