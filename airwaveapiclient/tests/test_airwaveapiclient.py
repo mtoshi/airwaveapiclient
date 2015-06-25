@@ -20,6 +20,8 @@ class UnitTests(unittest.TestCase):
         self.username = 'username'
         self.password = 'password'
         self.address = '192.168.1.1'
+        self.path_ap_list = 'ap_list.xml'
+        self.path_ap_detail = 'ap_detail.xml'
         self.obj = AirWaveAPIClient(username=self.username,
                                     password=self.password,
                                     address=self.address)
@@ -32,15 +34,55 @@ class UnitTests(unittest.TestCase):
         self.assertEqual(self.obj.password, self.password)
         self.assertEqual(self.obj.address, self.address)
 
+    def test_api_path(self):
+        """Test API path."""
+        url = self.obj.api_path(self.path_ap_list)
+        self.assertEqual(url, 'https://%s/%s' % (self.address,
+                                                 self.path_ap_list))
+
+    def test_id_params(self):
+        """Test ID Params."""
+        ap_ids = [1, 2, 3]
+        params = self.obj.id_params(ap_ids)
+        self.assertEqual(params, 'id=1&id=2&id=3')
+
     def test_login(self):
         """Test login."""
         self.assertEqual(self.res.status_code, 200)
 
     def test_ap_list(self):
         """Test ap_list."""
-        with HTTMock(UnitTests.content_login):
+        with HTTMock(UnitTests.content_api):
             res = self.obj.ap_list()
         self.assertEqual(res.status_code, 200)
+
+        url = 'https://%s/%s' % (self.address, self.path_ap_list)
+        self.assertEqual(res.url, url)
+
+        with HTTMock(UnitTests.content_api):
+            ap_ids = [1, 2, 3]
+            res = self.obj.ap_list(ap_ids)
+        self.assertEqual(res.status_code, 200)
+
+        params = self.obj.id_params(ap_ids)
+        url = 'https://%s/%s?%s' % (self.address,
+                                    self.path_ap_list,
+                                    params)
+        self.assertEqual(res.url, url)
+
+    def test_ap_detail(self):
+        """Test ap_detail."""
+        with HTTMock(UnitTests.content_api):
+            ap_id = 1
+            res = self.obj.ap_detail(ap_id)
+        self.assertEqual(res.status_code, 200)
+
+        ap_ids = [ap_id]
+        params = self.obj.id_params(ap_ids)
+        url = 'https://%s/%s?%s' % (self.address,
+                                    self.path_ap_detail,
+                                    params)
+        self.assertEqual(res.url, url)
 
     # pylint: disable=unused-argument
     @staticmethod
@@ -59,8 +101,8 @@ class UnitTests(unittest.TestCase):
     # pylint: disable=unused-argument
     @staticmethod
     @all_requests
-    def content_ap_list(url, request):
-        """Test content for ap_list."""
+    def content_api(url, request):
+        """Test content for api."""
         headers = {'content-type': 'application/xml'}
         content = 'xml string'
         return response(status_code=200,
