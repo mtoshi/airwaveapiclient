@@ -3,6 +3,7 @@ load-plugins=
 
 [MESSAGES CONTROL]
 disable=
+    import-self,
     too-many-function-args,
     too-few-public-methods,
     too-many-public-methods,
