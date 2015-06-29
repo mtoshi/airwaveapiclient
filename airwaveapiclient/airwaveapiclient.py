@@ -307,6 +307,59 @@ class AirWaveAPIClient(object):
         params = AirWaveAPIClient.urlencode(params)
         return self.session.get(url, verify=False, params=params)
 
+    def graph_url(self, params):
+        """RRD Graph URL."""
+        url = self.api_path('nf/rrd_graph')
+        params['start'] = '-%ss' % params['start']
+        params['end'] = '-%ss' % params['end']
+        params = AirWaveAPIClient.urlencode(params)
+        return '%s?%s' % (url, params)
+
+    def ap_base_url(self, graph_type, **kwargs):
+        """RRD Graph Base URL for Access Point.
+
+        Args :
+
+            :graph_type (str): Graph Type.
+
+        Keyword Args :
+
+            :ap_id (int): Access Point ID.
+            :radio_index (int): Access Point Radio type index.
+            :start (int): Graph start time.
+                 Seconds of current time difference.
+                 1 hour ago is 3600.
+                 2 hours ago is 7200.
+                 3 days ago is 259200(3600sec x 24H x 3days).
+            :end (int, optional): Graph end time.
+                 Seconds of current time difference.
+                 Default is 0.
+
+        Returns:
+
+            :str: Graph URL string.
+
+        """
+
+        params = {'id': kwargs['ap_id'],
+                  'radio_index': kwargs['radio_index'],
+                  'start': kwargs['start'],
+                  'end': kwargs.get('end', 0),
+                  'type': graph_type}
+        return self.graph_url(params)
+
+    def graph_url_ap_client_count(self, **kwargs):
+        """RRD Graph URL for Access Point Client Count."""
+        return self.ap_base_url('ap_client_count', **kwargs)
+
+    def graph_url_ap_bandwidth(self, **kwargs):
+        """RRD Graph URL for Access Point Bandwidth."""
+        return self.ap_base_url('ap_bandwidth', **kwargs)
+
+    def graph_url_dot11_counters(self, **kwargs):
+        """RRD Graph URL for 802.11 Counters."""
+        return self.ap_base_url('dot11_counters', **kwargs)
+
     @staticmethod
     def id_params(ap_ids):
         """Make access point id string."""
