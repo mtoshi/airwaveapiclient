@@ -5,6 +5,8 @@
 
 import requests
 import os
+import xmltodict
+from collections import OrderedDict
 
 
 class AirWaveAPIClient(object):
@@ -685,3 +687,51 @@ class AirWaveAPIClient(object):
         """URL Encode."""
         params = sorted(params.items())
         return requests.packages.urllib3.request.urlencode(params)
+
+
+class APList(object):
+
+    """class APList.
+
+    Access Point List.
+
+    Attributes:
+
+        xml (str): API XML string.
+
+
+    """
+
+    def __init__(self, xml):
+        """Constructor."""
+        self.xml = xml
+
+    def nodes(self):
+        """Access Point Nodes.
+
+        Returns:
+
+            list: Access Point node list.
+
+        """
+        data = xmltodict.parse(self.xml)
+        ap_nodes = data['amp:amp_ap_list']['ap']
+        return [APNode(ap_node) for ap_node in ap_nodes]
+
+
+class APNode(OrderedDict):
+
+    """class APNode.
+
+    Access Point Node.
+
+    Attributes:
+
+        xml (str): API XML string.
+
+
+    """
+
+    def __init__(self, *args):
+        """Constructor."""
+        OrderedDict.__init__(self, *args)
