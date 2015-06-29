@@ -307,7 +307,7 @@ class AirWaveAPIClient(object):
         params = AirWaveAPIClient.urlencode(params)
         return self.session.get(url, verify=False, params=params)
 
-    def graph_url(self, params):
+    def _graph_url(self, params):
         """RRD Graph URL."""
         url = self.api_path('nf/rrd_graph')
         params['start'] = '-%ss' % params['start']
@@ -346,17 +346,17 @@ class AirWaveAPIClient(object):
                   'start': kwargs['start'],
                   'end': kwargs.get('end', 0),
                   'type': graph_type}
-        return self.graph_url(params)
+        return self._graph_url(params)
 
-    def graph_url_ap_client_count(self, **kwargs):
+    def ap_client_count_graph_url(self, **kwargs):
         """RRD Graph URL for Access Point Client Count."""
         return self.ap_base_url('ap_client_count', **kwargs)
 
-    def graph_url_ap_bandwidth(self, **kwargs):
+    def ap_bandwidth_graph_url_(self, **kwargs):
         """RRD Graph URL for Access Point Bandwidth."""
         return self.ap_base_url('ap_bandwidth', **kwargs)
 
-    def graph_url_dot11_counters(self, **kwargs):
+    def dot11_counters_graph_url(self, **kwargs):
         """RRD Graph URL for 802.11 Counters."""
         return self.ap_base_url('dot11_counters', **kwargs)
 
@@ -394,29 +394,29 @@ class AirWaveAPIClient(object):
                   'start': kwargs['start'],
                   'end': kwargs.get('end', 0),
                   'type': graph_type}
-        return self.graph_url(params)
+        return self._graph_url(params)
 
-    def graph_url_radio_channel(self, **kwargs):
+    def radio_channel_graph_url(self, **kwargs):
         """RRD Graph URL for Radio Channel."""
         return self.radio_base_url('radio_channel', **kwargs)
 
-    def graph_url_radio_noise(self, **kwargs):
+    def radio_noise_graph_url(self, **kwargs):
         """RRD Graph URL for Radio Noise."""
         return self.radio_base_url('radio_noise', **kwargs)
 
-    def graph_url_radio_power(self, **kwargs):
+    def radio_power_graph_url(self, **kwargs):
         """RRD Graph URL for Radio Power."""
         return self.radio_base_url('radio_power', **kwargs)
 
-    def graph_url_radio_errors(self, **kwargs):
+    def radio_errors_graph_url(self, **kwargs):
         """RRD Graph URL for Radio Errors."""
         return self.radio_base_url('radio_errors', **kwargs)
 
-    def graph_url_radio_goodput(self, **kwargs):
+    def radio_goodput_graph_url(self, **kwargs):
         """RRD Graph URL for Radio GoodPut."""
         return self.radio_base_url('radio_goodput', **kwargs)
 
-    def graph_url_channel_utilization(self, **kwargs):
+    def channel_utilization_graph_url(self, **kwargs):
         """RRD Graph URL for Channel utilization."""
         return self.radio_base_url('channel_utilization', **kwargs)
 
