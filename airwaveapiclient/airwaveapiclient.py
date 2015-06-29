@@ -326,20 +326,20 @@ class AirWaveAPIClient(object):
 
         Keyword Args :
 
-            ap_id (int): Access Point ID.
-            radio_index (int): Access Point Radio type index.
-            start (int): Graph start time.
+            :ap_id (int): Access Point ID.
+            :radio_index (int): Access Point Radio type index.
+            :start (int): Graph start time.
                 Seconds of current time difference.
                 1 hour ago is 3600.
                 2 hours ago is 7200.
                 3 days ago is 259200(3600sec x 24H x 3days).
-            end (int, optional): Graph end time.
+            :end (int, optional): Graph end time.
                 Seconds of current time difference.
                 Default is 0.
 
         Returns:
 
-            str: Graph URL string.
+            :str: Graph URL string.
 
         """
 
@@ -355,20 +355,20 @@ class AirWaveAPIClient(object):
 
         Keyword Args :
 
-            ap_id (int): Access Point ID.
-            radio_index (int): Access Point Radio type index.
-            start (int): Graph start time.
+            :ap_id (int): Access Point ID.
+            :radio_index (int): Access Point Radio type index.
+            :start (int): Graph start time.
                 Seconds of current time difference.
                 1 hour ago is 3600.
                 2 hours ago is 7200.
                 3 days ago is 259200(3600sec x 24H x 3days).
-            end (int, optional): Graph end time.
+            :end (int, optional): Graph end time.
                 Seconds of current time difference.
                 Default is 0.
 
         Returns:
 
-            str: Graph URL string.
+            :str: Graph URL string.
 
         Usage ::
 
@@ -385,14 +385,14 @@ class AirWaveAPIClient(object):
 
         Keyword Args :
 
-            ap_id (int): Access Point ID.
-            radio_index (int): Access Point Radio type index.
-            start (int): Graph start time.
+            :ap_id (int): Access Point ID.
+            :radio_index (int): Access Point Radio type index.
+            :start (int): Graph start time.
                 Seconds of current time difference.
                 1 hour ago is 3600.
                 2 hours ago is 7200.
                 3 days ago is 259200(3600sec x 24H x 3days).
-            end (int, optional): Graph end time.
+            :end (int, optional): Graph end time.
                 Seconds of current time difference.
                 Default is 0.
 
@@ -415,20 +415,20 @@ class AirWaveAPIClient(object):
 
         Keyword Args :
 
-            ap_id (int): Access Point ID.
-            radio_index (int): Access Point Radio type index.
-            start (int): Graph start time.
+            :ap_id (int): Access Point ID.
+            :radio_index (int): Access Point Radio type index.
+            :start (int): Graph start time.
                 Seconds of current time difference.
                 1 hour ago is 3600.
                 2 hours ago is 7200.
                 3 days ago is 259200(3600sec x 24H x 3days).
-            end (int, optional): Graph end time.
+            :end (int, optional): Graph end time.
                 Seconds of current time difference.
                 Default is 0.
 
         Returns:
 
-            str: Graph URL string.
+            :str: Graph URL string.
 
         Usage ::
 
@@ -450,22 +450,22 @@ class AirWaveAPIClient(object):
 
         Keyword Args :
 
-            ap_uid (str): Access Point UID.
-            radio_index (int): Access Point Radio type index.
-            radio_interface (int): Radio Interface.
-            graph_type (str): Graph type name.
-            start (int): Graph start time.
+            :ap_uid (str): Access Point UID.
+            :radio_index (int): Access Point Radio type index.
+            :radio_interface (int): Radio Interface.
+            :graph_type (str): Graph type name.
+            :start (int): Graph start time.
                 Seconds of current time difference.
                 1 hour ago is 3600.
                 2 hours ago is 7200.
                 3 days ago is 259200(3600sec x 24H x 3days).
-            end (int, optional): Graph end time.
+            :end (int, optional): Graph end time.
                 Seconds of current time difference.
                 Default is 0.
 
         Returns:
 
-            str: Graph URL string.
+            :str: Graph URL string.
 
 
         """
@@ -483,22 +483,22 @@ class AirWaveAPIClient(object):
 
         Keyword Args :
 
-            ap_uid (str): Access Point UID.
-            radio_index (int): Access Point Radio type index.
-            radio_interface (int): Radio Interface.
-            graph_type (str): Graph type name.
-            start (int): Graph start time.
+            :ap_uid (str): Access Point UID.
+            :radio_index (int): Access Point Radio type index.
+            :radio_interface (int): Radio Interface.
+            :graph_type (str): Graph type name.
+            :start (int): Graph start time.
                 Seconds of current time difference.
                 1 hour ago is 3600.
                 2 hours ago is 7200.
                 3 days ago is 259200(3600sec x 24H x 3days).
-            end (int, optional): Graph end time.
+            :end (int, optional): Graph end time.
                 Seconds of current time difference.
                 Default is 0.
 
         Returns:
 
-            str: Graph URL string.
+            :str: Graph URL string.
 
         Usage ::
 
@@ -509,6 +509,7 @@ class AirWaveAPIClient(object):
 
 
         """
+
         return self.radio_base_url('radio_channel', **kwargs)
 
     def radio_noise_graph_url(self, **kwargs):
@@ -516,22 +517,22 @@ class AirWaveAPIClient(object):
 
         Keyword Args :
 
-            ap_uid (str): Access Point UID.
-            radio_index (int): Access Point Radio type index.
-            radio_interface (int): Radio Interface.
-            graph_type (str): Graph type name.
-            start (int): Graph start time.
+            :ap_uid (str): Access Point UID.
+            :radio_index (int): Access Point Radio type index.
+            :radio_interface (int): Radio Interface.
+            :graph_type (str): Graph type name.
+            :start (int): Graph start time.
                 Seconds of current time difference.
                 1 hour ago is 3600.
                 2 hours ago is 7200.
                 3 days ago is 259200(3600sec x 24H x 3days).
-            end (int, optional): Graph end time.
+            :end (int, optional): Graph end time.
                 Seconds of current time difference.
                 Default is 0.
 
         Returns:
 
-            str: Graph URL string.
+            :str: Graph URL string.
 
         Usage ::
 
@@ -542,6 +543,7 @@ class AirWaveAPIClient(object):
 
 
         """
+
         return self.radio_base_url('radio_noise', **kwargs)
 
     def radio_power_graph_url(self, **kwargs):
@@ -549,22 +551,22 @@ class AirWaveAPIClient(object):
 
         Keyword Args :
 
-            ap_uid (str): Access Point UID.
-            radio_index (int): Access Point Radio type index.
-            radio_interface (int): Radio Interface.
-            graph_type (str): Graph type name.
-            start (int): Graph start time.
+            :ap_uid (str): Access Point UID.
+            :radio_index (int): Access Point Radio type index.
+            :radio_interface (int): Radio Interface.
+            :graph_type (str): Graph type name.
+            :start (int): Graph start time.
                 Seconds of current time difference.
                 1 hour ago is 3600.
                 2 hours ago is 7200.
                 3 days ago is 259200(3600sec x 24H x 3days).
-            end (int, optional): Graph end time.
+            :end (int, optional): Graph end time.
                 Seconds of current time difference.
                 Default is 0.
 
         Returns:
 
-            str: Graph URL string.
+            :str: Graph URL string.
 
         Usage ::
 
@@ -575,6 +577,7 @@ class AirWaveAPIClient(object):
 
 
         """
+
         return self.radio_base_url('radio_power', **kwargs)
 
     def radio_errors_graph_url(self, **kwargs):
@@ -582,22 +585,22 @@ class AirWaveAPIClient(object):
 
         Keyword Args :
 
-            ap_uid (str): Access Point UID.
-            radio_index (int): Access Point Radio type index.
-            radio_interface (int): Radio Interface.
-            graph_type (str): Graph type name.
-            start (int): Graph start time.
+            :ap_uid (str): Access Point UID.
+            :radio_index (int): Access Point Radio type index.
+            :radio_interface (int): Radio Interface.
+            :graph_type (str): Graph type name.
+            :start (int): Graph start time.
                 Seconds of current time difference.
                 1 hour ago is 3600.
                 2 hours ago is 7200.
                 3 days ago is 259200(3600sec x 24H x 3days).
-            end (int, optional): Graph end time.
+            :end (int, optional): Graph end time.
                 Seconds of current time difference.
                 Default is 0.
 
         Returns:
 
-            str: Graph URL string.
+            :str: Graph URL string.
 
         Usage ::
 
@@ -608,6 +611,7 @@ class AirWaveAPIClient(object):
 
 
         """
+
         return self.radio_base_url('radio_errors', **kwargs)
 
     def radio_goodput_graph_url(self, **kwargs):
@@ -615,22 +619,22 @@ class AirWaveAPIClient(object):
 
         Keyword Args :
 
-            ap_uid (str): Access Point UID.
-            radio_index (int): Access Point Radio type index.
-            radio_interface (int): Radio Interface.
-            graph_type (str): Graph type name.
-            start (int): Graph start time.
+            :ap_uid (str): Access Point UID.
+            :radio_index (int): Access Point Radio type index.
+            :radio_interface (int): Radio Interface.
+            :graph_type (str): Graph type name.
+            :start (int): Graph start time.
                 Seconds of current time difference.
                 1 hour ago is 3600.
                 2 hours ago is 7200.
                 3 days ago is 259200(3600sec x 24H x 3days).
-            end (int, optional): Graph end time.
+            :end (int, optional): Graph end time.
                 Seconds of current time difference.
                 Default is 0.
 
         Returns:
 
-            str: Graph URL string.
+            :str: Graph URL string.
 
         Usage ::
 
@@ -641,6 +645,7 @@ class AirWaveAPIClient(object):
 
 
         """
+
         return self.radio_base_url('radio_goodput', **kwargs)
 
     def channel_utilization_graph_url(self, **kwargs):
@@ -648,22 +653,22 @@ class AirWaveAPIClient(object):
 
         Keyword Args :
 
-            ap_uid (str): Access Point UID.
-            radio_index (int): Access Point Radio type index.
-            radio_interface (int): Radio Interface.
-            graph_type (str): Graph type name.
-            start (int): Graph start time.
+            :ap_uid (str): Access Point UID.
+            :radio_index (int): Access Point Radio type index.
+            :radio_interface (int): Radio Interface.
+            :graph_type (str): Graph type name.
+            :start (int): Graph start time.
                 Seconds of current time difference.
                 1 hour ago is 3600.
                 2 hours ago is 7200.
                 3 days ago is 259200(3600sec x 24H x 3days).
-            end (int, optional): Graph end time.
+            :end (int, optional): Graph end time.
                 Seconds of current time difference.
                 Default is 0.
 
         Returns:
 
-            str: Graph URL string.
+            :str: Graph URL string.
 
         Usage ::
 
@@ -675,6 +680,7 @@ class AirWaveAPIClient(object):
 
 
         """
+
         return self.radio_base_url('channel_utilization', **kwargs)
 
     @staticmethod
