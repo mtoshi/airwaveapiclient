@@ -223,85 +223,92 @@ class UnitTests(unittest.TestCase):
     def test_radio_base_url(self):
         """Test radio base graph url method."""
         type_name = 'type_name'
-        params = {'ap_uid': 1,
+        params = {'ap_uid': "01:23:45:67:89:AB",
                   'radio_index': 1,
                   'radio_interface': 1,
                   'start': 3600}
         graph_url = self.obj.radio_base_url(type_name, **params)
         url = ('https://192.168.1.1/nf/rrd_graph?'
-               'ap_uid=1&end=-0s&radio_index=1&radio_interface=1&'
+               'ap_uid=01%3A23%3A45%3A67%3A89%3AAB&'
+               'end=-0s&radio_index=1&radio_interface=1&'
                'start=-3600s&type=type_name')
         self.assertEqual(graph_url, url)
 
     def test_radio_channel_graph_url(self):
         """Test radio channel graph url method."""
-        params = {'ap_uid': 1,
+        params = {'ap_uid': "01:23:45:67:89:AB",
                   'radio_index': 1,
                   'radio_interface': 1,
                   'start': 3600}
         graph_url = self.obj.radio_channel_graph_url(**params)
         url = ('https://192.168.1.1/nf/rrd_graph?'
-               'ap_uid=1&end=-0s&radio_index=1&radio_interface=1&'
+               'ap_uid=01%3A23%3A45%3A67%3A89%3AAB&'
+               'end=-0s&radio_index=1&radio_interface=1&'
                'start=-3600s&type=radio_channel')
         self.assertEqual(graph_url, url)
 
     def test_radio_noise_graph_url(self):
         """Test radio noise graph url method."""
-        params = {'ap_uid': 1,
+        params = {'ap_uid': "01:23:45:67:89:AB",
                   'radio_index': 1,
                   'radio_interface': 1,
                   'start': 3600}
         graph_url = self.obj.radio_noise_graph_url(**params)
         url = ('https://192.168.1.1/nf/rrd_graph?'
-               'ap_uid=1&end=-0s&radio_index=1&radio_interface=1&'
+               'ap_uid=01%3A23%3A45%3A67%3A89%3AAB&'
+               'end=-0s&radio_index=1&radio_interface=1&'
                'start=-3600s&type=radio_noise')
         self.assertEqual(graph_url, url)
 
     def test_radio_power_graph_url(self):
         """Test radio power graph url method."""
-        params = {'ap_uid': 1,
+        params = {'ap_uid': "01:23:45:67:89:AB",
                   'radio_index': 1,
                   'radio_interface': 1,
                   'start': 3600}
         graph_url = self.obj.radio_power_graph_url(**params)
         url = ('https://192.168.1.1/nf/rrd_graph?'
-               'ap_uid=1&end=-0s&radio_index=1&radio_interface=1&'
+               'ap_uid=01%3A23%3A45%3A67%3A89%3AAB&'
+               'end=-0s&radio_index=1&radio_interface=1&'
                'start=-3600s&type=radio_power')
         self.assertEqual(graph_url, url)
 
     def test_radio_errors_graph_url(self):
         """Test radio errors graph url method."""
-        params = {'ap_uid': 1,
+        params = {'ap_uid': "01:23:45:67:89:AB",
                   'radio_index': 1,
                   'radio_interface': 1,
                   'start': 3600}
         graph_url = self.obj.radio_errors_graph_url(**params)
         url = ('https://192.168.1.1/nf/rrd_graph?'
-               'ap_uid=1&end=-0s&radio_index=1&radio_interface=1&'
+               'ap_uid=01%3A23%3A45%3A67%3A89%3AAB&'
+               'end=-0s&radio_index=1&radio_interface=1&'
                'start=-3600s&type=radio_errors')
         self.assertEqual(graph_url, url)
 
     def test_radio_goodput_graph_url(self):
         """Test radio goodput graph url method."""
-        params = {'ap_uid': 1,
+        params = {'ap_uid': "01:23:45:67:89:AB",
                   'radio_index': 1,
                   'radio_interface': 1,
                   'start': 3600}
         graph_url = self.obj.radio_goodput_graph_url(**params)
         url = ('https://192.168.1.1/nf/rrd_graph?'
-               'ap_uid=1&end=-0s&radio_index=1&radio_interface=1&'
+               'ap_uid=01%3A23%3A45%3A67%3A89%3AAB&'
+               'end=-0s&radio_index=1&radio_interface=1&'
                'start=-3600s&type=radio_goodput')
         self.assertEqual(graph_url, url)
 
     def test_channel_utilization_graph_url(self):
         """Test channel utilization graph url method."""
-        params = {'ap_uid': 1,
+        params = {'ap_uid': "01:23:45:67:89:AB",
                   'radio_index': 1,
                   'radio_interface': 1,
                   'start': 3600}
         graph_url = self.obj.channel_utilization_graph_url(**params)
         url = ('https://192.168.1.1/nf/rrd_graph?'
-               'ap_uid=1&end=-0s&radio_index=1&radio_interface=1&'
+               'ap_uid=01%3A23%3A45%3A67%3A89%3AAB&'
+               'end=-0s&radio_index=1&radio_interface=1&'
                'start=-3600s&type=channel_utilization')
         self.assertEqual(graph_url, url)
 
