@@ -7,7 +7,9 @@ from httmock import all_requests, response, HTTMock
 from airwaveapiclient import AirWaveAPIClient
 
 
-# pylint: disable=unused-argument, too-many-instance-attributes
+# pylint: disable=unused-argument
+# pylint: disable=too-many-instance-attributes
+# pylint: disable=protected-access
 class UnitTests(unittest.TestCase):
 
     """Class UnitTests.
@@ -173,6 +175,50 @@ class UnitTests(unittest.TestCase):
                                     self.path_report_detail,
                                     params)
         self.assertEqual(res.url, url)
+
+    def test_graph_url(self):
+        """Test graph base method."""
+        params = {'id': 1,
+                  'start': 3600,
+                  'end': 0,
+                  'type': 'type_name'}
+        graph_url = self.obj._AirWaveAPIClient__graph_url(params)
+        url = ('https://192.168.1.1/nf/rrd_graph?'
+               'end=-0s&id=1&start=-3600s&type=type_name')
+        self.assertEqual(graph_url, url)
+
+    def test_ap_base_url(self):
+        """Test AP base graph url method."""
+        type_name = 'type_name'
+        params = {'ap_id': 1, 'radio_index': 1, 'start': 3600}
+        graph_url = self.obj.ap_base_url(type_name, **params)
+        url = ('https://192.168.1.1/nf/rrd_graph?'
+               'end=-0s&id=1&radio_index=1&start=-3600s&type=type_name')
+        self.assertEqual(graph_url, url)
+
+    def test_ap_client_count_graph_url(self):
+        """Test AP client count graph url method."""
+        params = {'ap_id': 1, 'radio_index': 1, 'start': 3600}
+        graph_url = self.obj.ap_client_count_graph_url(**params)
+        url = ('https://192.168.1.1/nf/rrd_graph?'
+               'end=-0s&id=1&radio_index=1&start=-3600s&type=ap_client_count')
+        self.assertEqual(graph_url, url)
+
+    def test_ap_bandwidth_graph_url(self):
+        """Test AP bandwidth graph url method."""
+        params = {'ap_id': 1, 'radio_index': 1, 'start': 3600}
+        graph_url = self.obj.ap_bandwidth_graph_url(**params)
+        url = ('https://192.168.1.1/nf/rrd_graph?'
+               'end=-0s&id=1&radio_index=1&start=-3600s&type=ap_bandwidth')
+        self.assertEqual(graph_url, url)
+
+    def test_dot11_counters_graph_url(self):
+        """Test AP dot11 counters graph url method."""
+        params = {'ap_id': 1, 'radio_index': 1, 'start': 3600}
+        graph_url = self.obj.dot11_counters_graph_url(**params)
+        url = ('https://192.168.1.1/nf/rrd_graph?'
+               'end=-0s&id=1&radio_index=1&start=-3600s&type=dot11_counters')
+        self.assertEqual(graph_url, url)
 
     @staticmethod
     @all_requests

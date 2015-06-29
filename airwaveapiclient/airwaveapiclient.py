@@ -307,7 +307,7 @@ class AirWaveAPIClient(object):
         params = AirWaveAPIClient.urlencode(params)
         return self.session.get(url, verify=False, params=params)
 
-    def _graph_url(self, params):
+    def __graph_url(self, params):
         """RRD Graph URL."""
         url = self.api_path('nf/rrd_graph')
         params['start'] = '-%ss' % params['start']
@@ -346,13 +346,13 @@ class AirWaveAPIClient(object):
                   'start': kwargs['start'],
                   'end': kwargs.get('end', 0),
                   'type': graph_type}
-        return self._graph_url(params)
+        return self.__graph_url(params)
 
     def ap_client_count_graph_url(self, **kwargs):
         """RRD Graph URL for Access Point Client Count."""
         return self.ap_base_url('ap_client_count', **kwargs)
 
-    def ap_bandwidth_graph_url_(self, **kwargs):
+    def ap_bandwidth_graph_url(self, **kwargs):
         """RRD Graph URL for Access Point Bandwidth."""
         return self.ap_base_url('ap_bandwidth', **kwargs)
 
@@ -394,7 +394,7 @@ class AirWaveAPIClient(object):
                   'start': kwargs['start'],
                   'end': kwargs.get('end', 0),
                   'type': graph_type}
-        return self._graph_url(params)
+        return self.__graph_url(params)
 
     def radio_channel_graph_url(self, **kwargs):
         """RRD Graph URL for Radio Channel."""
@@ -428,4 +428,5 @@ class AirWaveAPIClient(object):
     @staticmethod
     def urlencode(params):
         """URL Encode."""
+        params = sorted(params.items())
         return requests.packages.urllib3.request.urlencode(params)
