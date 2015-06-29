@@ -465,6 +465,7 @@ class AirWaveAPIClient(object):
 
             str: Graph URL string.
 
+
         """
 
         params = {'ap_uid': kwargs['ap_uid'],
@@ -476,27 +477,202 @@ class AirWaveAPIClient(object):
         return self.__graph_url(params)
 
     def radio_channel_graph_url(self, **kwargs):
-        """RRD Graph URL for Radio Channel."""
+        """RRD Graph URL for Radio Channel.
+
+        Keyword Args :
+
+            ap_uid (str): Access Point UID.
+            radio_index (int): Access Point Radio type index.
+            radio_interface (int): Radio Interface.
+            graph_type (str): Graph type name.
+            start (int): Graph start time.
+                Seconds of current time difference.
+                1 hour ago is 3600.
+                2 hours ago is 7200.
+                3 days ago is 259200(3600sec x 24H x 3days).
+            end (int, optional): Graph end time.
+                Seconds of current time difference.
+                Default is 0.
+
+        Returns:
+
+            str: Graph URL string.
+
+        Usage ::
+
+            >>> airwave.radio_channel_graph_url(ap_uid="01:23:45:67:89:AB",
+            ...                                 radio_index=1,
+            ...                                 radio_interface=1,
+            ...                                 start=3600)
+
+
+        """
         return self.radio_base_url('radio_channel', **kwargs)
 
     def radio_noise_graph_url(self, **kwargs):
-        """RRD Graph URL for Radio Noise."""
+        """RRD Graph URL for Radio Noise.
+
+        Keyword Args :
+
+            ap_uid (str): Access Point UID.
+            radio_index (int): Access Point Radio type index.
+            radio_interface (int): Radio Interface.
+            graph_type (str): Graph type name.
+            start (int): Graph start time.
+                Seconds of current time difference.
+                1 hour ago is 3600.
+                2 hours ago is 7200.
+                3 days ago is 259200(3600sec x 24H x 3days).
+            end (int, optional): Graph end time.
+                Seconds of current time difference.
+                Default is 0.
+
+        Returns:
+
+            str: Graph URL string.
+
+        Usage ::
+
+            >>> airwave.radio_noise_graph_url(ap_uid="01:23:45:67:89:AB",
+            ...                               radio_index=1,
+            ...                               radio_interface=1,
+            ...                               start=3600)
+
+
+        """
         return self.radio_base_url('radio_noise', **kwargs)
 
     def radio_power_graph_url(self, **kwargs):
-        """RRD Graph URL for Radio Power."""
+        """RRD Graph URL for Radio Power.
+
+        Keyword Args :
+
+            ap_uid (str): Access Point UID.
+            radio_index (int): Access Point Radio type index.
+            radio_interface (int): Radio Interface.
+            graph_type (str): Graph type name.
+            start (int): Graph start time.
+                Seconds of current time difference.
+                1 hour ago is 3600.
+                2 hours ago is 7200.
+                3 days ago is 259200(3600sec x 24H x 3days).
+            end (int, optional): Graph end time.
+                Seconds of current time difference.
+                Default is 0.
+
+        Returns:
+
+            str: Graph URL string.
+
+        Usage ::
+
+            >>> airwave.radio_power_graph_url(ap_uid="01:23:45:67:89:AB",
+            ...                               radio_index=1,
+            ...                               radio_interface=1,
+            ...                               start=3600)
+
+
+        """
         return self.radio_base_url('radio_power', **kwargs)
 
     def radio_errors_graph_url(self, **kwargs):
-        """RRD Graph URL for Radio Errors."""
+        """RRD Graph URL for Radio Errors.
+
+        Keyword Args :
+
+            ap_uid (str): Access Point UID.
+            radio_index (int): Access Point Radio type index.
+            radio_interface (int): Radio Interface.
+            graph_type (str): Graph type name.
+            start (int): Graph start time.
+                Seconds of current time difference.
+                1 hour ago is 3600.
+                2 hours ago is 7200.
+                3 days ago is 259200(3600sec x 24H x 3days).
+            end (int, optional): Graph end time.
+                Seconds of current time difference.
+                Default is 0.
+
+        Returns:
+
+            str: Graph URL string.
+
+        Usage ::
+
+            >>> airwave.radio_errors_graph_url(ap_uid="01:23:45:67:89:AB",
+            ...                                radio_index=1,
+            ...                                radio_interface=1,
+            ...                                start=3600)
+
+
+        """
         return self.radio_base_url('radio_errors', **kwargs)
 
     def radio_goodput_graph_url(self, **kwargs):
-        """RRD Graph URL for Radio GoodPut."""
+        """RRD Graph URL for Radio GoodPut.
+
+        Keyword Args :
+
+            ap_uid (str): Access Point UID.
+            radio_index (int): Access Point Radio type index.
+            radio_interface (int): Radio Interface.
+            graph_type (str): Graph type name.
+            start (int): Graph start time.
+                Seconds of current time difference.
+                1 hour ago is 3600.
+                2 hours ago is 7200.
+                3 days ago is 259200(3600sec x 24H x 3days).
+            end (int, optional): Graph end time.
+                Seconds of current time difference.
+                Default is 0.
+
+        Returns:
+
+            str: Graph URL string.
+
+        Usage ::
+
+            >>> airwave.radio_goodput_graph_url(ap_uid="01:23:45:67:89:AB",
+            ...                                 radio_index=1,
+            ...                                 radio_interface=1,
+            ...                                 start=3600)
+
+
+        """
         return self.radio_base_url('radio_goodput', **kwargs)
 
     def channel_utilization_graph_url(self, **kwargs):
-        """RRD Graph URL for Channel utilization."""
+        """RRD Graph URL for Channel utilization.
+
+        Keyword Args :
+
+            ap_uid (str): Access Point UID.
+            radio_index (int): Access Point Radio type index.
+            radio_interface (int): Radio Interface.
+            graph_type (str): Graph type name.
+            start (int): Graph start time.
+                Seconds of current time difference.
+                1 hour ago is 3600.
+                2 hours ago is 7200.
+                3 days ago is 259200(3600sec x 24H x 3days).
+            end (int, optional): Graph end time.
+                Seconds of current time difference.
+                Default is 0.
+
+        Returns:
+
+            str: Graph URL string.
+
+        Usage ::
+
+            >>> airwave.channel_utilization_graph_url(
+            ...     ap_uid="01:23:45:67:89:AB",
+            ...     radio_index=1,
+            ...     radio_interface=1,
+            ...     start=3600)
+
+
+        """
         return self.radio_base_url('channel_utilization', **kwargs)
 
     @staticmethod
