@@ -4,6 +4,7 @@
 
 
 import requests
+import os
 
 
 class AirWaveAPIClient(object):
@@ -92,7 +93,8 @@ class AirWaveAPIClient(object):
             URL string 'https://xxx.xxx.xxx.xxx/xxxxxx'
 
         """
-        return 'https://%s/%s' % (self.address, path)
+        url = 'https://%s/' % self.address
+        return os.path.join(url, path)
 
     def ap_list(self, ap_ids=None):
         """Get Access Point list.
