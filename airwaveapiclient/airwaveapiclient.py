@@ -264,7 +264,7 @@ class AirWaveAPIClient(object):
             >>> res.url
             'https://192.168.1.1/nf/reports_list?reports_search_title=Weekly+Report&format=xml'
             >>> res.text  # xhtml output.
-            '\n\n<?xml version="1.0"?>\n<!DOCTYPE html ...'
+            '<?xml version="1.0"?><!DOCTYPE html ...'
 
 
         """
@@ -298,7 +298,7 @@ class AirWaveAPIClient(object):
             >>> res.url
             'https://192.1681.1/nf/report_detail?id=123&format=xml'
             >>> res.text  # xhtml output.
-            '\n\n<?xml version="1.0"?>\n<!DOCTYPE html ...'
+            '<?xml version="1.0"?><!DOCTYPE html ...'
 
 
         """
@@ -349,15 +349,94 @@ class AirWaveAPIClient(object):
         return self.__graph_url(params)
 
     def ap_client_count_graph_url(self, **kwargs):
-        """RRD Graph URL for Access Point Client Count."""
+        """RRD Graph URL for Access Point Client Count.
+
+        Keyword Args :
+
+            ap_id (int): Access Point ID.
+            radio_index (int): Access Point Radio type index.
+            start (int): Graph start time.
+                Seconds of current time difference.
+                1 hour ago is 3600.
+                2 hours ago is 7200.
+                3 days ago is 259200(3600sec x 24H x 3days).
+            end (int, optional): Graph end time.
+                Seconds of current time difference.
+                Default is 0.
+
+        Returns:
+
+            str: Graph URL string.
+
+        Usage ::
+
+            >>> airwave.ap_client_count_graph_url(ap_id=1,
+            ...                                   radio_index=1,
+            ...                                   start=3600)
+
+
+        """
         return self.ap_base_url('ap_client_count', **kwargs)
 
     def ap_bandwidth_graph_url(self, **kwargs):
-        """RRD Graph URL for Access Point Bandwidth."""
+        """RRD Graph URL for Access Point Bandwidth.
+
+        Keyword Args :
+
+            ap_id (int): Access Point ID.
+            radio_index (int): Access Point Radio type index.
+            start (int): Graph start time.
+                Seconds of current time difference.
+                1 hour ago is 3600.
+                2 hours ago is 7200.
+                3 days ago is 259200(3600sec x 24H x 3days).
+            end (int, optional): Graph end time.
+                Seconds of current time difference.
+                Default is 0.
+
+        Returns:
+
+            str: Graph URL string.
+
+        Usage ::
+
+            >>> airwave.ap_bandwidth_graph_url(ap_id=1,
+            ...                                radio_index=1,
+            ...                                start=3600)
+
+
+        """
         return self.ap_base_url('ap_bandwidth', **kwargs)
 
     def dot11_counters_graph_url(self, **kwargs):
-        """RRD Graph URL for 802.11 Counters."""
+        """RRD Graph URL for 802.11 Counters.
+
+        Keyword Args :
+
+            ap_id (int): Access Point ID.
+            radio_index (int): Access Point Radio type index.
+            start (int): Graph start time.
+                Seconds of current time difference.
+                1 hour ago is 3600.
+                2 hours ago is 7200.
+                3 days ago is 259200(3600sec x 24H x 3days).
+            end (int, optional): Graph end time.
+                Seconds of current time difference.
+                Default is 0.
+
+        Returns:
+
+            str: Graph URL string.
+
+        Usage ::
+
+            >>> airwave.dot11_counters_graph_url(ap_id=1,
+            ...                                  radio_index=1,
+            ...                                  start=3600)
+
+
+        """
+
         return self.ap_base_url('dot11_counters', **kwargs)
 
     def radio_base_url(self, graph_type, **kwargs):
