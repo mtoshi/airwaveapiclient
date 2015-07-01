@@ -23,6 +23,7 @@ class UnitTests(unittest.TestCase):
         self.username = 'username'
         self.password = 'password'
         self.address = '192.168.1.1'
+
         self.path_ap_list = 'ap_list.xml'
         self.path_ap_detail = 'ap_detail.xml'
         self.path_client_detail = 'client_detail.xml'
@@ -50,9 +51,9 @@ class UnitTests(unittest.TestCase):
 
     def test_api_path(self):
         """Test API path."""
-        url = self.obj.api_path(self.path_ap_list)
-        self.assertEqual(url, 'https://%s/%s' % (self.address,
-                                                 self.path_ap_list))
+        path = 'ap_list.xml'
+        url = self.obj.api_path(path)
+        self.assertEqual(url, 'https://%s/%s' % (self.address, path))
 
     def test_id_params(self):
         """Test ID Params."""
