@@ -24,7 +24,6 @@ class UnitTests(unittest.TestCase):
         self.password = 'password'
         self.address = '192.168.1.1'
 
-        self.path_ap_list = 'ap_list.xml'
         self.path_ap_detail = 'ap_detail.xml'
         self.path_client_detail = 'client_detail.xml'
         self.path_rogue_detail = 'rogue_detail.xml'
@@ -77,11 +76,13 @@ class UnitTests(unittest.TestCase):
 
     def test_ap_list(self):
         """Test ap_list."""
+        path_ap_list = 'ap_list.xml'
+
         with HTTMock(UnitTests.content_api_xml):
             res = self.obj.ap_list()
         self.assertEqual(res.status_code, 200)
 
-        url = 'https://%s/%s' % (self.address, self.path_ap_list)
+        url = 'https://%s/%s' % (self.address, path_ap_list)
         self.assertEqual(res.url, url)
 
         with HTTMock(UnitTests.content_api_xml):
@@ -91,7 +92,7 @@ class UnitTests(unittest.TestCase):
 
         params = self.obj.id_params(ap_ids)
         url = 'https://%s/%s?%s' % (self.address,
-                                    self.path_ap_list,
+                                    path_ap_list,
                                     params)
         self.assertEqual(res.url, url)
 
