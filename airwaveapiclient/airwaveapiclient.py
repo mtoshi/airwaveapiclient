@@ -486,7 +486,6 @@ class AirWaveAPIClient(object):
             :ap_uid (str): Access Point UID.
             :radio_index (int): Access Point Radio type index.
             :radio_interface (int): Radio Interface.
-            :graph_type (str): Graph type name.
             :start (int): Graph start time.
                 Seconds of current time difference.
                 1 hour ago is 3600.
@@ -520,7 +519,6 @@ class AirWaveAPIClient(object):
             :ap_uid (str): Access Point UID.
             :radio_index (int): Access Point Radio type index.
             :radio_interface (int): Radio Interface.
-            :graph_type (str): Graph type name.
             :start (int): Graph start time.
                 Seconds of current time difference.
                 1 hour ago is 3600.
@@ -554,7 +552,6 @@ class AirWaveAPIClient(object):
             :ap_uid (str): Access Point UID.
             :radio_index (int): Access Point Radio type index.
             :radio_interface (int): Radio Interface.
-            :graph_type (str): Graph type name.
             :start (int): Graph start time.
                 Seconds of current time difference.
                 1 hour ago is 3600.
@@ -588,7 +585,6 @@ class AirWaveAPIClient(object):
             :ap_uid (str): Access Point UID.
             :radio_index (int): Access Point Radio type index.
             :radio_interface (int): Radio Interface.
-            :graph_type (str): Graph type name.
             :start (int): Graph start time.
                 Seconds of current time difference.
                 1 hour ago is 3600.
@@ -622,7 +618,6 @@ class AirWaveAPIClient(object):
             :ap_uid (str): Access Point UID.
             :radio_index (int): Access Point Radio type index.
             :radio_interface (int): Radio Interface.
-            :graph_type (str): Graph type name.
             :start (int): Graph start time.
                 Seconds of current time difference.
                 1 hour ago is 3600.
@@ -656,7 +651,6 @@ class AirWaveAPIClient(object):
             :ap_uid (str): Access Point UID.
             :radio_index (int): Access Point Radio type index.
             :radio_interface (int): Radio Interface.
-            :graph_type (str): Graph type name.
             :start (int): Graph start time.
                 Seconds of current time difference.
                 1 hour ago is 3600.
