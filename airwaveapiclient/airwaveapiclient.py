@@ -723,7 +723,7 @@ class APList(object):
         """Search Access Point."""
         if isinstance(obj, int):
             for node in self.nodes:
-                if node['@id'] == obj:
+                if int(node['@id']) == obj:
                     return node
 
         if isinstance(obj, str):
