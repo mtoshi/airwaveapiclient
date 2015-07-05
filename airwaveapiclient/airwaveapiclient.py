@@ -749,3 +749,17 @@ class APNode(OrderedDict):
     def __init__(self, *args):
         """Constructor."""
         OrderedDict.__init__(self, *args)
+
+
+class APDetail(OrderedDict):
+
+    """class APDetail.
+
+    Access Point Detail.
+
+    """
+    def __init__(self, xml):
+        """Constructor."""
+        data = xmltodict.parse(xml)
+        obj = data['amp:amp_ap_detail']['ap']
+        OrderedDict.__init__(self, obj)
