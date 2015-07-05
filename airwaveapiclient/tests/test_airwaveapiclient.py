@@ -10,9 +10,9 @@ from airwaveapiclient import AirWaveAPIClient
 # pylint: disable=unused-argument
 # pylint: disable=too-many-instance-attributes
 # pylint: disable=protected-access
-class UnitTests(unittest.TestCase):
+class AirWaveAPIClientUnitTests(unittest.TestCase):
 
-    """Class UnitTests.
+    """Class AirWaveAPIClientUnitTests.
 
     Unit test for airwaveapiclient.
 
@@ -28,7 +28,7 @@ class UnitTests(unittest.TestCase):
                                     password=self.password,
                                     address=self.address)
 
-        with HTTMock(UnitTests.content_login):
+        with HTTMock(AirWaveAPIClientUnitTests.content_login):
             self.res = self.obj.login()
 
     def tearDown(self):
@@ -72,14 +72,14 @@ class UnitTests(unittest.TestCase):
         """Test ap_list."""
         path_ap_list = 'ap_list.xml'
 
-        with HTTMock(UnitTests.content_api_xml):
+        with HTTMock(AirWaveAPIClientUnitTests.content_api_xml):
             res = self.obj.ap_list()
         self.assertEqual(res.status_code, 200)
 
         url = 'https://%s/%s' % (self.address, path_ap_list)
         self.assertEqual(res.url, url)
 
-        with HTTMock(UnitTests.content_api_xml):
+        with HTTMock(AirWaveAPIClientUnitTests.content_api_xml):
             ap_ids = [1, 2, 3]
             res = self.obj.ap_list(ap_ids)
         self.assertEqual(res.status_code, 200)
@@ -92,7 +92,7 @@ class UnitTests(unittest.TestCase):
 
     def test_ap_detail(self):
         """Test ap_detail."""
-        with HTTMock(UnitTests.content_api_xml):
+        with HTTMock(AirWaveAPIClientUnitTests.content_api_xml):
             ap_id = 1
             res = self.obj.ap_detail(ap_id)
         self.assertEqual(res.status_code, 200)
@@ -107,7 +107,7 @@ class UnitTests(unittest.TestCase):
 
     def test_client_detail(self):
         """Test client detail."""
-        with HTTMock(UnitTests.content_api_xml):
+        with HTTMock(AirWaveAPIClientUnitTests.content_api_xml):
             mac = '12:34:56:78:90:AB'
             params = {'mac': mac}
             params = self.obj.urlencode(params)
@@ -122,7 +122,7 @@ class UnitTests(unittest.TestCase):
 
     def test_rogue_detail(self):
         """Test rogue detail."""
-        with HTTMock(UnitTests.content_api_xml):
+        with HTTMock(AirWaveAPIClientUnitTests.content_api_xml):
             ap_id = 1
             params = {'id': ap_id}
             params = self.obj.urlencode(params)
@@ -137,7 +137,7 @@ class UnitTests(unittest.TestCase):
 
     def test_report_list(self):
         """Test report list."""
-        with HTTMock(UnitTests.content_api_xhtml):
+        with HTTMock(AirWaveAPIClientUnitTests.content_api_xhtml):
             res = self.obj.report_list()
         self.assertEqual(res.status_code, 200)
 
@@ -150,7 +150,7 @@ class UnitTests(unittest.TestCase):
         self.assertEqual(res.url, url)
 
         reports_search_title = 'Weeky Report'
-        with HTTMock(UnitTests.content_api_xhtml):
+        with HTTMock(AirWaveAPIClientUnitTests.content_api_xhtml):
             res = self.obj.report_list(reports_search_title)
         self.assertEqual(res.status_code, 200)
 
@@ -165,7 +165,7 @@ class UnitTests(unittest.TestCase):
     def test_report_detail(self):
         """Test report detail."""
         report_id = 1
-        with HTTMock(UnitTests.content_api_xhtml):
+        with HTTMock(AirWaveAPIClientUnitTests.content_api_xhtml):
             res = self.obj.report_detail(report_id)
         self.assertEqual(res.status_code, 200)
 
