@@ -24,12 +24,6 @@ class UnitTests(unittest.TestCase):
         self.password = 'password'
         self.address = '192.168.1.1'
 
-        self.path_ap_detail = 'ap_detail.xml'
-        self.path_client_detail = 'client_detail.xml'
-        self.path_rogue_detail = 'rogue_detail.xml'
-        self.path_report_list = 'nf/reports_list'
-        self.path_report_detail = 'nf/report_detail'
-
         self.obj = AirWaveAPIClient(username=self.username,
                                     password=self.password,
                                     address=self.address)
@@ -103,10 +97,11 @@ class UnitTests(unittest.TestCase):
             res = self.obj.ap_detail(ap_id)
         self.assertEqual(res.status_code, 200)
 
+        path_ap_detail = 'ap_detail.xml'
         ap_ids = [ap_id]
         params = self.obj.id_params(ap_ids)
         url = 'https://%s/%s?%s' % (self.address,
-                                    self.path_ap_detail,
+                                    path_ap_detail,
                                     params)
         self.assertEqual(res.url, url)
 
@@ -119,8 +114,9 @@ class UnitTests(unittest.TestCase):
             res = self.obj.client_detail(mac)
         self.assertEqual(res.status_code, 200)
 
+        path_client_detail = 'client_detail.xml'
         url = 'https://%s/%s?%s' % (self.address,
-                                    self.path_client_detail,
+                                    path_client_detail,
                                     params)
         self.assertEqual(res.url, url)
 
@@ -133,8 +129,9 @@ class UnitTests(unittest.TestCase):
             res = self.obj.rogue_detail(ap_id)
         self.assertEqual(res.status_code, 200)
 
+        path_rogue_detail = 'rogue_detail.xml'
         url = 'https://%s/%s?%s' % (self.address,
-                                    self.path_rogue_detail,
+                                    path_rogue_detail,
                                     params)
         self.assertEqual(res.url, url)
 
@@ -144,10 +141,11 @@ class UnitTests(unittest.TestCase):
             res = self.obj.report_list()
         self.assertEqual(res.status_code, 200)
 
+        path_report_list = 'nf/reports_list'
         params = {'format': 'xml'}
         params = self.obj.urlencode(params)
         url = 'https://%s/%s?%s' % (self.address,
-                                    self.path_report_list,
+                                    path_report_list,
                                     params)
         self.assertEqual(res.url, url)
 
@@ -160,7 +158,7 @@ class UnitTests(unittest.TestCase):
                   'reports_search_title': reports_search_title}
         params = self.obj.urlencode(params)
         url = 'https://%s/%s?%s' % (self.address,
-                                    self.path_report_list,
+                                    path_report_list,
                                     params)
         self.assertEqual(res.url, url)
 
@@ -171,10 +169,11 @@ class UnitTests(unittest.TestCase):
             res = self.obj.report_detail(report_id)
         self.assertEqual(res.status_code, 200)
 
+        path_report_detail = 'nf/report_detail'
         params = {'format': 'xml', 'id': report_id}
         params = self.obj.urlencode(params)
         url = 'https://%s/%s?%s' % (self.address,
-                                    self.path_report_detail,
+                                    path_report_detail,
                                     params)
         self.assertEqual(res.url, url)
 
