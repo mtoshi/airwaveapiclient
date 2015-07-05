@@ -705,8 +705,9 @@ class APList(object):
     def __init__(self, xml):
         """Constructor."""
         self.xml = xml
+        self.nodes = self._nodes()
 
-    def nodes(self):
+    def _nodes(self):
         """Access Point Nodes.
 
         Returns:
