@@ -719,6 +719,19 @@ class APList(object):
         ap_nodes = data['amp:amp_ap_list']['ap']
         return [APNode(ap_node) for ap_node in ap_nodes]
 
+    def search(self, obj):
+        """Search Access Point."""
+        if isinstance(obj, int):
+            for node in self.nodes:
+                if node['@id'] == obj:
+                    return node
+
+        if isinstance(obj, str):
+            for node in self.nodes:
+                if node['name'] == obj:
+                    return node
+        return None
+
 
 class APNode(OrderedDict):
 
