@@ -689,66 +689,32 @@ class AirWaveAPIClient(object):
         return requests.packages.urllib3.request.urlencode(params)
 
 
-class APList(object):
+class APList(list):
 
     """class APList.
 
     Access Point List.
 
-    Attributes:
-
-        xml (str): API XML string.
-
-
     """
 
     def __init__(self, xml):
         """Constructor."""
-        self.xml = xml
-        self.nodes = self._nodes()
-
-    def _nodes(self):
-        """Access Point Nodes.
-
-        Returns:
-
-            list: Access Point node list.
-
-        """
-        data = xmltodict.parse(self.xml)
-        ap_nodes = data['amp:amp_ap_list']['ap']
-        return [APNode(ap_node) for ap_node in ap_nodes]
+        data = xmltodict.parse(xml)
+        obj = data['amp:amp_ap_list']['ap']
+        list.__init__(self, obj)
 
     def search(self, obj):
         """Search Access Point."""
         if isinstance(obj, int):
-            for node in self.nodes:
+            for node in self:
                 if int(node['@id']) == obj:
                     return node
 
         if isinstance(obj, str):
-            for node in self.nodes:
+            for node in self:
                 if node['name'] == obj:
                     return node
         return None
-
-
-class APNode(OrderedDict):
-
-    """class APNode.
-
-    Access Point Node.
-
-    Attributes:
-
-        xml (str): API XML string.
-
-
-    """
-
-    def __init__(self, *args):
-        """Constructor."""
-        OrderedDict.__init__(self, *args)
 
 
 class APDetail(OrderedDict):

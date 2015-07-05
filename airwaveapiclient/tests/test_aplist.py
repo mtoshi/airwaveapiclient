@@ -29,7 +29,7 @@ class APListUnitTests(unittest.TestCase):
 
     def test_init(self):
         """Test init."""
-        self.assertEqual(len(self.obj.nodes), 3)
+        self.assertNotEqual(self.obj, None)
 
     def test_search(self):
         """Test search."""

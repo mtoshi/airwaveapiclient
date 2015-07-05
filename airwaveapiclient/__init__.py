@@ -8,11 +8,9 @@ import sys
 if sys.version_info.major == 2:
     from airwaveapiclient import AirWaveAPIClient
     from airwaveapiclient import APList
-    from airwaveapiclient import APNode
     from airwaveapiclient import APDetail
 
 else:
     from airwaveapiclient.airwaveapiclient import AirWaveAPIClient
     from airwaveapiclient.airwaveapiclient import APList
-    from airwaveapiclient.airwaveapiclient import APNode
     from airwaveapiclient.airwaveapiclient import APDetail
