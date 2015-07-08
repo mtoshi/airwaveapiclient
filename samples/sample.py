@@ -37,9 +37,7 @@ def main():
         xml = res.text
         ap_list = APList(xml)
         for ap_node in ap_list:
-            pprint('-'*80)
             pprint(ap_node)
-            pprint('-'*80)
 
     #################################################
     # APDetail ######################################
@@ -50,9 +48,7 @@ def main():
         if res.status_code == 200:
             xml = res.text
             ap_detail = APDetail(xml)
-            pprint('-'*80)
             pprint(ap_detail)
-            pprint('-'*80)
 
     #################################################
     # Logout ########################################
