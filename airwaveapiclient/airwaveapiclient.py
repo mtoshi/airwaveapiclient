@@ -25,15 +25,15 @@ class AirWaveAPIClient(object):
     """
 
     def __init__(self, **kwargs):
-        """Constructor.
+        """Initialize AirWaveAPIClient.
 
         Args:
 
-            username (str): Login username.
-            password (str): Login password.
-            address (str): Host name or ip address.
+            :username (str): Login username.
+            :password (str): Login password.
+            :address (str): Host name or ip address.
 
-        Usage ::
+        Usage: ::
 
             >>> from airwaveapiclient import AirWaveAPIClient
             >>> airwave = AirWaveAPIClient(username='admin',
@@ -49,7 +49,7 @@ class AirWaveAPIClient(object):
         self.session = None
 
     def login(self):
-        """Login.
+        """Login to AirWave.
 
         Returns:
 
@@ -79,6 +79,10 @@ class AirWaveAPIClient(object):
         """Logout.
 
         Close the session.
+
+        Usage ::
+
+            >>> obj.logout()
 
         """
         self.session.close()
