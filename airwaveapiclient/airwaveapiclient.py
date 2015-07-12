@@ -11,16 +11,14 @@ from collections import OrderedDict
 
 class AirWaveAPIClient(object):
 
-    """class AirWaveAPIClient.
-
-    Aruba networks AirWave API client.
+    """Aruba networks AirWave API client.
 
     Attributes:
 
-        username (str): Login username.
-        password (str): Login password.
-        address (str): Host name or ip address.
-        session (requests.sessions.Session): Session for connection pooling.
+        :username (str): Login username.
+        :password (str): Login password.
+        :address (str): Host name or ip address.
+        :session (requests.sessions.Session): Session for connection pooling.
 
     """
 
@@ -55,12 +53,11 @@ class AirWaveAPIClient(object):
 
             requests.models.Response
 
-        Usage ::
+        Usage: ::
 
-            >>> res = obj.login()
+            >>> res = airwave.login()
             >>> res.status_code
             200
-
 
         """
         requests.packages.urllib3.disable_warnings()
@@ -80,9 +77,9 @@ class AirWaveAPIClient(object):
 
         Close the session.
 
-        Usage ::
+        Usage: ::
 
-            >>> obj.logout()
+            >>> airwave.logout()
 
         """
         self.session.close()
@@ -92,7 +89,7 @@ class AirWaveAPIClient(object):
 
         Args:
 
-            path (str): Path for API URL.
+            :path (str): Path for API URL.
 
         Returns:
 
@@ -105,37 +102,32 @@ class AirWaveAPIClient(object):
     def ap_list(self, ap_ids=None):
         """Get Access Point list.
 
-        Memo:
-
-            This API output is XML.
-
         Args:
 
-            ap_ids (optional[list]): You may specify multiple Access Point IDs.
-                Default is None.
+            :ap_ids (optional[list]): You may specify multiple
+                Access Point IDs. Default is None.
 
         Returns:
 
-            requests.models.Response
+            :Response: requests.models.Response.
 
-        Usage ::
+        Usage: ::
 
-            Get all Acces Point.
+            # Get all Acces Point.
 
-            >>> res = obj.ap_list()
+            >>> res = airwave.ap_list()
             >>> res.url
             'https://192.168.1.1/ap_list.xml'
 
-            Get specified Acces Point.
+            # Get specified Acces Point.
 
-            >>> res = obj.ap_list([123, 124, 125])
+            >>> res = airwave.ap_list([123, 124, 125])
             >>> res.status_code
             200
             >>> res.url
             'https://192.168.1.1/ap_list.xml?id=123&id=124&id=125'
             >>> res.text  # xml output.
             '<?xml version="1.0" encoding="utf-8" ...'
-
 
         """
         url = self.api_path('ap_list.xml')
@@ -147,28 +139,23 @@ class AirWaveAPIClient(object):
     def ap_detail(self, ap_id):
         """Get Access Point detail inforamtion.
 
-        Memo:
-
-            This API output is XML.
-
         Args:
 
-            ap_id (int): Access Point ID.
+            :ap_id (int): Access Point ID.
 
         Returns:
 
-            requests.models.Response
+            :Response: requests.models.Response.
 
-        Usage ::
+        Usage: ::
 
-            >>> res = obj.ap_detail(123)
+            >>> res = airwave.ap_detail(123)
             >>> res.status_code
             200
             >>> res.url
             'https://192.168.1.1/ap_detail.xml?id=123'
             >>> res.text  # xml output.
             '<?xml version="1.0" encoding="utf-8" ...'
-
 
         """
         url = self.api_path('ap_detail.xml')
@@ -179,28 +166,23 @@ class AirWaveAPIClient(object):
     def client_detail(self, mac):
         """Client detail inforamtion.
 
-        Memo:
-
-            This API output is XML.
-
         Args:
 
-            mac (str): Client device's MAC address.
+            :mac (str): Client device's MAC address.
 
         Returns:
 
-            requests.models.Response
+            :Response: requests.models.Response.
 
-        Usage ::
+        Usage: ::
 
-            >>> res = obj.client_detail('12:34:56:78:90:AB')
+            >>> res = airwave.client_detail('12:34:56:78:90:AB')
             >>> res.status_code
             200
             >>> res.url
             'https://192.168.1.1/client_detail.xml?mac=12%3A34%3A56%3A78%3A90%3AAB'
             >>> res.text  # xml output.
             '<?xml version="1.0" encoding="utf-8" ...'
-
 
         """
         url = self.api_path('client_detail.xml')
@@ -211,26 +193,21 @@ class AirWaveAPIClient(object):
     def rogue_detail(self, ap_id):
         """Rogue detail inforamtion.
 
-        Memo:
-
-            This API output is XML.
-
         Args:
 
-            ap_id (int): Access Point ID.
+            :ap_id (int): Access Point ID.
 
         Returns:
 
-            requests.models.Response
+            :Response: requests.models.Response.
 
-        Usage ::
+        Usage: ::
 
-            >>> res = obj.rogue_detail(123)
+            >>> res = airwave.rogue_detail(123)
             >>> res.status_code
             200
             >>> res.text  # xml output.
             '<?xml version="1.0" encoding="utf-8" ...'
-
 
         """
         url = self.api_path('rogue_detail.xml')
@@ -241,37 +218,36 @@ class AirWaveAPIClient(object):
     def report_list(self, reports_search_title=None):
         """Report list inforamtion.
 
-        Memo:
+        .. warning::
 
-            This API output is XHTML(not XML).
+            This method result includes API output that is XHTML(not XML).
 
         Args:
 
-            reports_search_title (optional[str]): You may filter with
+            :reports_search_title (optional[str]): You may filter with
                 report title.  Default is None.
 
         Returns:
 
-            requests.models.Response
+            :Response: requests.models.Response.
 
-        Usage ::
+        Usage: ::
 
-            Get report list.
+            # Get report list.
 
-            >>> res = obj.report_list()
+            >>> res = airwave.report_list()
             >>> res.url
             'https://192.168.1.1/nf/reports_list?format=xml'
 
-            Get specified report list with title.
+            # Get specified report list with title.
 
-            >>> res = obj.report_list('Weekly Report')
+            >>> res = airwave.report_list('Weekly Report')
             >>> res.status_code
             200
             >>> res.url
             'https://192.168.1.1/nf/reports_list?reports_search_title=Weekly+Report&format=xml'
             >>> res.text  # xhtml output.
             '<?xml version="1.0"?><!DOCTYPE html ...'
-
 
         """
         url = self.api_path('nf/reports_list')
@@ -284,28 +260,27 @@ class AirWaveAPIClient(object):
     def report_detail(self, report_id):
         """Report detail inforamtion.
 
-        Memo:
+        .. warning::
 
-            This API output is XHTML(not XML).
+            This method result includes API output that is XHTML(not XML).
 
         Args:
 
-            report_id (int): Report ID.
+            :report_id (int): Report ID.
 
         Returns:
 
-            requests.models.Response
+            :Response: requests.models.Response.
 
-        Usage ::
+        Usage: ::
 
-            >>> res = obj.report_detail(123)
+            >>> res = airwave.report_detail(123)
             >>> res.status_code
             200
             >>> res.url
             'https://192.1681.1/nf/report_detail?id=123&format=xml'
             >>> res.text  # xhtml output.
             '<?xml version="1.0"?><!DOCTYPE html ...'
-
 
         """
         url = self.api_path('nf/report_detail')
@@ -374,7 +349,7 @@ class AirWaveAPIClient(object):
 
             :str: Graph URL string.
 
-        Usage ::
+        Usage: ::
 
             >>> airwave.ap_client_count_graph_url(ap_id=1,
             ...                                   radio_index=1,
@@ -402,9 +377,9 @@ class AirWaveAPIClient(object):
 
         Returns:
 
-            str: Graph URL string.
+            :str: Graph URL string.
 
-        Usage ::
+        Usage: ::
 
             >>> airwave.ap_bandwidth_graph_url(ap_id=1,
             ...                                radio_index=1,
@@ -434,7 +409,7 @@ class AirWaveAPIClient(object):
 
             :str: Graph URL string.
 
-        Usage ::
+        Usage: ::
 
             >>> airwave.dot11_counters_graph_url(ap_id=1,
             ...                                  radio_index=1,
@@ -503,7 +478,7 @@ class AirWaveAPIClient(object):
 
             :str: Graph URL string.
 
-        Usage ::
+        Usage: ::
 
             >>> airwave.radio_channel_graph_url(ap_uid="01:23:45:67:89:AB",
             ...                                 radio_index=1,
@@ -536,7 +511,7 @@ class AirWaveAPIClient(object):
 
             :str: Graph URL string.
 
-        Usage ::
+        Usage: ::
 
             >>> airwave.radio_noise_graph_url(ap_uid="01:23:45:67:89:AB",
             ...                               radio_index=1,
@@ -569,7 +544,7 @@ class AirWaveAPIClient(object):
 
             :str: Graph URL string.
 
-        Usage ::
+        Usage: ::
 
             >>> airwave.radio_power_graph_url(ap_uid="01:23:45:67:89:AB",
             ...                               radio_index=1,
@@ -602,7 +577,7 @@ class AirWaveAPIClient(object):
 
             :str: Graph URL string.
 
-        Usage ::
+        Usage: ::
 
             >>> airwave.radio_errors_graph_url(ap_uid="01:23:45:67:89:AB",
             ...                                radio_index=1,
@@ -635,7 +610,7 @@ class AirWaveAPIClient(object):
 
             :str: Graph URL string.
 
-        Usage ::
+        Usage: ::
 
             >>> airwave.radio_goodput_graph_url(ap_uid="01:23:45:67:89:AB",
             ...                                 radio_index=1,
@@ -668,7 +643,7 @@ class AirWaveAPIClient(object):
 
             :str: Graph URL string.
 
-        Usage ::
+        Usage: ::
 
             >>> airwave.channel_utilization_graph_url(
             ...     ap_uid="01:23:45:67:89:AB",
