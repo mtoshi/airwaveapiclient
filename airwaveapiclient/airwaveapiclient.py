@@ -332,18 +332,12 @@ class AirWaveAPIClient(object):
     def ap_client_count_graph_url(self, **kwargs):
         """RRD Graph URL for Access Point Client Count.
 
-        Keyword Args :
+        Keyword Args:
 
             :ap_id (int): Access Point ID.
             :radio_index (int): Access Point Radio type index.
-            :start (int): Graph start time.
-                Seconds of current time difference.
-                1 hour ago is 3600.
-                2 hours ago is 7200.
-                3 days ago is 259200(3600sec x 24H x 3days).
-            :end (int, optional): Graph end time.
-                Seconds of current time difference.
-                Default is 0.
+            :start (int): Graph start time(seconds ago).
+            :end (int, optional): Graph end time(seconds ago). Default is 0.
 
         Returns:
 
