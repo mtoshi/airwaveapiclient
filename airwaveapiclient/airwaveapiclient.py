@@ -348,7 +348,8 @@ class AirWaveAPIClient(object):
             >>> airwave.ap_client_count_graph_url(ap_id=1,
             ...                                   radio_index=1,
             ...                                   start=3600)
-
+            'https://x.x.x.x/nf/rrd_graph?
+                end=-0s&id=1&radio_index=1&start=-3600s&type=ap_client_count'
 
         """
         return self.ap_base_url('ap_client_count', **kwargs)
