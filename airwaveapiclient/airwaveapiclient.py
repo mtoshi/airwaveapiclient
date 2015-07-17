@@ -361,14 +361,8 @@ class AirWaveAPIClient(object):
 
             :ap_id (int): Access Point ID.
             :radio_index (int): Access Point Radio type index.
-            :start (int): Graph start time.
-                Seconds of current time difference.
-                1 hour ago is 3600.
-                2 hours ago is 7200.
-                3 days ago is 259200(3600sec x 24H x 3days).
-            :end (int, optional): Graph end time.
-                Seconds of current time difference.
-                Default is 0.
+            :start (int): Graph start time(seconds ago).
+            :end (int, optional): Graph end time(seconds ago). Default is 0.
 
         Returns:
 
@@ -379,6 +373,8 @@ class AirWaveAPIClient(object):
             >>> airwave.ap_bandwidth_graph_url(ap_id=1,
             ...                                radio_index=1,
             ...                                start=3600)
+            'https://x.x.x.x/nf/rrd_graph?
+                end=-0s&id=1&radio_index=1&start=-3600s&type=ap_bandwidth'
 
 
         """
@@ -391,14 +387,8 @@ class AirWaveAPIClient(object):
 
             :ap_id (int): Access Point ID.
             :radio_index (int): Access Point Radio type index.
-            :start (int): Graph start time.
-                Seconds of current time difference.
-                1 hour ago is 3600.
-                2 hours ago is 7200.
-                3 days ago is 259200(3600sec x 24H x 3days).
-            :end (int, optional): Graph end time.
-                Seconds of current time difference.
-                Default is 0.
+            :start (int): Graph start time(seconds ago).
+            :end (int, optional): Graph end time(seconds ago). Default is 0.
 
         Returns:
 
@@ -409,7 +399,8 @@ class AirWaveAPIClient(object):
             >>> airwave.dot11_counters_graph_url(ap_id=1,
             ...                                  radio_index=1,
             ...                                  start=3600)
-
+            'https://x.x.x.x/nf/rrd_graph?
+                end=-0s&id=1&radio_index=1&start=-3600s&type=dot11_counters'
 
         """
 
@@ -460,14 +451,8 @@ class AirWaveAPIClient(object):
             :ap_uid (str): Access Point UID.
             :radio_index (int): Access Point Radio type index.
             :radio_interface (int): Radio Interface.
-            :start (int): Graph start time.
-                Seconds of current time difference.
-                1 hour ago is 3600.
-                2 hours ago is 7200.
-                3 days ago is 259200(3600sec x 24H x 3days).
-            :end (int, optional): Graph end time.
-                Seconds of current time difference.
-                Default is 0.
+            :start (int): Graph start time(seconds ago).
+            :end (int, optional): Graph end time(seconds ago). Default is 0.
 
         Returns:
 
@@ -479,7 +464,13 @@ class AirWaveAPIClient(object):
             ...                                 radio_index=1,
             ...                                 radio_interface=1,
             ...                                 start=3600)
-
+            'https://10.129.2.220/nf/rrd_graph?
+                ap_uid=01%3A23%3A45%3A67%3A89%3AAB
+                &end=-0s
+                &radio_index=1
+                &radio_interface=1
+                &start=-3600s
+                &type=radio_channel'
 
         """
 
@@ -493,14 +484,8 @@ class AirWaveAPIClient(object):
             :ap_uid (str): Access Point UID.
             :radio_index (int): Access Point Radio type index.
             :radio_interface (int): Radio Interface.
-            :start (int): Graph start time.
-                Seconds of current time difference.
-                1 hour ago is 3600.
-                2 hours ago is 7200.
-                3 days ago is 259200(3600sec x 24H x 3days).
-            :end (int, optional): Graph end time.
-                Seconds of current time difference.
-                Default is 0.
+            :start (int): Graph start time(seconds ago).
+            :end (int, optional): Graph end time(seconds ago). Default is 0.
 
         Returns:
 
@@ -512,7 +497,13 @@ class AirWaveAPIClient(object):
             ...                               radio_index=1,
             ...                               radio_interface=1,
             ...                               start=3600)
-
+            'https://x.x.x.x/nf/rrd_graph?
+                ap_uid=01%3A23%3A45%3A67%3A89%3AAB
+                &end=-0s
+                &radio_index=1
+                &radio_interface=1
+                &start=-3600s
+                &type=radio_noise'
 
         """
 
@@ -526,14 +517,8 @@ class AirWaveAPIClient(object):
             :ap_uid (str): Access Point UID.
             :radio_index (int): Access Point Radio type index.
             :radio_interface (int): Radio Interface.
-            :start (int): Graph start time.
-                Seconds of current time difference.
-                1 hour ago is 3600.
-                2 hours ago is 7200.
-                3 days ago is 259200(3600sec x 24H x 3days).
-            :end (int, optional): Graph end time.
-                Seconds of current time difference.
-                Default is 0.
+            :start (int): Graph start time(seconds ago).
+            :end (int, optional): Graph end time(seconds ago). Default is 0.
 
         Returns:
 
@@ -545,7 +530,13 @@ class AirWaveAPIClient(object):
             ...                               radio_index=1,
             ...                               radio_interface=1,
             ...                               start=3600)
-
+            'https://x.x.x.x/nf/rrd_graph?
+                ap_uid=01%3A23%3A45%3A67%3A89%3AAB
+                &end=-0s
+                &radio_index=1
+                &radio_interface=1
+                &start=-3600s
+                &type=radio_power'
 
         """
 
@@ -559,14 +550,8 @@ class AirWaveAPIClient(object):
             :ap_uid (str): Access Point UID.
             :radio_index (int): Access Point Radio type index.
             :radio_interface (int): Radio Interface.
-            :start (int): Graph start time.
-                Seconds of current time difference.
-                1 hour ago is 3600.
-                2 hours ago is 7200.
-                3 days ago is 259200(3600sec x 24H x 3days).
-            :end (int, optional): Graph end time.
-                Seconds of current time difference.
-                Default is 0.
+            :start (int): Graph start time(seconds ago).
+            :end (int, optional): Graph end time(seconds ago). Default is 0.
 
         Returns:
 
@@ -578,7 +563,13 @@ class AirWaveAPIClient(object):
             ...                                radio_index=1,
             ...                                radio_interface=1,
             ...                                start=3600)
-
+            'https://x.x.x.x/nf/rrd_graph?
+                ap_uid=01%3A23%3A45%3A67%3A89%3AAB
+                &end=-0s
+                &radio_index=1
+                &radio_interface=1
+                &start=-3600s
+                &type=radio_errors'
 
         """
 
@@ -592,14 +583,8 @@ class AirWaveAPIClient(object):
             :ap_uid (str): Access Point UID.
             :radio_index (int): Access Point Radio type index.
             :radio_interface (int): Radio Interface.
-            :start (int): Graph start time.
-                Seconds of current time difference.
-                1 hour ago is 3600.
-                2 hours ago is 7200.
-                3 days ago is 259200(3600sec x 24H x 3days).
-            :end (int, optional): Graph end time.
-                Seconds of current time difference.
-                Default is 0.
+            :start (int): Graph start time(seconds ago).
+            :end (int, optional): Graph end time(seconds ago). Default is 0.
 
         Returns:
 
@@ -611,7 +596,13 @@ class AirWaveAPIClient(object):
             ...                                 radio_index=1,
             ...                                 radio_interface=1,
             ...                                 start=3600)
-
+            'https://x.x.x.x/nf/rrd_graph?
+                ap_uid=01%3A23%3A45%3A67%3A89%3AAB
+                &end=-0s
+                &radio_index=1
+                &radio_interface=1
+                &start=-3600s
+                &type=radio_goodput'
 
         """
 
@@ -625,14 +616,8 @@ class AirWaveAPIClient(object):
             :ap_uid (str): Access Point UID.
             :radio_index (int): Access Point Radio type index.
             :radio_interface (int): Radio Interface.
-            :start (int): Graph start time.
-                Seconds of current time difference.
-                1 hour ago is 3600.
-                2 hours ago is 7200.
-                3 days ago is 259200(3600sec x 24H x 3days).
-            :end (int, optional): Graph end time.
-                Seconds of current time difference.
-                Default is 0.
+            :start (int): Graph start time(seconds ago).
+            :end (int, optional): Graph end time(seconds ago). Default is 0.
 
         Returns:
 
@@ -645,7 +630,13 @@ class AirWaveAPIClient(object):
             ...     radio_index=1,
             ...     radio_interface=1,
             ...     start=3600)
-
+            'https://x.x.x.x/nf/rrd_graph?
+                ap_uid=01%3A23%3A45%3A67%3A89%3AAB
+                &end=-0s
+                &radio_index=1
+                &radio_interface=1
+                &start=-3600s
+                &type=channel_utilization'
 
         """
 
