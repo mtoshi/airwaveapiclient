@@ -1,0 +1,4 @@
+APDetail
+========
+
+.. autoclass:: airwaveapiclient.APDetail

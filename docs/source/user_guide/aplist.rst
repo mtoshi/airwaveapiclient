@@ -1,0 +1,3 @@
+APList
+======
+.. autoclass:: airwaveapiclient.APList
