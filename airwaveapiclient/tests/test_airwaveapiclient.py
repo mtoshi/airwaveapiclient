@@ -22,11 +22,11 @@ class AirWaveAPIClientUnitTests(unittest.TestCase):
         """Setup."""
         self.username = 'username'
         self.password = 'password'
-        self.address = '192.168.1.1'
+        self.url = 'https://192.168.1.1'
 
         self.obj = AirWaveAPIClient(username=self.username,
                                     password=self.password,
-                                    address=self.address)
+                                    url=self.url)
 
         with HTTMock(AirWaveAPIClientUnitTests.content_login):
             self.res = self.obj.login()
@@ -39,14 +39,14 @@ class AirWaveAPIClientUnitTests(unittest.TestCase):
         """Test init."""
         self.assertEqual(self.obj.username, self.username)
         self.assertEqual(self.obj.password, self.password)
-        self.assertEqual(self.obj.address, self.address)
+        self.assertEqual(self.obj.url, self.url)
         self.assertNotEqual(self.obj.session, None)
 
     def test_api_path(self):
         """Test API path."""
         path = 'ap_list.xml'
         url = self.obj.api_path(path)
-        self.assertEqual(url, 'https://%s/%s' % (self.address, path))
+        self.assertEqual(url, '%s/%s' % (self.url, path))
 
     def test_id_params(self):
         """Test ID Params."""
@@ -76,7 +76,7 @@ class AirWaveAPIClientUnitTests(unittest.TestCase):
             res = self.obj.ap_list()
         self.assertEqual(res.status_code, 200)
 
-        url = 'https://%s/%s' % (self.address, path_ap_list)
+        url = '%s/%s' % (self.url, path_ap_list)
         self.assertEqual(res.url, url)
 
         with HTTMock(AirWaveAPIClientUnitTests.content_api_xml):
@@ -85,9 +85,7 @@ class AirWaveAPIClientUnitTests(unittest.TestCase):
         self.assertEqual(res.status_code, 200)
 
         params = self.obj.id_params(ap_ids)
-        url = 'https://%s/%s?%s' % (self.address,
-                                    path_ap_list,
-                                    params)
+        url = '%s/%s?%s' % (self.url, path_ap_list, params)
         self.assertEqual(res.url, url)
 
     def test_ap_detail(self):
@@ -100,9 +98,7 @@ class AirWaveAPIClientUnitTests(unittest.TestCase):
         path_ap_detail = 'ap_detail.xml'
         ap_ids = [ap_id]
         params = self.obj.id_params(ap_ids)
-        url = 'https://%s/%s?%s' % (self.address,
-                                    path_ap_detail,
-                                    params)
+        url = '%s/%s?%s' % (self.url, path_ap_detail, params)
         self.assertEqual(res.url, url)
 
     def test_client_detail(self):
@@ -115,9 +111,7 @@ class AirWaveAPIClientUnitTests(unittest.TestCase):
         self.assertEqual(res.status_code, 200)
 
         path_client_detail = 'client_detail.xml'
-        url = 'https://%s/%s?%s' % (self.address,
-                                    path_client_detail,
-                                    params)
+        url = '%s/%s?%s' % (self.url, path_client_detail, params)
         self.assertEqual(res.url, url)
 
     def test_rogue_detail(self):
@@ -130,9 +124,7 @@ class AirWaveAPIClientUnitTests(unittest.TestCase):
         self.assertEqual(res.status_code, 200)
 
         path_rogue_detail = 'rogue_detail.xml'
-        url = 'https://%s/%s?%s' % (self.address,
-                                    path_rogue_detail,
-                                    params)
+        url = '%s/%s?%s' % (self.url, path_rogue_detail, params)
         self.assertEqual(res.url, url)
 
     def test_report_list(self):
@@ -144,9 +136,7 @@ class AirWaveAPIClientUnitTests(unittest.TestCase):
         path_report_list = 'nf/reports_list'
         params = {'format': 'xml'}
         params = self.obj.urlencode(params)
-        url = 'https://%s/%s?%s' % (self.address,
-                                    path_report_list,
-                                    params)
+        url = '%s/%s?%s' % (self.url, path_report_list, params)
         self.assertEqual(res.url, url)
 
         reports_search_title = 'Weeky Report'
@@ -157,9 +147,7 @@ class AirWaveAPIClientUnitTests(unittest.TestCase):
         params = {'format': 'xml',
                   'reports_search_title': reports_search_title}
         params = self.obj.urlencode(params)
-        url = 'https://%s/%s?%s' % (self.address,
-                                    path_report_list,
-                                    params)
+        url = '%s/%s?%s' % (self.url, path_report_list, params)
         self.assertEqual(res.url, url)
 
     def test_report_detail(self):
@@ -172,9 +160,7 @@ class AirWaveAPIClientUnitTests(unittest.TestCase):
         path_report_detail = 'nf/report_detail'
         params = {'format': 'xml', 'id': report_id}
         params = self.obj.urlencode(params)
-        url = 'https://%s/%s?%s' % (self.address,
-                                    path_report_detail,
-                                    params)
+        url = '%s/%s?%s' % (self.url, path_report_detail, params)
         self.assertEqual(res.url, url)
 
     def test_graph_url(self):
