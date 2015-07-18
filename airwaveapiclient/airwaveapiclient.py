@@ -15,9 +15,9 @@ class AirWaveAPIClient(object):
 
     Attributes:
 
-        :username (str): Login username.
-        :password (str): Login password.
-        :address (str): Host name or ip address.
+        :username (str): AirWave Login username.
+        :password (str): AirWave Login password.
+        :url (str): AirWave URL.
         :session (requests.sessions.Session): Session for connection pooling.
 
     """
@@ -27,23 +27,23 @@ class AirWaveAPIClient(object):
 
         Args:
 
-            :username (str): Login username.
-            :password (str): Login password.
-            :address (str): Host name or ip address.
+            :username (str): AirWave Login username.
+            :password (str): AirWave Login password.
+            :url (str): AirWave url.
 
         Usage: ::
 
             >>> from airwaveapiclient import AirWaveAPIClient
             >>> airwave = AirWaveAPIClient(username='admin',
             >>>                            password='xxxxx',
-            >>>                            address='192.168.1.1')
+            >>>                            url='https://192.168.1.1/')
             >>>
 
 
         """
         self.username = kwargs['username']
         self.password = kwargs['password']
-        self.address = kwargs['address']
+        self.url = kwargs['url']
         self.session = None
 
     def login(self):
@@ -62,7 +62,7 @@ class AirWaveAPIClient(object):
         """
         requests.packages.urllib3.disable_warnings()
         self.session = requests.Session()
-        url = 'https://%s/LOGIN' % self.address
+        url = os.path.join(self.url, 'LOGIN')
         destination = '/'
         next_action = ''
         params = {'credential_0': self.username,
@@ -96,8 +96,7 @@ class AirWaveAPIClient(object):
             URL string 'https://xxx.xxx.xxx.xxx/xxxxxx'
 
         """
-        url = 'https://%s/' % self.address
-        return os.path.join(url, path)
+        return os.path.join(self.url, path)
 
     def ap_list(self, ap_ids=None):
         """Get Access Point list.
