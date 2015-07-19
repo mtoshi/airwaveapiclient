@@ -88,6 +88,29 @@ class APGraph(OrderedDict):
                         params['end'] = end
         return self.__graph_url(params)
 
+    def client_count_802dot11bgn(self, start=None, end=None):
+        """RRD graph URL for access point client count for radio type IEEE802.11BGN.
+
+        Args:
+
+            :start (int, optional): Graph start time(seconds ago).
+                Default is None.
+            :end (int, optional): Graph end time(seconds ago).
+                Default is None.
+
+        Returns:
+
+            :str: Graph URL string.
+
+        Usage: ::
+
+            >>> ap_graph.client_count_802dot11bgn(start=-3600)
+            'https://x.x.x.x/nf/rrd_graph?
+                end=-0s&id=1&radio_index=1&start=-3600s&type=ap_client_count'
+
+        """
+        return self.__graph_base(u'ap_client_count', u'bgn', start, end)
+
     def client_count_802dot11an(self, start=None, end=None):
         """RRD graph URL for access point client count for radio type IEEE802.11AN.
 
@@ -111,8 +134,8 @@ class APGraph(OrderedDict):
         """
         return self.__graph_base(u'ap_client_count', u'aN', start, end)
 
-    def client_count_802dot11bgn(self, start=None, end=None):
-        """RRD graph URL for access point client count for radio type IEEE802.11BGN.
+    def bandwidth_802dot11bgn(self, start=None, end=None):
+        """RRD graph URL for access point bandwidth for radio type IEEE802.11BGN.
 
         Args:
 
@@ -127,9 +150,32 @@ class APGraph(OrderedDict):
 
         Usage: ::
 
-            >>> ap_graph.client_count_802dot11bgn(start=-3600)
+            >>> ap_graph.bandwidth_802dot11bgn(start=-3600)
             'https://x.x.x.x/nf/rrd_graph?
-                end=-0s&id=1&radio_index=1&start=-3600s&type=ap_client_count'
+                end=-0s&id=1&radio_index=1&start=-3600s&type=ap_bandwidth'
 
         """
-        return self.__graph_base(u'ap_client_count', u'bgn', start, end)
+        return self.__graph_base(u'ap_bandwidth', u'bgn', start, end)
+
+    def bandwidth_802dot11an(self, start=None, end=None):
+        """RRD graph URL for access point bandwidth for radio type IEEE802.11AN.
+
+        Args:
+
+            :start (int, optional): Graph start time(seconds ago).
+                Default is None.
+            :end (int, optional): Graph end time(seconds ago).
+                Default is None.
+
+        Returns:
+
+            :str: Graph URL string.
+
+        Usage: ::
+
+            >>> ap_graph.bandwidth_802dot11an(start=-3600)
+            'https://x.x.x.x/nf/rrd_graph?
+                end=-0s&id=1&radio_index=2&start=-3600s&type=ap_bandwidth'
+
+        """
+        return self.__graph_base(u'ap_bandwidth', u'aN', start, end)
