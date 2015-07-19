@@ -89,7 +89,7 @@ class APGraph(OrderedDict):
         return self.__graph_url(params)
 
     def client_count_802dot11bgn(self, start=None, end=None):
-        """RRD graph URL for access point client count for radio type IEEE802.11BGN.
+        """RRD graph URL for access point client count of radio type IEEE802.11BGN.
 
         Args:
 
@@ -112,7 +112,7 @@ class APGraph(OrderedDict):
         return self.__ap_graph(u'ap_client_count', u'bgn', start, end)
 
     def client_count_802dot11an(self, start=None, end=None):
-        """RRD graph URL for access point client count for radio type IEEE802.11AN.
+        """RRD graph URL for access point client count of radio type IEEE802.11AN.
 
         Args:
 
@@ -135,7 +135,7 @@ class APGraph(OrderedDict):
         return self.__ap_graph(u'ap_client_count', u'aN', start, end)
 
     def bandwidth_802dot11bgn(self, start=None, end=None):
-        """RRD graph URL for access point bandwidth for radio type IEEE802.11BGN.
+        """RRD graph URL for access point bandwidth of radio type IEEE802.11BGN.
 
         Args:
 
@@ -158,7 +158,7 @@ class APGraph(OrderedDict):
         return self.__ap_graph(u'ap_bandwidth', u'bgn', start, end)
 
     def bandwidth_802dot11an(self, start=None, end=None):
-        """RRD graph URL for access point bandwidth for radio type IEEE802.11AN.
+        """RRD graph URL for access point bandwidth of radio type IEEE802.11AN.
 
         Args:
 
