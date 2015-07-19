@@ -51,10 +51,10 @@ class APGraph(OrderedDict):
 
         end = params['end']
         if not end:
-            end = 0
+            end = self.default_end_time
 
-        params['start'] = '%ss' % start
-        params['end'] = '%ss' % end
+        params['start'] = APGraph.graph_time_format(start)
+        params['end'] = APGraph.graph_time_format(end)
         params = APGraph.urlencode(params)
         path = urljoin(self.url, self.path)
         return '%s?%s' % (path, params)
