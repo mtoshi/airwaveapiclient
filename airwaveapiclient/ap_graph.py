@@ -59,8 +59,8 @@ class APGraph(OrderedDict):
         path = urljoin(self.url, self.path)
         return '%s?%s' % (path, params)
 
-    def __graph_base(self, graph_type, radio_type, start, end):
-        """RRD graph base method.
+    def __ap_graph(self, graph_type, radio_type, start, end):
+        """RRD access point graph base method.
 
         Args:
 
@@ -109,7 +109,7 @@ class APGraph(OrderedDict):
                 end=-0s&id=1&radio_index=1&start=-3600s&type=ap_client_count'
 
         """
-        return self.__graph_base(u'ap_client_count', u'bgn', start, end)
+        return self.__ap_graph(u'ap_client_count', u'bgn', start, end)
 
     def client_count_802dot11an(self, start=None, end=None):
         """RRD graph URL for access point client count for radio type IEEE802.11AN.
@@ -132,7 +132,7 @@ class APGraph(OrderedDict):
                 end=-0s&id=1&radio_index=2&start=-3600s&type=ap_client_count'
 
         """
-        return self.__graph_base(u'ap_client_count', u'aN', start, end)
+        return self.__ap_graph(u'ap_client_count', u'aN', start, end)
 
     def bandwidth_802dot11bgn(self, start=None, end=None):
         """RRD graph URL for access point bandwidth for radio type IEEE802.11BGN.
@@ -155,7 +155,7 @@ class APGraph(OrderedDict):
                 end=-0s&id=1&radio_index=1&start=-3600s&type=ap_bandwidth'
 
         """
-        return self.__graph_base(u'ap_bandwidth', u'bgn', start, end)
+        return self.__ap_graph(u'ap_bandwidth', u'bgn', start, end)
 
     def bandwidth_802dot11an(self, start=None, end=None):
         """RRD graph URL for access point bandwidth for radio type IEEE802.11AN.
@@ -178,4 +178,4 @@ class APGraph(OrderedDict):
                 end=-0s&id=1&radio_index=2&start=-3600s&type=ap_bandwidth'
 
         """
-        return self.__graph_base(u'ap_bandwidth', u'aN', start, end)
+        return self.__ap_graph(u'ap_bandwidth', u'aN', start, end)
