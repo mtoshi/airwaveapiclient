@@ -16,6 +16,8 @@ class APGraph(OrderedDict):
 
         :url (str): AirWave URL.
         :path (str): Graph path.
+        :default_start_time(int): Graph start default time.
+        :default_end_time(int): Graph end default time.
 
     """
 
