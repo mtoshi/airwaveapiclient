@@ -33,6 +33,21 @@ class APGraphUnitTests(unittest.TestCase):
         """Test init."""
         ap_graph = APGraph(self.url, self.objs[0])
         self.assertEqual(ap_graph.url, u'https://192.168.1.1/')
+        self.assertEqual(ap_graph.path, u'/nf/rrd_graph')
+        self.assertEqual(ap_graph.default_start_time, -7200)
+        self.assertEqual(ap_graph.default_end_time, 0)
+
+        ap_graph = APGraph(self.url, self.objs[1])
+        self.assertEqual(ap_graph.url, u'https://192.168.1.1/')
+        self.assertEqual(ap_graph.path, u'/nf/rrd_graph')
+        self.assertEqual(ap_graph.default_start_time, -7200)
+        self.assertEqual(ap_graph.default_end_time, 0)
+
+        ap_graph = APGraph(self.url, self.objs[2])
+        self.assertEqual(ap_graph.url, u'https://192.168.1.1/')
+        self.assertEqual(ap_graph.path, u'/nf/rrd_graph')
+        self.assertEqual(ap_graph.default_start_time, -7200)
+        self.assertEqual(ap_graph.default_end_time, 0)
 
     def test_client_count_802dot11bgn(self):
         """Test for client_count_802dot11bgn."""
