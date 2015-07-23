@@ -60,3 +60,15 @@ class APGraphUnitTests(unittest.TestCase):
                       'start=-7200s&'
                       'type=ap_client_count')
         self.assertEqual(graph_url, _graph_url)
+
+    def test_client_count_802dot11an(self):
+        """Test for client_count_802dot11an."""
+        ap_graph = APGraph(self.url, self.objs[0])
+        graph_url = ap_graph.client_count_802dot11an()
+        _graph_url = ('https://192.168.1.1/nf/rrd_graph?'
+                      'end=0s&'
+                      'id=1&'
+                      'radio_index=2&'
+                      'start=-7200s&'
+                      'type=ap_client_count')
+        self.assertEqual(graph_url, _graph_url)
