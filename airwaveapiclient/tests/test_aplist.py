@@ -4,6 +4,7 @@
 
 import unittest
 from airwaveapiclient import APList
+from airwaveapiclient.tests import test_utils
 import os
 
 
@@ -20,8 +21,7 @@ class APListUnitTests(unittest.TestCase):
         self.ap_list_file = 'test_ap_list.xml'
         self.here = os.path.dirname(os.path.abspath(__file__))
         path = os.path.join(self.here, self.ap_list_file)
-        with open(path) as _file:
-            self.ap_list = _file.read()
+        self.ap_list = test_utils.read_file(path)
         self.obj = APList(self.ap_list)
 
     def tearDown(self):
