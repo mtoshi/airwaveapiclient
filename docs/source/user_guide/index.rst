@@ -9,3 +9,4 @@ User Guide
    airwaveapiclient
    aplist
    apdetail
+   apgraph
