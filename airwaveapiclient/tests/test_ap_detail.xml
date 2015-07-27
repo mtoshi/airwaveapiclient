@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<amp:amp_ap_detail version="1" xmlns:amp="http://www.airwave.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.airwave.com amp_ap_detail.xsd">
+  <ap id="1">
+    <ap_folder>Top &gt; Tokyo</ap_folder>
+    <ap_group>Access Points</ap_group>
+    <is_up>true</is_up>
+    <radio index="1">
+      <bssid>10:00:00:00:00:11</bssid>
+      <bssid>10:00:00:00:00:12</bssid>
+      <bssid>10:00:00:00:00:13</bssid>
+      <bssid>10:00:00:00:00:14</bssid>
+      <bssid>10:00:00:00:00:15</bssid>
+      <bssid>10:00:00:00:00:16</bssid>
+      <bssid>10:00:00:00:00:17</bssid>
+      <bssid>10:00:00:00:00:18</bssid>
+      <client id="11000001">
+        <assoc_stat>false</assoc_stat>
+        <auth_stat>false</auth_stat>
+        <radio_mac>A1:01:00:00:00:C1</radio_mac>
+        <signal>-43</signal>
+        <snr>51</snr>
+      </client>
+      <client id="11000002">
+        <assoc_stat>false</assoc_stat>
+        <auth_stat>false</auth_stat>
+        <radio_mac>A1:01:00:00:00:C2</radio_mac>
+        <signal>-50</signal>
+        <snr>44</snr>
+      </client>
+      <client id="11000003">
+        <assoc_stat>false</assoc_stat>
+        <auth_stat>false</auth_stat>
+        <radio_mac>A1:01:00:00:00:C3</radio_mac>
+        <signal>-56</signal>
+        <snr>38</snr>
+      </client>
+      <neighbor_ap id="110001">
+        <channel>1</channel>
+        <last_discovered>1435017030</last_discovered>
+        <name>AP1R2N1</name>
+        <neighbor_mode>ap</neighbor_mode>
+        <neighbor_type>rogue</neighbor_type>
+        <radio_mac>A1:01:00:00:00:A1</radio_mac>
+        <rssi>5</rssi>
+        <security>none</security>
+        <signal>-87</signal>
+        <snr>5</snr>
+        <ssid>SSID_AP1R2N1</ssid>
+        <vendor>Unknown Locally Administered Address</vendor>
+      </neighbor_ap>
+      <neighbor_ap id="110002">
+        <channel>1</channel>
+        <last_discovered>1434948615</last_discovered>
+        <name>AP1R2N2</name>
+        <neighbor_mode>ap</neighbor_mode>
+        <neighbor_type>rogue</neighbor_type>
+        <radio_mac>A1:01:00:00:00:A2</radio_mac>
+        <rssi>7</rssi>
+        <security>WEP</security>
+        <signal>-85</signal>
+        <snr>7</snr>
+        <ssid>SSID_AP1R2N2</ssid>
+        <vendor>Unknown Locally Administered Address</vendor>
+      </neighbor_ap>
+      <neighbor_ap id="110003">
+        <channel>2</channel>
+        <last_discovered>1435189064</last_discovered>
+        <name>AP1R2N3</name>
+        <neighbor_mode>ap</neighbor_mode>
+        <neighbor_type>rogue</neighbor_type>
+        <radio_mac>A1:01:00:00:00:A3</radio_mac>
+        <rssi>13</rssi>
+        <security>none</security>
+        <signal>-81</signal>
+        <snr>13</snr>
+        <ssid>SSID_AP1R2N3</ssid>
+        <vendor>Unknown Locally Administered Address</vendor>
+      </neighbor_ap>
+      <operational_mode>n</operational_mode>
+      <radio_interface>2</radio_interface>
+      <radio_type>bgn</radio_type>
+    </radio>
+    <radio index="2">
+      <bssid>10:00:00:00:00:21</bssid>
+      <bssid>10:00:00:00:00:22</bssid>
+      <bssid>10:00:00:00:00:23</bssid>
+      <bssid>10:00:00:00:00:24</bssid>
+      <bssid>10:00:00:00:00:25</bssid>
+      <bssid>10:00:00:00:00:26</bssid>
+      <bssid>10:00:00:00:00:27</bssid>
+      <bssid>10:00:00:00:00:28</bssid>
+      <bw>231.856</bw>
+      <client id="12000001">
+        <assoc_stat>true</assoc_stat>
+        <auth_stat>false</auth_stat>
+        <device_type>Unknown</device_type>
+        <ipv4>10.1.2.1</ipv4>
+        <name>AP1R2C1</name>
+        <radio_mac>A1:02:00:00:00:C1</radio_mac>
+        <radio_mode>N</radio_mode>
+        <vendor>Unknown</vendor>
+      </client>
+      <client id="12000002">
+        <assoc_stat>true</assoc_stat>
+        <auth_stat>false</auth_stat>
+        <bw>11.2</bw>
+        <device_type>Unknown</device_type>
+        <ipv4>10.1.2.2</ipv4>
+        <name>AP1R2C2</name>
+        <radio_mac>A1:02:00:00:00:C2</radio_mac>
+        <radio_mode>N</radio_mode>
+        <rssi>47</rssi>
+        <signal>-46</signal>
+        <snr>47</snr>
+        <vendor>Unknown</vendor>
+      </client>
+      <client id="12000003">
+        <assoc_stat>true</assoc_stat>
+        <auth_stat>false</auth_stat>
+        <bw>0.607</bw>
+        <device_type>Unknown</device_type>
+        <ipv4>10.1.2.3</ipv4>
+        <name>AP1R2C3</name>
+        <radio_mac>A1:02:00:00:00:C3</radio_mac>
+        <radio_mode>N</radio_mode>
+        <rssi>35</rssi>
+        <signal>-58</signal>
+        <snr>35</snr>
+        <vendor>Unknown</vendor>
+      </client>
+      <neighbor_ap id="120001">
+        <channel>132</channel>
+        <last_discovered>1435174134</last_discovered>
+        <name>AP1R2N1</name>
+        <neighbor_mode>ap</neighbor_mode>
+        <neighbor_type>rogue</neighbor_type>
+        <radio_mac>A1:02:00:00:00:A1</radio_mac>
+        <rssi>6</rssi>
+        <security>none</security>
+        <signal>-85</signal>
+        <snr>6</snr>
+        <ssid>SSID_AP1R2N1</ssid>
+        <vendor>Unknown</vendor>
+      </neighbor_ap>
+      <neighbor_ap id="120002">
+        <channel>60</channel>
+        <last_discovered>1434366225</last_discovered>
+        <name>AP1R2N2</name>
+        <neighbor_mode>ap</neighbor_mode>
+        <neighbor_type>rogue</neighbor_type>
+        <radio_mac>A1:02:00:00:00:A2</radio_mac>
+        <rssi>7</rssi>
+        <security>none</security>
+        <signal>-82</signal>
+        <snr>7</snr>
+        <ssid>SSID_AP1R2N2</ssid>
+        <vendor>Unknown</vendor>
+      </neighbor_ap>
+      <neighbor_ap id="120003">
+        <channel>132</channel>
+        <last_discovered>1434954030</last_discovered>
+        <name>AP1R2N3</name>
+        <neighbor_mode>ap</neighbor_mode>
+        <neighbor_type>rogue</neighbor_type>
+        <radio_mac>A1:02:00:00:00:A3</radio_mac>
+        <rssi>8</rssi>
+        <security>WEP</security>
+        <signal>-84</signal>
+        <snr>8</snr>
+        <ssid>SSID_AP1R2N3</ssid>
+        <vendor>Unknown</vendor>
+      </neighbor_ap>
+      <operational_mode>N</operational_mode>
+      <radio_interface>1</radio_interface>
+      <radio_type>aN</radio_type>
+    </radio>
+    <snmp_uptime>182836</snmp_uptime>
+  </ap>
+</amp:amp_ap_detail>
