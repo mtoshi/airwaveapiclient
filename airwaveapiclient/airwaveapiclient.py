@@ -301,20 +301,51 @@ class AirWaveAPIClient(object):
 
 class APList(list):
 
-    """class APList.
+    """Access Point List.
 
-    Access Point List.
+    This class inherits the list class.
 
     """
-
     def __init__(self, xml):
-        """Constructor."""
+        """Initialize APList.
+
+        Args:
+
+            :xml (str): XML string.
+
+        Usage: ::
+
+            >>> from airwaveapiclient import AirWaveAPIClient
+            >>> from airwaveapiclient import APList
+            >>> airwave = AirWaveAPIClient(username='admin',
+            >>>                            password='xxxxx',
+            >>>                            url='https://192.168.1.1/')
+            >>> airwave.login()
+            >>> res = airwave.ap_list()
+            >>> airwave.logout()
+            >>> objs = APList(res.text)
+            >>> for obj apin objs:
+            ...     'ID:%s, %s' % (obj['@id'], obj['name'])
+            'ID:1, AP001'
+            'ID:2, AP002'
+            'ID:3, AP003'
+
+        """
         data = xmltodict.parse(xml)
         obj = data['amp:amp_ap_list']['ap']
         list.__init__(self, obj)
 
     def search(self, obj):
-        """Search Access Point."""
+        """Search Access Point.
+
+        This method can search access point with id or name.
+        Search Logic is a complete match.
+
+        Args:
+
+            :obj (str or int): Access point id or name.
+
+        """
         if isinstance(obj, int):
             for node in self:
                 if int(node['@id']) == obj:
@@ -329,13 +360,39 @@ class APList(list):
 
 class APDetail(OrderedDict):
 
-    """class APDetail.
+    """Access Point Detail.
 
-    Access Point Detail.
+    This class inherits the OrderedDict class.
 
     """
     def __init__(self, xml):
-        """Constructor."""
+        """Initialize APDetail.
+
+        Args:
+
+            :xml (str): XML string.
+
+        Usage: ::
+
+            >>> from airwaveapiclient import AirWaveAPIClient
+            >>> from airwaveapiclient import APDetail
+            >>> airwave = AirWaveAPIClient(username='admin',
+            >>>                            password='xxxxx',
+            >>>                            url='https://192.168.1.1/')
+            >>> airwave.login()
+            >>> res = airwave.ap_detail(123)
+            >>> airwave.logout()
+            >>> obj = APDetail(res.text)
+            >>> for radio in obj['radio']:
+            ...     for client in radio['client']:
+            ...         'ID:%s, SIGNAL:%s, SNR:%s' % (client['@id'],
+            ...                                       client['signal'],
+            ...                                       client['snr'])
+            'ID:11000001, SIGNAL:-43, SNR:51'
+            'ID:11000002, SIGNAL:-50, SNR:44'
+            'ID:11000003, SIGNAL:-56, SNR:38'
+
+        """
         data = xmltodict.parse(xml)
         obj = data['amp:amp_ap_detail']['ap']
         OrderedDict.__init__(self, obj)
