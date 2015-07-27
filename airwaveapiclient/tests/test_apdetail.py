@@ -18,7 +18,7 @@ class APDetailUnitTests(unittest.TestCase):
 
     def setUp(self):
         """Setup."""
-        self.ap_detail_file = 'test_ap_detail.xml'
+        self.ap_detail_file = 'test_apdetail.xml'
         self.here = os.path.dirname(os.path.abspath(__file__))
         path = os.path.join(self.here, self.ap_detail_file)
         self.ap_detail = test_utils.read_file(path)

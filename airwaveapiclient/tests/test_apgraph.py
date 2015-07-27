@@ -20,7 +20,7 @@ class APGraphUnitTests(unittest.TestCase):
     def setUp(self):
         """Setup."""
         self.url = u'https://192.168.1.1/'
-        self.ap_list_file = 'test_ap_list.xml'
+        self.ap_list_file = 'test_aplist.xml'
         self.here = os.path.dirname(os.path.abspath(__file__))
         path = os.path.join(self.here, self.ap_list_file)
         self.ap_list = test_utils.read_file(path)
