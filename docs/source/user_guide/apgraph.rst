@@ -2,6 +2,10 @@ APGraph
 ================
 .. autoclass:: ap_graph.APGraph
 
+init
+----
+.. automethod:: ap_graph.APGraph.__init__
+
 client_count_802dot11bgn
 -------------------------
 .. automethod:: ap_graph.APGraph.client_count_802dot11bgn

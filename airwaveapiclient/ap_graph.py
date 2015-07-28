@@ -26,12 +26,36 @@ class APGraph(OrderedDict):
 
         Args:
 
-            :ap_node (str): AP.
+            :url (str): AirWave URL.
+            :obj (collections.OrderedDict): APList element.
 
         Usage: ::
 
+            >>> from airwaveapiclient import AirWaveAPIClient
             >>> from airwaveapiclient import APGraph
+            >>> from airwaveapiclient import APList
             >>>
+            >>> url = 'http://192.168.1.1/'
+            >>>
+            >>> airwave = AirWaveAPIClient(username='admin',
+            >>>                            password='xxxxx',
+            >>>                            url=url)
+            >>>
+            >>> airwave.login()
+            >>> ap_list = airwave.ap_list()
+            >>>
+            >>> objs = APList(ap_list)
+            >>> for obj in objs:
+            ...     ap_graph = APGraph(url, obj)
+            ...     ap_graph.client_count_802dot11an()
+            ...
+            'http://x.x.x.x/nf/rrd_graph?
+                end=0s&id=1&radio_index=2&start=-7200s&type=ap_client_count'
+            'http://x.x.x.x/nf/rrd_graph?
+                end=0s&id=2&radio_index=2&start=-7200s&type=ap_client_count'
+            'http://x.x.x.x/nf/rrd_graph?
+                end=0s&id=3&radio_index=2&start=-7200s&type=ap_client_count'
+            >>> airwave.logout()
 
         """
         self.url = url
