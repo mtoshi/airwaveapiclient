@@ -60,15 +60,14 @@ with open('requirements.txt', 'w') as _file:
 
 setup(
     name="airwaveapiclient",
-    version="0.0.0",
+    version="0.1.0",
     description='Aruba Networks AirWave API Client.',
     long_description=README,
     author='Toshikatsu Murakoshi',
     author_email='mtoshi.g@gmail.com',
-    url='rewrite here.',
+    url='https://github.com/mtoshi/airwaveapiclient',
     license='MIT',
     classifiers=classifiers,
-    # py_modules=['airwaveapiclient'],
     packages=['airwaveapiclient'],
     data_files=[],
     install_requires=requires,
