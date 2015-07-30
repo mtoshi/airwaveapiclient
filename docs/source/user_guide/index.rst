@@ -10,3 +10,4 @@ User Guide
    aplist
    apdetail
    apgraph
+   sample_code
