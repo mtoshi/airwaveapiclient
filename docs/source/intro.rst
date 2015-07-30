@@ -9,6 +9,10 @@ Supported features
 ------------------
 Currently airwaveapiclient can:
 
-* Access point list.
-* Access point detail.
-* Client detail.
+* Get access point list (XML).
+* Get access point detail (XML).
+* Get client detail (XML).
+* Get rogue detail (XML).
+* Get report list (XHTML).
+* Get report detail (XHTML).
+* Get access point graph url.
