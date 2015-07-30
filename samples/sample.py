@@ -17,7 +17,7 @@ def main():
 
     username = 'admin'
     password = '*****'
-    address = '192.168.1.1'
+    url = 'https://192.168.1.1'
 
     #################################################
     # Login #########################################
@@ -25,7 +25,7 @@ def main():
 
     airwave = AirWaveAPIClient(username=username,
                                password=password,
-                               address=address)
+                               url=url)
     airwave.login()
 
     #################################################
