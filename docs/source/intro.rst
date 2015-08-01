@@ -15,4 +15,4 @@ Currently airwaveapiclient can:
 * Get rogue detail (XML).
 * Get report list (XHTML).
 * Get report detail (XHTML).
-* Get access point graph url.
+* Make access point graph url.
