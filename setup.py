@@ -52,23 +52,23 @@ here = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(here, 'README.rst')) as _file:
     README = _file.read()
 
-requires = []
+requires = ['requests',
+            'xmltodict']
 
 with open('requirements.txt', 'w') as _file:
     _file.write('\n'.join(requires))
 
 setup(
     name="airwaveapiclient",
-    version="0.0.0",
-    description='airwaveapiclient',
+    version="0.1.0",
+    description='Aruba Networks AirWave API Client.',
     long_description=README,
     author='Toshikatsu Murakoshi',
     author_email='mtoshi.g@gmail.com',
-    url='rewrite here.',
+    url='https://github.com/mtoshi/airwaveapiclient',
     license='MIT',
     classifiers=classifiers,
-    py_modules=['airwaveapiclient'],
-    # packages=['airwaveapiclient'],
+    packages=['airwaveapiclient'],
     data_files=[],
     install_requires=requires,
     include_package_data=True,
