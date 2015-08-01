@@ -4,7 +4,7 @@
 
 import sys
 
-# pylint: disable=unused-import,import-error
+# pylint: disable=unused-import,import-error,relative-import,no-name-in-module
 if sys.version_info.major == 2:
     from airwaveapiclient import AirWaveAPIClient
     from airwaveapiclient import APList
