@@ -14,7 +14,7 @@ detail, client, etc.
    :target: https://pypi.python.org/pypi/airwaveapiclient/
    :alt: Latest Version
 .. image:: https://readthedocs.org/projects/airwaveapiclient/badge/?version=latest
-   :target: https://readthedocs.org/projects/airwaveapiclient/?badge=latest
+   :target: https://airwaveapiclient.readthedocs.org
    :alt: Documentation Status
 
 Requirements
