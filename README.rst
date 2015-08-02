@@ -19,11 +19,11 @@ detail, client, etc.
 
 Requirements
 ============
-- Python2.7, 3.3, 3.4, PyPy.
+* Python2.7, 3.3, 3.4, PyPy.
 
 Installation
 ============
-PyPI or Github ::
+* PyPI or Github ::
 
    $ pip install airwaveapiclient
 
@@ -42,7 +42,7 @@ Using example
 * Sample code: Github_
     .. _Github: https://github.com/mtoshi/airwaveapiclient/blob/master/samples/sample.py
 
-Login ::
+* Login ::
 
     >>> airwave = AirWaveAPIClient(username='admin',
     ...                            password='*****',
@@ -50,7 +50,7 @@ Login ::
     >>> airwave.login()
 
 
-Get Access Point List ::
+* Get Access Point List ::
 
     >>> res = airwave.ap_list()
     >>> res.status_code
@@ -59,7 +59,7 @@ Get Access Point List ::
     '<?xml version="1.0" encoding="utf-8" ...'
 
 
-Get Access Point Detail ::
+* Get Access Point Detail ::
 
     >>> ap_id = 1
     >>> res = airwave.ap_detail(ap_id)
@@ -69,7 +69,7 @@ Get Access Point Detail ::
     '<?xml version="1.0" encoding="utf-8" ...'
 
 
-Logout ::
+* Logout ::
 
     >>> airwave.logout()
 
