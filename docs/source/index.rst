@@ -28,6 +28,7 @@ Contents:
    require
    installation
    user_guide/index
+   history
 
 Indices and tables
 ==================
