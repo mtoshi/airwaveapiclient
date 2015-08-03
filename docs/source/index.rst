@@ -9,10 +9,10 @@ Welcome to airwaveapiclient's documentation!
 
 .. image:: https://secure.travis-ci.org/mtoshi/airwaveapiclient.svg?branch=master
    :target: http://travis-ci.org/mtoshi/airwaveapiclient
-.. image:: https://coveralls.io/repos/mtoshi/airwaveapiclient/badge.svg?branch=coverall
-   :target: https://coveralls.io/r/mtoshi/airwaveapiclient?branch=coverall
-.. image:: https://pypip.in/version/airwaveapiclient/badge.svg
-   :target: https://pypi.python.org/pypi/airwaveapiclient/
+.. image:: https://coveralls.io/repos/mtoshi/airwaveapiclient/badge.svg?branch=master&service=github
+   :target: https://coveralls.io/github/mtoshi/airwaveapiclient?branch=master
+.. image:: https://img.shields.io/pypi/v/airwaveapiclient.svg
+   :target: https://pypi.python.org/pypi/airwaveapiclient
    :alt: Latest Version
 .. image:: https://readthedocs.org/projects/airwaveapiclient/badge/?version=latest
    :target: https://airwaveapiclient.readthedocs.org
