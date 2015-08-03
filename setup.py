@@ -46,6 +46,8 @@ classifiers = [
     "Programming Language :: Python :: 3.4",
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
+    "Topic :: System :: Monitoring",
+    "Topic :: System :: Networking",
 ]
 
 here = os.path.abspath(os.path.dirname(__file__))
