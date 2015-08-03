@@ -46,6 +46,8 @@ classifiers = [
     "Programming Language :: Python :: 3.4",
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
+    "Topic :: System :: Monitoring",
+    "Topic :: System :: Networking",
 ]
 
 here = os.path.abspath(os.path.dirname(__file__))
@@ -60,7 +62,7 @@ with open('requirements.txt', 'w') as _file:
 
 setup(
     name="airwaveapiclient",
-    version="0.1.1",
+    version="0.1.2",
     description='Aruba Networks AirWave API Client.',
     long_description=README,
     author='Toshikatsu Murakoshi',
