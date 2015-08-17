@@ -31,18 +31,21 @@ class APGraphUnitTests(unittest.TestCase):
 
     def test_init(self):
         """Test init."""
+        # 802.11bgn, 802.11an
         ap_graph = APGraph(self.url, self.objs[0])
         self.assertEqual(ap_graph.url, u'https://192.168.1.1/')
         self.assertEqual(ap_graph.path, u'/nf/rrd_graph')
         self.assertEqual(ap_graph.default_start_time, -7200)
         self.assertEqual(ap_graph.default_end_time, 0)
 
+        # 802.11bgn, 802.11an
         ap_graph = APGraph(self.url, self.objs[1])
         self.assertEqual(ap_graph.url, u'https://192.168.1.1/')
         self.assertEqual(ap_graph.path, u'/nf/rrd_graph')
         self.assertEqual(ap_graph.default_start_time, -7200)
         self.assertEqual(ap_graph.default_end_time, 0)
 
+        # 802.11bgn, 802.11ac
         ap_graph = APGraph(self.url, self.objs[2])
         self.assertEqual(ap_graph.url, u'https://192.168.1.1/')
         self.assertEqual(ap_graph.path, u'/nf/rrd_graph')
@@ -68,6 +71,18 @@ class APGraphUnitTests(unittest.TestCase):
         _graph_url = ('https://192.168.1.1/nf/rrd_graph?'
                       'end=0s&'
                       'id=1&'
+                      'radio_index=2&'
+                      'start=-7200s&'
+                      'type=ap_client_count')
+        self.assertEqual(graph_url, _graph_url)
+
+    def test_client_count_802dot11ac(self):
+        """Test for client_count_802dot11ac."""
+        ap_graph = APGraph(self.url, self.objs[2])
+        graph_url = ap_graph.client_count_802dot11ac()
+        _graph_url = ('https://192.168.1.1/nf/rrd_graph?'
+                      'end=0s&'
+                      'id=3&'
                       'radio_index=2&'
                       'start=-7200s&'
                       'type=ap_client_count')
