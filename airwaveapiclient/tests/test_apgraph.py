@@ -380,3 +380,16 @@ class APGraphUnitTests(unittest.TestCase):
                       'start=-7200s&'
                       'type=channel_utilization')
         self.assertEqual(graph_url, _graph_url)
+
+    def test_channel_utilization_802dot11ac(self):
+        """Test for channel utilization 802dot11ac."""
+        ap_graph = APGraph(self.url, self.objs[2])
+        graph_url = ap_graph.channel_utilization_802dot11ac()
+        _graph_url = ('https://192.168.1.1/nf/rrd_graph?'
+                      'ap_uid=00%3A00%3A10%3A00%3A00%3A03&'
+                      'end=0s&'
+                      'radio_index=2&'
+                      'radio_interface=1&'
+                      'start=-7200s&'
+                      'type=channel_utilization')
+        self.assertEqual(graph_url, _graph_url)

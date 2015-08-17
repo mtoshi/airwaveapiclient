@@ -754,6 +754,30 @@ class APGraph(OrderedDict):
         """
         return self.__radio_graph(u'channel_utilization', u'aN', start, end)
 
+    def channel_utilization_802dot11ac(self, start=None, end=None):
+        """RRD graph URL for channel utilization for radio type IEEE802.11AC.
+
+        Args:
+
+            :start (int, optional): Graph start time(seconds ago).
+                Default is None.
+            :end (int, optional): Graph end time(seconds ago).
+                Default is None.
+
+        Returns:
+
+            :str: Graph URL string.
+
+        Usage: ::
+
+            >>> ap_graph.channel_utilization_802dot11ac(start=-3600)
+            'https://x.x.x.x/nf/rrd_graph?
+                ap_uid=00%3A00%3A10%3A00%3A00%3A03&
+                end=-0s&radio_index=2&radio_interface=2&start=-3600s&type=channel_utilization'
+
+        """
+        return self.__radio_graph(u'channel_utilization', u'ac', start, end)
+
     @staticmethod
     def urlencode(params):
         """URL Encode."""
