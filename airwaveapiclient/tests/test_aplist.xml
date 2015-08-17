@@ -126,11 +126,11 @@
       <display_channel>52</display_channel>
       <display_enabled>true</display_enabled>
       <display_transmit_power>22 dBm</display_transmit_power>
-      <operational_mode>N</operational_mode>
+      <operational_mode>ac</operational_mode>
       <radio_interface>1</radio_interface>
       <radio_mac>30:00:00:00:00:02</radio_mac>
       <radio_role>ap</radio_role>
-      <radio_type>aN</radio_type>
+      <radio_type>ac</radio_type>
     </radio>
     <serial_number>BT0000003</serial_number>
     <syscontact></syscontact>
