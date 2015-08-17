@@ -88,7 +88,7 @@ class APGraph(OrderedDict):
             :graph_type (str): Graph type.
             :radio_type (str): Radio type.
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -115,7 +115,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -138,7 +138,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -161,7 +161,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -184,7 +184,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -207,7 +207,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -230,7 +230,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -253,7 +253,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -276,7 +276,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -299,7 +299,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -324,7 +324,7 @@ class APGraph(OrderedDict):
             :graph_type (str): Graph type.
             :radio_type (str): Radio type.
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -352,7 +352,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -376,7 +376,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -400,7 +400,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -424,7 +424,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -448,7 +448,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -472,7 +472,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -496,7 +496,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -520,7 +520,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -544,7 +544,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -568,7 +568,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -592,7 +592,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -616,7 +616,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -640,7 +640,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -664,7 +664,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -688,7 +688,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -712,7 +712,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -736,7 +736,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
@@ -760,7 +760,7 @@ class APGraph(OrderedDict):
         Args:
 
             :start (int, optional): Graph start time(seconds ago).
-                Default is None.
+                Default is -7200.
             :end (int, optional): Graph end time(seconds ago).
                 Default is None.
 
