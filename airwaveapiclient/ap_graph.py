@@ -682,6 +682,30 @@ class APGraph(OrderedDict):
         """
         return self.__radio_graph(u'radio_goodput', u'aN', start, end)
 
+    def radio_goodput_802dot11ac(self, start=None, end=None):
+        """RRD graph URL for radio goodput for radio type IEEE802.11AC.
+
+        Args:
+
+            :start (int, optional): Graph start time(seconds ago).
+                Default is None.
+            :end (int, optional): Graph end time(seconds ago).
+                Default is None.
+
+        Returns:
+
+            :str: Graph URL string.
+
+        Usage: ::
+
+            >>> ap_graph.radio_goodput_802dot11ac(start=-3600)
+            'https://x.x.x.x/nf/rrd_graph?
+                ap_uid=00%3A00%3A10%3A00%3A00%3A03&
+                end=-0s&radio_index=2&radio_interface=2&start=-3600s&type=radio_goodput'
+
+        """
+        return self.__radio_graph(u'radio_goodput', u'ac', start, end)
+
     def channel_utilization_802dot11bgn(self, start=None, end=None):
         """RRD graph URL for channel utilization for radio type IEEE802.11BGN.
 
