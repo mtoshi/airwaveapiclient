@@ -224,6 +224,29 @@ class APGraph(OrderedDict):
         """
         return self.__ap_graph(u'ap_bandwidth', u'aN', start, end)
 
+    def bandwidth_802dot11ac(self, start=None, end=None):
+        """RRD graph URL for access point bandwidth of radio type IEEE802.11AC.
+
+        Args:
+
+            :start (int, optional): Graph start time(seconds ago).
+                Default is None.
+            :end (int, optional): Graph end time(seconds ago).
+                Default is None.
+
+        Returns:
+
+            :str: Graph URL string.
+
+        Usage: ::
+
+            >>> ap_graph.bandwidth_802dot11ac(start=-3600)
+            'https://x.x.x.x/nf/rrd_graph?
+                end=-0s&id=3&radio_index=2&start=-3600s&type=ap_bandwidth'
+
+        """
+        return self.__ap_graph(u'ap_bandwidth', u'ac', start, end)
+
     def dot11_counters_802dot11bgn(self, start=None, end=None):
         """RRD graph URL for access point dot11 counters of radio type IEEE802.11BGN.
 
