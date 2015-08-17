@@ -148,6 +148,18 @@ class APGraphUnitTests(unittest.TestCase):
                       'type=dot11_counters')
         self.assertEqual(graph_url, _graph_url)
 
+    def test_dot11_counters_802dot11ac(self):
+        """Test for dot11 counters 802dot11ac."""
+        ap_graph = APGraph(self.url, self.objs[2])
+        graph_url = ap_graph.dot11_counters_802dot11ac()
+        _graph_url = ('https://192.168.1.1/nf/rrd_graph?'
+                      'end=0s&'
+                      'id=3&'
+                      'radio_index=2&'
+                      'start=-7200s&'
+                      'type=dot11_counters')
+        self.assertEqual(graph_url, _graph_url)
+
     def test_radio_channel_802dot11bgn(self):
         """Test for channel 802dot11bgn."""
         ap_graph = APGraph(self.url, self.objs[0])
