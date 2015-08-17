@@ -15,7 +15,7 @@ class Tox(TestCommand):
     user_options = [('tox-args=', 'a', "Arguments to pass to tox")]
 
     def initialize_options(self):
-        """Iinit."""
+        """Init."""
         TestCommand.initialize_options(self)
         self.tox_args = None
 
@@ -62,7 +62,7 @@ with open('requirements.txt', 'w') as _file:
 
 setup(
     name="airwaveapiclient",
-    version="0.1.2",
+    version="0.1.3",
     description='Aruba Networks AirWave API Client.',
     long_description=README,
     author='Toshikatsu Murakoshi',

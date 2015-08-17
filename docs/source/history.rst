@@ -1,6 +1,11 @@
 History
 ============
 
+0.1.3 (2015-08-17)
+------------------
+* Added 802.11ac graph url.
+* Changed documentation.
+
 0.1.2 (2015-08-03)
 ------------------
 * Changed documentation.
