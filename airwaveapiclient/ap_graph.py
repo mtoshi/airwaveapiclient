@@ -394,6 +394,30 @@ class APGraph(OrderedDict):
         """
         return self.__radio_graph(u'radio_channel', u'aN', start, end)
 
+    def radio_channel_802dot11ac(self, start=None, end=None):
+        """RRD graph URL for radio channel for radio type IEEE802.11AC.
+
+        Args:
+
+            :start (int, optional): Graph start time(seconds ago).
+                Default is None.
+            :end (int, optional): Graph end time(seconds ago).
+                Default is None.
+
+        Returns:
+
+            :str: Graph URL string.
+
+        Usage: ::
+
+            >>> ap_graph.radio_channel_802dot11ac(start=-3600)
+            'https://x.x.x.x/nf/rrd_graph?
+                ap_uid=00%3A00%3A10%3A00%3A00%3A03&
+                end=-0s&radio_index=2&radio_interface=1&start=-3600s&type=radio_channel'
+
+        """
+        return self.__radio_graph(u'radio_channel', u'ac', start, end)
+
     def radio_noise_802dot11bgn(self, start=None, end=None):
         """RRD graph URL for radio noise for radio type IEEE802.11BGN.
 
@@ -441,6 +465,30 @@ class APGraph(OrderedDict):
 
         """
         return self.__radio_graph(u'radio_noise', u'aN', start, end)
+
+    def radio_noise_802dot11ac(self, start=None, end=None):
+        """RRD graph URL for radio noise for radio type IEEE802.11AC.
+
+        Args:
+
+            :start (int, optional): Graph start time(seconds ago).
+                Default is None.
+            :end (int, optional): Graph end time(seconds ago).
+                Default is None.
+
+        Returns:
+
+            :str: Graph URL string.
+
+        Usage: ::
+
+            >>> ap_graph.radio_noise_802dot11ac(start=-3600)
+            'https://x.x.x.x/nf/rrd_graph?
+                ap_uid=00%3A00%3A10%3A00%3A00%3A03&
+                end=-0s&radio_index=2&radio_interface=1&start=-3600s&type=radio_noise'
+
+        """
+        return self.__radio_graph(u'radio_noise', u'ac', start, end)
 
     def radio_power_802dot11bgn(self, start=None, end=None):
         """RRD graph URL for radio power for radio type IEEE802.11BGN.

@@ -186,6 +186,19 @@ class APGraphUnitTests(unittest.TestCase):
                       'type=radio_channel')
         self.assertEqual(graph_url, _graph_url)
 
+    def test_radio_channel_802dot11ac(self):
+        """Test for channel 802dot11ac."""
+        ap_graph = APGraph(self.url, self.objs[2])
+        graph_url = ap_graph.radio_channel_802dot11ac()
+        _graph_url = ('https://192.168.1.1/nf/rrd_graph?'
+                      'ap_uid=00%3A00%3A10%3A00%3A00%3A03&'
+                      'end=0s&'
+                      'radio_index=2&'
+                      'radio_interface=1&'
+                      'start=-7200s&'
+                      'type=radio_channel')
+        self.assertEqual(graph_url, _graph_url)
+
     def test_radio_noise_802dot11bgn(self):
         """Test for radio noise 802dot11bgn."""
         ap_graph = APGraph(self.url, self.objs[0])
@@ -205,6 +218,19 @@ class APGraphUnitTests(unittest.TestCase):
         graph_url = ap_graph.radio_noise_802dot11an()
         _graph_url = ('https://192.168.1.1/nf/rrd_graph?'
                       'ap_uid=00%3A00%3A10%3A00%3A00%3A01&'
+                      'end=0s&'
+                      'radio_index=2&'
+                      'radio_interface=1&'
+                      'start=-7200s&'
+                      'type=radio_noise')
+        self.assertEqual(graph_url, _graph_url)
+
+    def test_radio_noise_802dot11ac(self):
+        """Test for radio noise 802dot11ac."""
+        ap_graph = APGraph(self.url, self.objs[2])
+        graph_url = ap_graph.radio_noise_802dot11ac()
+        _graph_url = ('https://192.168.1.1/nf/rrd_graph?'
+                      'ap_uid=00%3A00%3A10%3A00%3A00%3A03&'
                       'end=0s&'
                       'radio_index=2&'
                       'radio_interface=1&'
