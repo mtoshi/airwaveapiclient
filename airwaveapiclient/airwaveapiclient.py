@@ -256,12 +256,8 @@ class AirWaveAPIClient(object):
         params = AirWaveAPIClient.urlencode(params)
         return self.session.get(url, verify=False, params=params)
 
-    def report_detail(self, report_id):
-        """Report detail inforamtion.
-
-        .. warning::
-
-            This method result includes API output that is XHTML(not XML).
+    def latest_report(self, report_id):
+        """Latest report inforamtion.
 
         Args:
 
@@ -273,17 +269,17 @@ class AirWaveAPIClient(object):
 
         Usage: ::
 
-            >>> res = airwave.report_detail(123)
+            >>> res = airwave.latest_report(123)
             >>> res.status_code
             200
             >>> res.url
-            'https://192.1681.1/nf/report_detail?id=123&format=xml'
-            >>> res.text  # xhtml output.
-            '<?xml version="1.0"?><!DOCTYPE html ...'
+            'https://192.1681.1/latest_report.xml?id=123'
+            >>> res.text
+            '<?xml version="1.0" encoding="utf-8" ...'
 
         """
-        url = self.api_path('nf/report_detail')
-        params = {'id': report_id, 'format': 'xml'}
+        url = self.api_path('latest_report.xml')
+        params = {'id': report_id}
         params = AirWaveAPIClient.urlencode(params)
         return self.session.get(url, verify=False, params=params)
 
