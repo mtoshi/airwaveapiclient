@@ -136,7 +136,7 @@ class AirWaveAPIClient(object):
         return self.session.get(url, verify=False)
 
     def ap_detail(self, ap_id):
-        """Get Access Point detail inforamtion.
+        """Get Access Point detail information.
 
         Args:
 
@@ -163,7 +163,7 @@ class AirWaveAPIClient(object):
         return self.session.get(url, verify=False, params=params)
 
     def client_detail(self, mac):
-        """Client detail inforamtion.
+        """Client detail information.
 
         Args:
 
@@ -190,7 +190,7 @@ class AirWaveAPIClient(object):
         return self.session.get(url, verify=False, params=params)
 
     def rogue_detail(self, ap_id):
-        """Rogue detail inforamtion.
+        """Rogue detail information.
 
         Args:
 
@@ -215,7 +215,7 @@ class AirWaveAPIClient(object):
         return self.session.get(url, verify=False, params=params)
 
     def latest_report(self, report_definition_id):
-        """Latest report inforamtion.
+        """Latest report information.
 
         Args:
 
