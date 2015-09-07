@@ -136,7 +136,7 @@ class AirWaveAPIClient(object):
         return self.session.get(url, verify=False)
 
     def ap_detail(self, ap_id):
-        """Get Access Point detail inforamtion.
+        """Get Access Point detail information.
 
         Args:
 
@@ -163,7 +163,7 @@ class AirWaveAPIClient(object):
         return self.session.get(url, verify=False, params=params)
 
     def client_detail(self, mac):
-        """Client detail inforamtion.
+        """Client detail information.
 
         Args:
 
@@ -190,7 +190,7 @@ class AirWaveAPIClient(object):
         return self.session.get(url, verify=False, params=params)
 
     def rogue_detail(self, ap_id):
-        """Rogue detail inforamtion.
+        """Rogue detail information.
 
         Args:
 
@@ -214,17 +214,13 @@ class AirWaveAPIClient(object):
         params = AirWaveAPIClient.urlencode(params)
         return self.session.get(url, verify=False, params=params)
 
-    def report_list(self, reports_search_title=None):
-        """Report list inforamtion.
-
-        .. warning::
-
-            This method result includes API output that is XHTML(not XML).
+    def latest_report(self, report_definition_id):
+        """Latest report information.
 
         Args:
 
-            :reports_search_title (optional[str]): You may filter with
-                report title.  Default is None.
+            :report_definition_id (int): Report definition ID.
+                Please get it from "https://x.x.x.x/reports_definition".
 
         Returns:
 
@@ -232,58 +228,17 @@ class AirWaveAPIClient(object):
 
         Usage: ::
 
-            # Get report list.
-
-            >>> res = airwave.report_list()
-            >>> res.url
-            'https://192.168.1.1/nf/reports_list?format=xml'
-
-            # Get specified report list with title.
-
-            >>> res = airwave.report_list('Weekly Report')
+            >>> res = airwave.latest_report(123)
             >>> res.status_code
             200
             >>> res.url
-            'https://192.168.1.1/nf/reports_list?reports_search_title=Weekly+Report&format=xml'
-            >>> res.text  # xhtml output.
-            '<?xml version="1.0"?><!DOCTYPE html ...'
+            'https://192.1681.1/latest_report.xml?id=123'
+            >>> res.text
+            '<?xml version="1.0" encoding="utf-8" ...'
 
         """
-        url = self.api_path('nf/reports_list')
-        params = {'format': 'xml'}
-        if reports_search_title:
-            params['reports_search_title'] = reports_search_title
-        params = AirWaveAPIClient.urlencode(params)
-        return self.session.get(url, verify=False, params=params)
-
-    def report_detail(self, report_id):
-        """Report detail inforamtion.
-
-        .. warning::
-
-            This method result includes API output that is XHTML(not XML).
-
-        Args:
-
-            :report_id (int): Report ID.
-
-        Returns:
-
-            :Response: requests.models.Response.
-
-        Usage: ::
-
-            >>> res = airwave.report_detail(123)
-            >>> res.status_code
-            200
-            >>> res.url
-            'https://192.1681.1/nf/report_detail?id=123&format=xml'
-            >>> res.text  # xhtml output.
-            '<?xml version="1.0"?><!DOCTYPE html ...'
-
-        """
-        url = self.api_path('nf/report_detail')
-        params = {'id': report_id, 'format': 'xml'}
+        url = self.api_path('latest_report.xml')
+        params = {'id': report_definition_id}
         params = AirWaveAPIClient.urlencode(params)
         return self.session.get(url, verify=False, params=params)
 
@@ -395,4 +350,56 @@ class APDetail(OrderedDict):
         """
         data = xmltodict.parse(xml)
         obj = data['amp:amp_ap_detail']['ap']
+        OrderedDict.__init__(self, obj)
+
+
+class Report(OrderedDict):
+
+    """Report.
+
+    This class inherits the OrderedDict class.
+
+    """
+    def __init__(self, xml):
+        """Initialize Report.
+
+        Args:
+
+            :xml (str): XML string.
+
+        Usage: ::
+
+            >>> from pprint import pprint
+            >>> from airwaveapiclient import AirWaveAPIClient
+            >>> from airwaveapiclient import Report
+            >>> airwave = AirWaveAPIClient(username='admin',
+            >>>                            password='xxxxx',
+            >>>                            url='https://192.168.1.1/')
+            >>> airwave.login()
+            >>> res = airwave.latest_report(123)
+            >>> airwave.logout()
+            >>> obj = Report(res.text)
+            >>> pprint(obj)
+            ...
+            'pickled_client_summary': {'@avg_session_duration': '6852.8010011',
+                                       '@avg_signal': '-48.2753361755045',
+                                       '@avg_signal_quality': '40.26971451664',
+                                       ...
+                                       '@total_sessions': '91',
+                                       '@total_traffic': '10759.4415',
+                                       '@total_traffic_in': '7725.6606',
+                                       '@total_traffic_out': '3033.7809',
+                                       '@unique_aps': '2',
+                                       '@unique_users': '19'},
+            'pickled_ap_summary': [{'@ap_folder_id': '1',
+                                    '@ap_folder_path': 'Top > OfficeA',
+                                    '@ap_group_id': '1',
+                                    '@ap_group_name': 'OfficeA',
+                                    '@ap_id': '100',
+                                    '@avg_bw': '110.701',
+                                    ...
+
+        """
+        data = xmltodict.parse(xml)
+        obj = data['amp:report']
         OrderedDict.__init__(self, obj)
