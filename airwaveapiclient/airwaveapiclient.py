@@ -351,3 +351,55 @@ class APDetail(OrderedDict):
         data = xmltodict.parse(xml)
         obj = data['amp:amp_ap_detail']['ap']
         OrderedDict.__init__(self, obj)
+
+
+class Report(OrderedDict):
+
+    """Report.
+
+    This class inherits the OrderedDict class.
+
+    """
+    def __init__(self, xml):
+        """Initialize Report.
+
+        Args:
+
+            :xml (str): XML string.
+
+        Usage: ::
+
+            >>> from pprint import pprint
+            >>> from airwaveapiclient import AirWaveAPIClient
+            >>> from airwaveapiclient import Report
+            >>> airwave = AirWaveAPIClient(username='admin',
+            >>>                            password='xxxxx',
+            >>>                            url='https://192.168.1.1/')
+            >>> airwave.login()
+            >>> res = airwave.latest_report(123)
+            >>> airwave.logout()
+            >>> obj = Report(res.text)
+            >>> pprint(obj)
+            ...
+            'pickled_client_summary': {'@avg_session_duration': '6852.8010011',
+                                       '@avg_signal': '-48.2753361755045',
+                                       '@avg_signal_quality': '40.26971451664',
+                                       ...
+                                       '@total_sessions': '91',
+                                       '@total_traffic': '10759.4415',
+                                       '@total_traffic_in': '7725.6606',
+                                       '@total_traffic_out': '3033.7809',
+                                       '@unique_aps': '2',
+                                       '@unique_users': '19'},
+            'pickled_ap_summary': [{'@ap_folder_id': '1',
+                                    '@ap_folder_path': 'Top > OfficeA',
+                                    '@ap_group_id': '1',
+                                    '@ap_group_name': 'OfficeA',
+                                    '@ap_id': '100',
+                                    '@avg_bw': '110.701',
+                                    ...
+
+        """
+        data = xmltodict.parse(xml)
+        obj = data['amp:report']
+        OrderedDict.__init__(self, obj)
