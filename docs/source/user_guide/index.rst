@@ -10,4 +10,5 @@ User Guide
    aplist
    apdetail
    apgraph
+   report
    sample_code
