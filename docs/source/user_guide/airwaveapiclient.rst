@@ -33,3 +33,8 @@ client_detail
 rogue_detail
 ------------
 .. automethod:: airwaveapiclient.AirWaveAPIClient.rogue_detail
+
+latest_report
+------------
+.. automethod:: airwaveapiclient.AirWaveAPIClient.latest_report
+

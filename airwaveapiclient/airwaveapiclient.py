@@ -214,12 +214,13 @@ class AirWaveAPIClient(object):
         params = AirWaveAPIClient.urlencode(params)
         return self.session.get(url, verify=False, params=params)
 
-    def latest_report(self, report_id):
+    def latest_report(self, report_definition_id):
         """Latest report inforamtion.
 
         Args:
 
-            :report_id (int): Report ID.
+            :report_definition_id (int): Report definition ID.
+                Please get it from "https://x.x.x.x/reports_definition".
 
         Returns:
 
@@ -237,7 +238,7 @@ class AirWaveAPIClient(object):
 
         """
         url = self.api_path('latest_report.xml')
-        params = {'id': report_id}
+        params = {'id': report_definition_id}
         params = AirWaveAPIClient.urlencode(params)
         return self.session.get(url, verify=False, params=params)
 
