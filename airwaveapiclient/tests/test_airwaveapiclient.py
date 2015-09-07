@@ -127,29 +127,6 @@ class AirWaveAPIClientUnitTests(unittest.TestCase):
         url = '%s/%s?%s' % (self.url, path_rogue_detail, params)
         self.assertEqual(res.url, url)
 
-    def test_report_list(self):
-        """Test report list."""
-        with HTTMock(AirWaveAPIClientUnitTests.content_api_xhtml):
-            res = self.obj.report_list()
-        self.assertEqual(res.status_code, 200)
-
-        path_report_list = 'nf/reports_list'
-        params = {'format': 'xml'}
-        params = self.obj.urlencode(params)
-        url = '%s/%s?%s' % (self.url, path_report_list, params)
-        self.assertEqual(res.url, url)
-
-        reports_search_title = 'Weeky Report'
-        with HTTMock(AirWaveAPIClientUnitTests.content_api_xhtml):
-            res = self.obj.report_list(reports_search_title)
-        self.assertEqual(res.status_code, 200)
-
-        params = {'format': 'xml',
-                  'reports_search_title': reports_search_title}
-        params = self.obj.urlencode(params)
-        url = '%s/%s?%s' % (self.url, path_report_list, params)
-        self.assertEqual(res.url, url)
-
     def test_latest_report(self):
         """Test latest report."""
         report_id = 1

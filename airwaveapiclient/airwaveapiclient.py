@@ -214,48 +214,6 @@ class AirWaveAPIClient(object):
         params = AirWaveAPIClient.urlencode(params)
         return self.session.get(url, verify=False, params=params)
 
-    def report_list(self, reports_search_title=None):
-        """Report list inforamtion.
-
-        .. warning::
-
-            This method result includes API output that is XHTML(not XML).
-
-        Args:
-
-            :reports_search_title (optional[str]): You may filter with
-                report title.  Default is None.
-
-        Returns:
-
-            :Response: requests.models.Response.
-
-        Usage: ::
-
-            # Get report list.
-
-            >>> res = airwave.report_list()
-            >>> res.url
-            'https://192.168.1.1/nf/reports_list?format=xml'
-
-            # Get specified report list with title.
-
-            >>> res = airwave.report_list('Weekly Report')
-            >>> res.status_code
-            200
-            >>> res.url
-            'https://192.168.1.1/nf/reports_list?reports_search_title=Weekly+Report&format=xml'
-            >>> res.text  # xhtml output.
-            '<?xml version="1.0"?><!DOCTYPE html ...'
-
-        """
-        url = self.api_path('nf/reports_list')
-        params = {'format': 'xml'}
-        if reports_search_title:
-            params['reports_search_title'] = reports_search_title
-        params = AirWaveAPIClient.urlencode(params)
-        return self.session.get(url, verify=False, params=params)
-
     def latest_report(self, report_id):
         """Latest report inforamtion.
 
