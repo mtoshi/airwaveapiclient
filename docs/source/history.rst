@@ -1,6 +1,10 @@
 History
 ============
 
+0.1.5 (2015-09-07)
+------------------
+* Changed documentation.
+
 0.1.4 (2015-09-07)
 ------------------
 * Added latest report API.
