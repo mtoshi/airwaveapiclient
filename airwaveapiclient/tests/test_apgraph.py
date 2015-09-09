@@ -88,6 +88,11 @@ class APGraphUnitTests(unittest.TestCase):
                       'type=ap_client_count')
         self.assertEqual(graph_url, _graph_url)
 
+        # For does not have 802.11ac
+        ap_graph = APGraph(self.url, self.objs[0])
+        graph_url = ap_graph.client_count_802dot11ac()
+        self.assertEqual(graph_url, None)
+
     def test_bandwidth_802dot11bgn(self):
         """Test for bandwidth 802dot11bgn."""
         ap_graph = APGraph(self.url, self.objs[0])
@@ -124,6 +129,11 @@ class APGraphUnitTests(unittest.TestCase):
                       'type=ap_bandwidth')
         self.assertEqual(graph_url, _graph_url)
 
+        # For does not have 802.11ac
+        ap_graph = APGraph(self.url, self.objs[0])
+        graph_url = ap_graph.bandwidth_802dot11ac()
+        self.assertEqual(graph_url, None)
+
     def test_dot11_counters_802dot11bgn(self):
         """Test for dot11 counters 802dot11bgn."""
         ap_graph = APGraph(self.url, self.objs[0])
@@ -159,6 +169,11 @@ class APGraphUnitTests(unittest.TestCase):
                       'start=-7200s&'
                       'type=dot11_counters')
         self.assertEqual(graph_url, _graph_url)
+
+        # For does not have 802.11ac
+        ap_graph = APGraph(self.url, self.objs[0])
+        graph_url = ap_graph.dot11_counters_802dot11ac()
+        self.assertEqual(graph_url, None)
 
     def test_radio_channel_802dot11bgn(self):
         """Test for channel 802dot11bgn."""
@@ -199,6 +214,11 @@ class APGraphUnitTests(unittest.TestCase):
                       'type=radio_channel')
         self.assertEqual(graph_url, _graph_url)
 
+        # For does not have 802.11ac
+        ap_graph = APGraph(self.url, self.objs[0])
+        graph_url = ap_graph.radio_channel_802dot11ac()
+        self.assertEqual(graph_url, None)
+
     def test_radio_noise_802dot11bgn(self):
         """Test for radio noise 802dot11bgn."""
         ap_graph = APGraph(self.url, self.objs[0])
@@ -237,6 +257,11 @@ class APGraphUnitTests(unittest.TestCase):
                       'start=-7200s&'
                       'type=radio_noise')
         self.assertEqual(graph_url, _graph_url)
+
+        # For does not have 802.11ac
+        ap_graph = APGraph(self.url, self.objs[0])
+        graph_url = ap_graph.radio_noise_802dot11ac()
+        self.assertEqual(graph_url, None)
 
     def test_radio_power_802dot11bgn(self):
         """Test for radio power 802dot11bgn."""
@@ -277,6 +302,11 @@ class APGraphUnitTests(unittest.TestCase):
                       'type=radio_power')
         self.assertEqual(graph_url, _graph_url)
 
+        # For does not have 802.11ac
+        ap_graph = APGraph(self.url, self.objs[0])
+        graph_url = ap_graph.radio_power_802dot11ac()
+        self.assertEqual(graph_url, None)
+
     def test_radio_errors_802dot11bgn(self):
         """Test for radio errors 802dot11bgn."""
         ap_graph = APGraph(self.url, self.objs[0])
@@ -315,6 +345,11 @@ class APGraphUnitTests(unittest.TestCase):
                       'start=-7200s&'
                       'type=radio_errors')
         self.assertEqual(graph_url, _graph_url)
+
+        # For does not have 802.11ac
+        ap_graph = APGraph(self.url, self.objs[0])
+        graph_url = ap_graph.radio_errors_802dot11ac()
+        self.assertEqual(graph_url, None)
 
     def test_radio_goodput_802dot11bgn(self):
         """Test for radio goodput 802dot11bgn."""
@@ -355,6 +390,11 @@ class APGraphUnitTests(unittest.TestCase):
                       'type=radio_goodput')
         self.assertEqual(graph_url, _graph_url)
 
+        # For does not have 802.11ac
+        ap_graph = APGraph(self.url, self.objs[0])
+        graph_url = ap_graph.radio_goodput_802dot11ac()
+        self.assertEqual(graph_url, None)
+
     def test_channel_utilization_802dot11bgn(self):
         """Test for channel utilization 802dot11bgn."""
         ap_graph = APGraph(self.url, self.objs[0])
@@ -393,3 +433,8 @@ class APGraphUnitTests(unittest.TestCase):
                       'start=-7200s&'
                       'type=channel_utilization')
         self.assertEqual(graph_url, _graph_url)
+
+        # For does not have 802.11ac
+        ap_graph = APGraph(self.url, self.objs[0])
+        graph_url = ap_graph.channel_utilization_802dot11ac()
+        self.assertEqual(graph_url, None)
