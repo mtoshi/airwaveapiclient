@@ -66,19 +66,21 @@ class APGraph(OrderedDict):
 
     def __graph_url(self, params):
         """RRD Graph URL."""
-        start = params['start']
-        if not start:
-            start = self.default_start_time
+        if 'radio_index' in params:
+            start = params['start']
+            if not start:
+                start = self.default_start_time
 
-        end = params['end']
-        if not end:
-            end = self.default_end_time
+            end = params['end']
+            if not end:
+                end = self.default_end_time
 
-        params['start'] = APGraph.graph_time_format(start)
-        params['end'] = APGraph.graph_time_format(end)
-        params = APGraph.urlencode(params)
-        path = urljoin(self.url, self.path)
-        return '%s?%s' % (path, params)
+            params['start'] = APGraph.graph_time_format(start)
+            params['end'] = APGraph.graph_time_format(end)
+            params = APGraph.urlencode(params)
+            path = urljoin(self.url, self.path)
+            return u'%s?%s' % (path, params)
+        return None
 
     def __ap_graph(self, graph_type, radio_type, start, end):
         """RRD access point graph base method.
