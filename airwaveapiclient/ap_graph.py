@@ -103,13 +103,17 @@ class APGraph(OrderedDict):
         params['type'] = graph_type
         params['id'] = self['@id']
         if 'radio' in self:
+            radios = self['radio']
+            if not isinstance(radios, list):
+                radios = [radios]
             for radio in self['radio']:
                 if 'radio_type' in radio:
                     if radio['radio_type'] == radio_type:
                         params['radio_index'] = radio['@index']
                         params['start'] = start
                         params['end'] = end
-        return self.__graph_url(params)
+                        return self.__graph_url(params)
+        return None
 
     def client_count_802dot11bgn(self, start=None, end=None):
         """RRD graph URL for access point client count of radio type IEEE802.11BGN.
