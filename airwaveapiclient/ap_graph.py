@@ -106,7 +106,7 @@ class APGraph(OrderedDict):
             radios = self['radio']
             if not isinstance(radios, list):
                 radios = [radios]
-            for radio in self['radio']:
+            for radio in radios:
                 if 'radio_type' in radio:
                     if radio['radio_type'] == radio_type:
                         params['radio_index'] = radio['@index']
@@ -343,14 +343,18 @@ class APGraph(OrderedDict):
         params['type'] = graph_type
         params['ap_uid'] = self['lan_mac']
         if 'radio' in self:
-            for radio in self['radio']:
+            radios = self['radio']
+            if not isinstance(radios, list):
+                radios = [radios]
+            for radio in radios:
                 if 'radio_type' in radio:
                     if radio['radio_type'] == radio_type:
                         params['radio_index'] = radio['@index']
                         params['radio_interface'] = radio['radio_interface']
                         params['start'] = start
                         params['end'] = end
-        return self.__graph_url(params)
+                        return self.__graph_url(params)
+        return None
 
     def radio_channel_802dot11bgn(self, start=None, end=None):
         """RRD graph URL for radio channel for radio type IEEE802.11BGN.
