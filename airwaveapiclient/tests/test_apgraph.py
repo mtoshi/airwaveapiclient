@@ -52,6 +52,36 @@ class APGraphUnitTests(unittest.TestCase):
         self.assertEqual(ap_graph.default_start_time, -7200)
         self.assertEqual(ap_graph.default_end_time, 0)
 
+        # 802.11bgn only
+        ap_graph = APGraph(self.url, self.objs[3])
+        self.assertEqual(ap_graph.url, u'https://192.168.1.1/')
+        self.assertEqual(ap_graph.path, u'/nf/rrd_graph')
+        self.assertEqual(ap_graph.default_start_time, -7200)
+        self.assertEqual(ap_graph.default_end_time, 0)
+
+    # pylint: disable=protected-access
+    def test_graph_url(self):
+        """Test Graph URL."""
+        params = {u'aaa': u''}
+        ap_graph = APGraph(self.url, self.objs[0])
+        url = ap_graph._APGraph__graph_url(params)
+        self.assertEqual(url, None)
+
+        params = {u'radio_index': u'',
+                  u'start': u'',
+                  u'end': u''}
+        ap_graph = APGraph(self.url, self.objs[0])
+        url = ap_graph._APGraph__graph_url(params)
+        _url = (u'https://192.168.1.1/nf/rrd_graph?'
+                u'end=0s&radio_index=&start=-7200s')
+        self.assertEqual(url, _url)
+
+        ap_graph = APGraph(self.url, self.objs[3])
+        url = ap_graph._APGraph__graph_url(params)
+        _url = (u'https://192.168.1.1/nf/rrd_graph?'
+                u'end=0s&radio_index=&start=-7200s')
+        self.assertEqual(url, _url)
+
     def test_client_count_802dot11bgn(self):
         """Test for client_count_802dot11bgn."""
         ap_graph = APGraph(self.url, self.objs[0])

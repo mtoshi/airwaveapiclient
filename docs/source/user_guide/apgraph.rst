@@ -31,7 +31,7 @@ bandwidth_802dot11ac
 .. automethod:: ap_graph.APGraph.bandwidth_802dot11ac
 
 dot11_counters_802dot11bgn
--------------------------
+--------------------------
 .. automethod:: ap_graph.APGraph.dot11_counters_802dot11bgn
 
 dot11_counters_802dot11an

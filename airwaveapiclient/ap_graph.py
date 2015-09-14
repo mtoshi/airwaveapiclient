@@ -4,6 +4,7 @@
 
 
 import requests
+import re
 from requests.compat import urljoin
 from collections import OrderedDict
 
@@ -77,6 +78,7 @@ class APGraph(OrderedDict):
 
             params['start'] = APGraph.graph_time_format(start)
             params['end'] = APGraph.graph_time_format(end)
+
             params = APGraph.urlencode(params)
             path = urljoin(self.url, self.path)
             return u'%s?%s' % (path, params)
@@ -103,13 +105,17 @@ class APGraph(OrderedDict):
         params['type'] = graph_type
         params['id'] = self['@id']
         if 'radio' in self:
-            for radio in self['radio']:
+            radios = self['radio']
+            if not isinstance(radios, list):
+                radios = [radios]
+            for radio in radios:
                 if 'radio_type' in radio:
                     if radio['radio_type'] == radio_type:
                         params['radio_index'] = radio['@index']
                         params['start'] = start
                         params['end'] = end
-        return self.__graph_url(params)
+                        return self.__graph_url(params)
+        return None
 
     def client_count_802dot11bgn(self, start=None, end=None):
         """RRD graph URL for access point client count of radio type IEEE802.11BGN.
@@ -339,14 +345,18 @@ class APGraph(OrderedDict):
         params['type'] = graph_type
         params['ap_uid'] = self['lan_mac']
         if 'radio' in self:
-            for radio in self['radio']:
+            radios = self['radio']
+            if not isinstance(radios, list):
+                radios = [radios]
+            for radio in radios:
                 if 'radio_type' in radio:
                     if radio['radio_type'] == radio_type:
                         params['radio_index'] = radio['@index']
                         params['radio_interface'] = radio['radio_interface']
                         params['start'] = start
                         params['end'] = end
-        return self.__graph_url(params)
+                        return self.__graph_url(params)
+        return None
 
     def radio_channel_802dot11bgn(self, start=None, end=None):
         """RRD graph URL for radio channel for radio type IEEE802.11BGN.
@@ -789,4 +799,9 @@ class APGraph(OrderedDict):
     @staticmethod
     def graph_time_format(seconds):
         """Graph time format."""
-        return '%ss' % seconds
+        pat = re.compile(r'(-?\d+)')
+        res = pat.search(str(seconds))
+        num = 0
+        if res:
+            num = res.group(0)
+        return '{0}s'.format(num)
