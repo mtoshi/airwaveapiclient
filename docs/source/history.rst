@@ -1,6 +1,11 @@
 History
 ============
 
+0.1.7 (2015-09-14)
+------------------
+* Changed some structures for stable into the APGraph methods.
+* Changed documentation.
+
 0.1.6 (2015-09-09)
 ------------------
 * Added care of non existent graph url.
