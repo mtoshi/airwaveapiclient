@@ -48,6 +48,10 @@ class APListUnitTests(unittest.TestCase):
 
         ap_id = 4
         ap_node = self.obj.search(ap_id)
+        self.assertEqual(ap_node['@id'], '4')
+
+        ap_id = 5
+        ap_node = self.obj.search(ap_id)
         self.assertEqual(ap_node, None)
 
         # ap_name string search
@@ -64,5 +68,9 @@ class APListUnitTests(unittest.TestCase):
         self.assertEqual(ap_node['name'], ap_name)
 
         ap_name = 'AP004'
+        ap_node = self.obj.search(ap_name)
+        self.assertEqual(ap_node['name'], ap_name)
+
+        ap_name = 'AP005'
         ap_node = self.obj.search(ap_name)
         self.assertEqual(ap_node, None)
