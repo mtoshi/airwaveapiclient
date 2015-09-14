@@ -4,6 +4,7 @@
 
 
 import requests
+import re
 from requests.compat import urljoin
 from collections import OrderedDict
 
@@ -77,6 +78,7 @@ class APGraph(OrderedDict):
 
             params['start'] = APGraph.graph_time_format(start)
             params['end'] = APGraph.graph_time_format(end)
+
             params = APGraph.urlencode(params)
             path = urljoin(self.url, self.path)
             return u'%s?%s' % (path, params)
@@ -797,4 +799,9 @@ class APGraph(OrderedDict):
     @staticmethod
     def graph_time_format(seconds):
         """Graph time format."""
-        return '%ss' % seconds
+        pat = re.compile(r'(-?\d+)')
+        res = pat.search(str(seconds))
+        num = 0
+        if res:
+            num = res.group(0)
+        return '{0}s'.format(num)
