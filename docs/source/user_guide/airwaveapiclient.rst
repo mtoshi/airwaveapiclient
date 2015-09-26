@@ -14,7 +14,7 @@ login
 
 
 logout
------
+------
 .. automethod:: airwaveapiclient.AirWaveAPIClient.logout
 
 
@@ -37,4 +37,3 @@ rogue_detail
 latest_report
 -------------
 .. automethod:: airwaveapiclient.AirWaveAPIClient.latest_report
-
