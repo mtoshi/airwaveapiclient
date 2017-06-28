@@ -98,6 +98,35 @@ class AirWaveAPIClient(object):
         """
         return os.path.join(self.url, path)
 
+    def amp_stats(self):
+        """Get AMP stats.
+
+        Args:
+
+            None
+
+        Returns:
+
+            :Response: requests.models.Response.
+
+        Usage: ::
+
+            # Get AMP stats.
+
+            >>> res = airwave.amp_stats()
+            >>> res.url
+            'https://192.168.1.1/amp_stats.xml'
+
+            >>> res.status_code
+            200
+
+            >>> res.text  # xml output.
+            '<?xml version="1.0" encoding="utf-8" ...'
+
+        """
+        url = self.api_path('amp_stats.xml')
+        return self.session.get(url, verify=False)
+
     def ap_list(self, ap_ids=None):
         """Get Access Point list.
 
