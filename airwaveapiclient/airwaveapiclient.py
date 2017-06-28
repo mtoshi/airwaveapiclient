@@ -135,6 +135,43 @@ class AirWaveAPIClient(object):
             return self.session.get(url, verify=False, params=params)
         return self.session.get(url, verify=False)
 
+    def folder_list(self, folder_ids=None):
+        """Get Folders list.
+
+        Args:
+
+            :folder_ids (optional[list]): You may specify multiple
+                Folder IDs. Default is None.
+
+        Returns:
+
+            :Response: requests.models.Response.
+
+        Usage: ::
+
+            # Get all Folders.
+
+            >>> res = airwave.folder_list()
+            >>> res.url
+            'https://192.168.1.1/folder_list.xml'
+
+            # Get specified Folder.
+
+            >>> res = airwave.folder_list([123, 124, 125])
+            >>> res.status_code
+            200
+            >>> res.url
+            'https://192.168.1.1/folder_list.xml?id=123&id=124&id=125'
+            >>> res.text  # xml output.
+            '<?xml version="1.0" encoding="utf-8" ...'
+
+        """
+        url = self.api_path('folder_list.xml')
+        if folder_ids:
+            params = AirWaveAPIClient.id_params(folder_ids)
+            return self.session.get(url, verify=False, params=params)
+        return self.session.get(url, verify=False)
+
     def ap_detail(self, ap_id):
         """Get Access Point detail information.
 
