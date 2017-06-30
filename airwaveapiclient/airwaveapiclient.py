@@ -3,10 +3,10 @@
 """airwaveapiclient."""
 
 
-import requests
 import os
-import xmltodict
 from collections import OrderedDict
+import xmltodict
+import requests
 
 
 class AirWaveAPIClient(object):

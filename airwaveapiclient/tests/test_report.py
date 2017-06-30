@@ -2,10 +2,10 @@
 
 """UnitTests for report."""
 
+import os
 import unittest
 from airwaveapiclient import Report
 from airwaveapiclient.tests import test_utils
-import os
 
 
 class ReportUnitTests(unittest.TestCase):

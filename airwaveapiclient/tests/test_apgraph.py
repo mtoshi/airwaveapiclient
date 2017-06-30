@@ -2,11 +2,11 @@
 
 """UnitTests for ap_graph."""
 
+import os
 import unittest
 from airwaveapiclient import APGraph
 from airwaveapiclient import APList
 from airwaveapiclient.tests import test_utils
-import os
 
 
 class APGraphUnitTests(unittest.TestCase):
