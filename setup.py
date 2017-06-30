@@ -3,6 +3,7 @@
 """airwaveapiclient setup.py"""
 
 from setuptools import setup
+from setuptools import find_packages
 from setuptools.command.test import test as TestCommand
 import sys
 import os
@@ -42,7 +43,6 @@ classifiers = [
     "Programming Language :: Python :: 2",
     "Programming Language :: Python :: 2.7",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.3",
     "Programming Language :: Python :: 3.4",
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
@@ -62,7 +62,7 @@ with open('requirements.txt', 'w') as _file:
 
 setup(
     name="airwaveapiclient",
-    version="0.1.7",
+    version="0.1.8",
     description='Aruba Networks AirWave API Client.',
     long_description=README,
     author='Toshikatsu Murakoshi',
@@ -70,7 +70,7 @@ setup(
     url='https://github.com/mtoshi/airwaveapiclient',
     license='MIT',
     classifiers=classifiers,
-    packages=['airwaveapiclient'],
+    packages=find_packages(),
     data_files=[],
     install_requires=requires,
     include_package_data=True,

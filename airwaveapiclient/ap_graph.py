@@ -3,10 +3,10 @@
 """airwaveapiclient.ap_graph"""
 
 
-import requests
 import re
-from requests.compat import urljoin
 from collections import OrderedDict
+import requests
+from requests.compat import urljoin
 
 
 class APGraph(OrderedDict):

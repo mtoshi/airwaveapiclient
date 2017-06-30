@@ -2,10 +2,10 @@
 
 """UnitTests for airwaveapiclient."""
 
+import os
 import unittest
 from airwaveapiclient import APList
 from airwaveapiclient.tests import test_utils
-import os
 
 
 class APListUnitTests(unittest.TestCase):

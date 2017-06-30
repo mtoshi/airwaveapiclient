@@ -3,10 +3,10 @@
 """airwaveapiclient."""
 
 
-import requests
 import os
-import xmltodict
 from collections import OrderedDict
+import xmltodict
+import requests
 
 
 class AirWaveAPIClient(object):
@@ -98,6 +98,35 @@ class AirWaveAPIClient(object):
         """
         return os.path.join(self.url, path)
 
+    def amp_stats(self):
+        """Get AMP stats.
+
+        Args:
+
+            None
+
+        Returns:
+
+            :Response: requests.models.Response.
+
+        Usage: ::
+
+            # Get AMP stats.
+
+            >>> res = airwave.amp_stats()
+            >>> res.url
+            'https://192.168.1.1/amp_stats.xml'
+
+            >>> res.status_code
+            200
+
+            >>> res.text  # xml output.
+            '<?xml version="1.0" encoding="utf-8" ...'
+
+        """
+        url = self.api_path('amp_stats.xml')
+        return self.session.get(url, verify=False)
+
     def ap_list(self, ap_ids=None):
         """Get Access Point list.
 
@@ -132,6 +161,43 @@ class AirWaveAPIClient(object):
         url = self.api_path('ap_list.xml')
         if ap_ids:
             params = AirWaveAPIClient.id_params(ap_ids)
+            return self.session.get(url, verify=False, params=params)
+        return self.session.get(url, verify=False)
+
+    def folder_list(self, folder_ids=None):
+        """Get Folders list.
+
+        Args:
+
+            :folder_ids (optional[list]): You may specify multiple
+                Folder IDs. Default is None.
+
+        Returns:
+
+            :Response: requests.models.Response.
+
+        Usage: ::
+
+            # Get all Folders.
+
+            >>> res = airwave.folder_list()
+            >>> res.url
+            'https://192.168.1.1/folder_list.xml'
+
+            # Get specified Folder.
+
+            >>> res = airwave.folder_list([123, 124, 125])
+            >>> res.status_code
+            200
+            >>> res.url
+            'https://192.168.1.1/folder_list.xml?id=123&id=124&id=125'
+            >>> res.text  # xml output.
+            '<?xml version="1.0" encoding="utf-8" ...'
+
+        """
+        url = self.api_path('folder_list.xml')
+        if folder_ids:
+            params = AirWaveAPIClient.id_params(folder_ids)
             return self.session.get(url, verify=False, params=params)
         return self.session.get(url, verify=False)
 
