@@ -1,6 +1,11 @@
 History
 ============
 
+0.1.8 (2017-06-30)
+------------------
+* Added AMP stats and folder list methods.
+* Changed documentation.
+
 0.1.7 (2015-09-14)
 ------------------
 * Changed some structures for stable into the APGraph methods.
