@@ -3,6 +3,7 @@
 """airwaveapiclient setup.py"""
 
 from setuptools import setup
+from setuptools import find_packages
 from setuptools.command.test import test as TestCommand
 import sys
 import os
@@ -68,7 +69,7 @@ setup(
     url='https://github.com/mtoshi/airwaveapiclient',
     license='MIT',
     classifiers=classifiers,
-    packages=['airwaveapiclient'],
+    packages=find_packages(),
     data_files=[],
     install_requires=requires,
     include_package_data=True,
