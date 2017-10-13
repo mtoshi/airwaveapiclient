@@ -3,10 +3,13 @@
 """airwaveapiclient."""
 
 
-import os
 from collections import OrderedDict
 import xmltodict
 import requests
+try:
+    from urllib.parse import urljoin
+except ImportError:
+    from urlparse import urljoin
 
 
 class AirWaveAPIClient(object):
@@ -62,7 +65,7 @@ class AirWaveAPIClient(object):
         """
         requests.packages.urllib3.disable_warnings()
         self.session = requests.Session()
-        url = os.path.join(self.url, 'LOGIN')
+        url = self.api_path('LOGIN')
         destination = '/'
         next_action = ''
         params = {'credential_0': self.username,
@@ -96,7 +99,7 @@ class AirWaveAPIClient(object):
             URL string 'https://xxx.xxx.xxx.xxx/xxxxxx'
 
         """
-        return os.path.join(self.url, path)
+        return urljoin(self.url, path)
 
     def amp_stats(self):
         """Get AMP stats.
