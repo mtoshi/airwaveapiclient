@@ -1,6 +1,10 @@
 History
 ============
 
+0.1.9 (2017-10-13)
+------------------
+* Change method to generate URL path.
+
 0.1.8 (2017-06-30)
 ------------------
 * Added AMP stats and folder list methods.
