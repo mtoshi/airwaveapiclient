@@ -356,8 +356,9 @@ class APList(list):
 
         """
         data = xmltodict.parse(xml)
-        obj = data['amp:amp_ap_list']['ap']
-        list.__init__(self, obj)
+        if 'ap' in data['amp:amp_ap_list']:
+            obj = data['amp:amp_ap_list']['ap']
+            list.__init__(self, obj)
 
     def search(self, obj):
         """Search Access Point.
