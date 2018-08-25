@@ -1,6 +1,10 @@
 History
 ============
 
+0.1.10 (2018-08-25)
+-------------------
+Minor change for reliability.
+
 0.1.9 (2017-10-13)
 ------------------
 * Change method to generate URL path.
