@@ -231,6 +231,33 @@ class AirWaveAPIClient(object):
         params = AirWaveAPIClient.urlencode(params)
         return self.session.get(url, verify=False, params=params)
 
+    def ap_search(self, query=None):
+        """Return Access Point search results for the query.
+
+        Args:
+
+            :query (str): Query string (partial/complete MAC address).
+
+        Returns:
+
+            :Response: requests.models.Response.
+
+        Usage: ::
+
+            >>> res = airwave.ap_search("00:0B:85:1B:A6:90")
+            >>> res.status_code
+            200
+            >>> res.url
+            'https://192.168.1.1/ap_search.xml?query=00:0B:85:1B:A6:90'
+            >>> res.text # xml output.
+            '<?xml version="1.0" encoding="utf-8" ...'
+
+        """
+        url = self.api_path('ap_search.xml')
+        params = {'query': query}
+        params = AirWaveAPIClient.urlencode(params)
+        return self.session.get(url, verify=False, params=params)
+
     def client_detail(self, mac):
         """Client detail information.
 
@@ -255,6 +282,33 @@ class AirWaveAPIClient(object):
         """
         url = self.api_path('client_detail.xml')
         params = {'mac': mac}
+        params = AirWaveAPIClient.urlencode(params)
+        return self.session.get(url, verify=False, params=params)
+
+    def client_search(self, query=None):
+        """Return Client search results for the query.
+
+        Args:
+
+            :query (str): Query string (partial/complete MAC address).
+
+        Returns:
+
+            :Response: requests.models.Response.
+
+        Usage: ::
+
+            >>> res = airwave.client_search("00:0E:35:52:8C:AB")
+            >>> res.status_code
+            200
+            >>> res.url
+            'https://192.168.1.1/client_search.xml?query=00:0E:35:52:8C:AB'
+            >>> res.text # xml output.
+            '<?xml version="1.0" encoding="utf-8" ...'
+
+        """
+        url = self.api_path('client_search.xml')
+        params = {'query': query}
         params = AirWaveAPIClient.urlencode(params)
         return self.session.get(url, verify=False, params=params)
 
