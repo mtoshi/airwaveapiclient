@@ -1,9 +1,13 @@
 History
 ============
 
+0.1.11 (2019-06-12)
+-------------------
+* Add client_search, ap_search and client_location methods.
+
 0.1.10 (2018-08-25)
 -------------------
-Minor change for reliability.
+* Minor change for reliability.
 
 0.1.9 (2017-10-13)
 ------------------
