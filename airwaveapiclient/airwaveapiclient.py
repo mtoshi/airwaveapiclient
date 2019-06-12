@@ -257,7 +257,7 @@ class AirWaveAPIClient(object):
         params = {'mac': mac}
         params = AirWaveAPIClient.urlencode(params)
         return self.session.get(url, verify=False, params=params)
-    
+
     def client_location(self, mac):
         """Client detail information.
 
@@ -284,8 +284,7 @@ class AirWaveAPIClient(object):
         params = {'mac': mac}
         params = AirWaveAPIClient.urlencode(params)
         return self.session.get(url, verify=False, params=params)
-    
-    
+
     def rogue_detail(self, ap_id):
         """Rogue detail information.
 
