@@ -312,6 +312,33 @@ class AirWaveAPIClient(object):
         params = AirWaveAPIClient.urlencode(params)
         return self.session.get(url, verify=False, params=params)
 
+    def client_location(self, mac):
+        """Client detail information.
+
+        Args:
+
+            :mac (str): Client device's MAC address.
+
+        Returns:
+
+            :Response: requests.models.Response.
+
+        Usage: ::
+
+            >>> res = airwave.client_detail('12:34:56:78:90:AB')
+            >>> res.status_code
+            200
+            >>> res.url
+            'https://192.168.1.1/client_detail.xml?mac=12%3A34%3A56%3A78%3A90%3AAB'
+            >>> res.text  # xml output.
+            '<?xml version="1.0" encoding="utf-8" ...'
+
+        """
+        url = self.api_path('/visualrf/location.xml')
+        params = {'mac': mac}
+        params = AirWaveAPIClient.urlencode(params)
+        return self.session.get(url, verify=False, params=params)
+
     def rogue_detail(self, ap_id):
         """Rogue detail information.
 
