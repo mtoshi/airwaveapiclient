@@ -43,9 +43,9 @@ classifiers = [
     "Programming Language :: Python :: 2",
     "Programming Language :: Python :: 2.7",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.4",
     "Programming Language :: Python :: 3.5",
     "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
     "Topic :: System :: Monitoring",
@@ -64,7 +64,7 @@ with open('requirements.txt', 'w') as _file:
 
 setup(
     name="airwaveapiclient",
-    version="0.1.10",
+    version="0.1.11",
     description='Aruba Networks AirWave API Client.',
     long_description=README,
     author='Toshikatsu Murakoshi',
