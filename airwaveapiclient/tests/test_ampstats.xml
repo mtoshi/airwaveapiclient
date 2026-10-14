@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<amp:amp_stats console_refresh_rate="60" failover_status="" version="4.4rc6"
+    xmlns:amp="http://www.airwave.com"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.airwave.com amp_stats.xsd">
+  <alerts>0</alerts>
+  <audit_disabled>3</audit_disabled>
+  <bandwidth_in>0</bandwidth_in>
+  <bandwidth_out>0</bandwidth_out>
+  <client_count>120</client_count>
+  <configuration_unknown>2</configuration_unknown>
+  <down>10</down>
+  <down_wired>1</down_wired>
+  <down_wireless>9</down_wireless>
+  <mismatched>13</mismatched>
+  <name>AirWave Management Platform</name>
+  <new_count>2</new_count>
+  <rogue>30</rogue>
+  <up>25</up>
+  <up_wired>10</up_wired>
+  <up_wireless>15</up_wireless>
+  <vpn_bandwidth_in>0</vpn_bandwidth_in>
+  <vpn_bandwidth_out>0</vpn_bandwidth_out>
+  <vpn_count>0</vpn_count>
+</amp:amp_stats>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<amp:amp_alert version="1" xmlns:amp="http://www.airwave.com"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.airwave.com amp_alert.xsd">
+  <record id="83">
+    <creation_time ascii_value="10/2/2006 10:16 AM" display_value="10/2/2006 10:16 AM" sort_value="1159809360">1159809360</creation_time>
+    <message ascii_value="Client Count >= 10" display_value="Client Count >= 10" sort_value="Client Count >= 10">Client Count >= 10</message>
+    <remote_id ascii_value="83" display_value="83" sort_value="83">83</remote_id>
+    <severity ascii_value="Normal" display_value="Normal" sort_value="2">Normal</severity>
+    <summary ascii_value="Client Count >= 10 for 15 seconds" display_value="Client Count >= 10 for 15 seconds" sort_value="Client Count >= 10 for 15 seconds">Client Count >= 10 for 15 seconds</summary>
+    <triggering_agent ascii_value="lwapp-1250-1" display_value="LWAPP-1250-1" sort_value="lwapp-1250-1">lwapp-1250-1</triggering_agent>
+    <type ascii_value="Device Client Count" display_value="Device Client Count" sort_value="Device Client Count">Device Client Count</type>
+    <view_url ascii_value="/ap_monitoring?id=455" display_value="/ap_monitoring?id=455" sort_value="/ap_monitoring?id=455">/ap_monitoring?id=455</view_url>
+    <viewed ascii_value="0" display_value="0" sort_value="0">0</viewed>
+  </record>
+  <record id="84">
+    <creation_time ascii_value="10/2/2006 10:20 AM" display_value="10/2/2006 10:20 AM" sort_value="1159809600">1159809600</creation_time>
+    <message ascii_value="Radio Down" display_value="Radio Down" sort_value="Radio Down">Radio Down</message>
+    <remote_id ascii_value="84" display_value="84" sort_value="84">84</remote_id>
+    <severity ascii_value="Critical" display_value="Critical" sort_value="1">Critical</severity>
+    <summary ascii_value="Radio 1 down" display_value="Radio 1 down" sort_value="Radio 1 down">Radio 1 down</summary>
+    <triggering_agent ascii_value="lwapp-1250-2" display_value="LWAPP-1250-2" sort_value="lwapp-1250-2">lwapp-1250-2</triggering_agent>
+    <type ascii_value="Radio Down" display_value="Radio Down" sort_value="Radio Down">Radio Down</type>
+    <view_url ascii_value="/ap_monitoring?id=456" display_value="/ap_monitoring?id=456" sort_value="/ap_monitoring?id=456">/ap_monitoring?id=456</view_url>
+    <viewed ascii_value="0" display_value="0" sort_value="0">0</viewed>
+  </record>
+</amp:amp_alert>

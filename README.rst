@@ -19,7 +19,7 @@ detail, client, etc.
 
 Requirements
 ============
-* Python2.7, 3.5, 3.6, 3.7, PyPy.
+* Python >= 3.6, PyPy3.
 
 Installation
 ============

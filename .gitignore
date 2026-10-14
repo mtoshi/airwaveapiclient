@@ -3,7 +3,6 @@
 *.eggs/
 *.egg-info/
 *.pyc
-*requirements*
 .coverage
 .tox/
 _build/

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<visualrf:site_access_points version='1' xmlns:visualrf='http://www.airwave.com'
+xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+  <ap id='12660' manufacturer='Tropos' model='3210' name='Tropos Mesh Node 49842' state='monitored' status='down'>
+    <total-bandwidth>0</total-bandwidth>
+    <total-clients>0</total-clients>
+  </ap>
+</visualrf:site_access_points>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<amp:amp_folder_list version="1" xmlns:amp="http://www.airwave.com"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.airwave.com amp_folder_list.xsd">
+  <folder id="1">
+    <name>Top</name>
+    <parent_id>0</parent_id>
+    <bandwidth_in>1725</bandwidth_in>
+    <bandwidth_out>577</bandwidth_out>
+    <client_count>2</client_count>
+    <up>12</up>
+    <down>2</down>
+    <mismatch>0</mismatch>
+    <vpn_client_count>0</vpn_client_count>
+  </folder>
+  <folder id="2">
+    <name>Branch Office</name>
+    <parent_id>1</parent_id>
+    <bandwidth_in>5783</bandwidth_in>
+    <bandwidth_out>5074</bandwidth_out>
+    <client_count>6</client_count>
+    <up>16</up>
+    <down>3</down>
+    <mismatch>0</mismatch>
+    <vpn_client_count>3</vpn_client_count>
+  </folder>
+</amp:amp_folder_list>

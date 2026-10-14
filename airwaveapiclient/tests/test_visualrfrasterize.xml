@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<visualrf:images xmlns:visualrf="http://www.airwave.com"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1">
+  <image type="raster">
+    <filename>/var/airwave/data/0f77f21a/raster.jpg</filename>
+    <relative-url>visualrf/data/0f77f21a/raster.jpg</relative-url>
+    <pixel-width>400</pixel-width>
+    <pixel-height>400</pixel-height>
+    <file-size>20544</file-size>
+  </image>
+</visualrf:images>

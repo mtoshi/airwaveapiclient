@@ -1,0 +1,45 @@
+{
+  "nodes": [
+    {
+      "apID": 31,
+      "name": "b4:5d:50:",
+      "role": "AP",
+      "model": "Aruba AP 325",
+      "ip": "192.0.2.0/24",
+      "mac": "B4:5D:50:00:00:01",
+      "folder": {
+        "id": 5,
+        "name": "Top/Aruba HPE/SLR01"
+      },
+      "HealthInfo": {
+        "health": "good",
+        "reason": []
+      }
+    },
+    {
+      "apID": 230,
+      "name": "SLR01-OUT-AP275",
+      "role": "AP",
+      "model": "Aruba AP 275",
+      "ip": "192.0.2.1/24",
+      "mac": "B4:5D:50:00:00:02",
+      "folder": {
+        "id": 5,
+        "name": "Top/Aruba HPE/SLR01"
+      },
+      "HealthInfo": {
+        "health": "poor",
+        "reason": [
+          {
+            "attribute": "alert",
+            "value": 1
+          },
+          {
+            "attribute": "up",
+            "value": 0
+          }
+        ]
+      }
+    }
+  ]
+}

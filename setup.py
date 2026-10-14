@@ -40,12 +40,14 @@ class Tox(TestCommand):
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Programming Language :: Python",
-    "Programming Language :: Python :: 2",
-    "Programming Language :: Python :: 2.7",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.5",
     "Programming Language :: Python :: 3.6",
     "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
     "Topic :: System :: Monitoring",
@@ -56,15 +58,17 @@ here = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(here, 'README.rst')) as _file:
     README = _file.read()
 
-requires = ['requests',
-            'xmltodict']
-
-with open('requirements.txt', 'w') as _file:
-    _file.write('\n'.join(requires))
+requires = []
+req_file = os.path.join(here, 'requirements.txt')
+if os.path.exists(req_file):
+    with open(req_file) as _file:
+        requires = [line.strip() for line in _file if line.strip() and not line.startswith('#')]
+if not requires:
+    requires = ['requests', 'xmltodict']
 
 setup(
     name="airwaveapiclient",
-    version="0.1.11",
+    version="0.1.12",
     description='Aruba Networks AirWave API Client.',
     long_description=README,
     author='Toshikatsu Murakoshi',
@@ -74,6 +78,7 @@ setup(
     classifiers=classifiers,
     packages=find_packages(),
     data_files=[],
+    python_requires=">=3.6",
     install_requires=requires,
     include_package_data=True,
     tests_require=['tox'],

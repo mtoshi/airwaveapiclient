@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<amp:amp_vpn_user_search version="1" xmlns:amp="http://www.airwave.com"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.airwave.com amp_vpn_user_search.xsd">
+  <record id="310">
+    <first_seen ascii_value="8/12/2011 9:50 PM" display_value="8/12/2011 9:50 PM" sort_value="1313166011">1313166011</first_seen>
+    <last_seen ascii_value="8/12/2011 9:50 PM" display_value="8/12/2011 9:50 PM" sort_value="1313166011">1313166011</last_seen>
+    <userid ascii_value="photocrayon" display_value="photocrayon" sort_value="photocrayon">photocrayon</userid>
+    <session_count ascii_value="1" display_value="1" sort_value="1">1</session_count>
+  </record>
+</amp:amp_vpn_user_search>

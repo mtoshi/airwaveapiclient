@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<amp:amp_client_detail version="1" xmlns:amp="http://www.airwave.com"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.airwave.com amp_client_detail.xsd">
+  <client mac="00:0E:35:52:8C:AB">
+    <ap id="3645">LWAPP-1250-1</ap>
+    <assoc_stat>true</assoc_stat>
+    <association id="1962">
+      <ap id="79">ORiNOCO-AP-700-55-e6-e1</ap>
+      <bytes_used>135357</bytes_used>
+      <connect_time>2006-10-04T11:22:43-07:00</connect_time>
+      <disconnect_time>2006-10-04T11:27:30-07:00</disconnect_time>
+    </association>
+    <rssi>36</rssi>
+    <signal>-63</signal>
+    <snr>38</snr>
+    <vendor>Intel</vendor>
+    <role>Employee</role>
+  </client>
+</amp:amp_client_detail>

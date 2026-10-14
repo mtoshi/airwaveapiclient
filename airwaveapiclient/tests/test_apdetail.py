@@ -38,3 +38,24 @@ class APDetailUnitTests(unittest.TestCase):
                 self.assertEqual(radio['radio_interface'], '2')
             if radio['radio_type'] == 'aN':
                 self.assertEqual(radio['radio_interface'], '1')
+
+    def test_multi_ap(self):
+        """Test multi-AP XML response in APDetail."""
+        multi_xml = """<?xml version="1.0" encoding="utf-8"?>
+        <amp:amp_ap_detail xmlns:amp="http://www.airwave.com" version="1">
+          <ap id="1">
+            <name>AP001</name>
+          </ap>
+          <ap id="2">
+            <name>AP002</name>
+          </ap>
+        </amp:amp_ap_detail>"""
+        multi_obj = APDetail(multi_xml)
+        self.assertEqual(len(multi_obj.aps), 2)
+        self.assertEqual(multi_obj.aps[0]['@id'], '1')
+        self.assertEqual(multi_obj.aps[0]['name'], 'AP001')
+        self.assertEqual(multi_obj.aps[1]['@id'], '2')
+        self.assertEqual(multi_obj.aps[1]['name'], 'AP002')
+        # Backward-compatible first AP dictionary access
+        self.assertEqual(multi_obj['@id'], '1')
+        self.assertEqual(multi_obj['name'], 'AP001')

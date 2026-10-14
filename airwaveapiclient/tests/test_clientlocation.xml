@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<visualrf:location xmlns:visualrf="http://www.airwave.com"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+site_id="f6cffbef-4a17-438b-97da-1a29de9d1802">
+  <client mac="12:34:56:78:90:AB" x="120.5" y="85.3" error="5.2" floor="1.0"/>
+</visualrf:location>

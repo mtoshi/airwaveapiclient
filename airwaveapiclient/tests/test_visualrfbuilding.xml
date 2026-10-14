@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<visualrf:buildings xmlns:visualrf='http://www.airwave.com'
+xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' version='1'>
+  <building campus_id='3' created='2007-10-31T14:57:48-05:00' floor_atten_db='20.0' floor_height_ft='10.0' id='15' name='NYC Office'>
+    <site id='f6cffbef-4a17-438b-97da-1a29de9d1802' name='Floor 1'/>
+  </building>
+</visualrf:buildings>

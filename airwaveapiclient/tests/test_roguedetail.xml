@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<amp:amp_rogue_detail version="1" xmlns:amp="http://www.airwave.com"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.airwave.com amp_rogue_detail.xsd">
+  <rogue_ap id="495">
+    <channel>6</channel>
+    <discovery_event id="600644">
+      <first_seen>1198890000</first_seen>
+      <last_seen>1198891800</last_seen>
+      <signal>70</signal>
+    </discovery_event>
+  </rogue_ap>
+</amp:amp_rogue_detail>

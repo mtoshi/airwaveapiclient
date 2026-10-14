@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<amp:amp_ap_bssid_list version="1" xmlns:amp="http://www.airwave.com"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.airwave.com amp_ap_bssid_list.xsd">
+  <ap id="19251" name="AP 1">
+    <group id="2524">GROUP 1</group>
+    <radio index="1" radio_type="abg" channel="8" radio_mac="AA:00:00:00:00:0B">
+      <bssid mac="88:88:17:2F:64:22" text="SSID 1" had_client="1"/>
+      <bssid mac="88:88:35:85:74:58" text="SSID 2" had_client="0"/>
+    </radio>
+  </ap>
+  <ap id="19252" name="AP 2">
+    <group id="2524">GROUP 2</group>
+    <radio index="1" radio_type="abg" channel="8" radio_mac="AA:00:00:00:00:0E"/>
+  </ap>
+</amp:amp_ap_bssid_list>

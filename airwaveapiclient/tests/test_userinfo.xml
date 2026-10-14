@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<amp:amp_user_info version="1" xmlns:amp="http://www.airwave.com"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.airwave.com amp_user_info.xsd">
+  <user id="3">
+    <access_level>admin</access_level>
+    <rapids>true</rapids>
+    <username>admin</username>
+  </user>
+</amp:amp_user_info>

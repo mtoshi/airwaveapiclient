@@ -6,9 +6,7 @@ Requirements
 Python
 ------
 
-* Python2.7
-* Python3.3
-* Python3.4
+* Python >= 3.6
 
 AirWave
 -------

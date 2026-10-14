@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<amp:amp_ap_search version="1" xmlns:amp="http://www.airwave.com"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.airwave.com amp_ap_search.xsd">
+  <record id="3647">
+    <name display_value="ap:1b:a6:90" sort_value="ap:1b:a6:90">ap:1b:a6:90</name>
+    <lan_mac display_value="00:0B:85:1B:A6:90" sort_value="00:0B:85:1B:A6:90">00:0B:85:1B:A6:90</lan_mac>
+    <apparent_ip display_value="10.51.1.28" sort_value="010.051.001.028">10.51.1.28</apparent_ip>
+    <monitoring_status display_value="Up" sort_value="Up">Up</monitoring_status>
+  </record>
+  <record id="3648">
+    <name display_value="ap:1b:a6:91" sort_value="ap:1b:a6:91">ap:1b:a6:91</name>
+    <lan_mac display_value="00:0B:85:1B:A6:91" sort_value="00:0B:85:1B:A6:91">00:0B:85:1B:A6:91</lan_mac>
+    <apparent_ip display_value="10.51.1.29" sort_value="010.051.001.029">10.51.1.29</apparent_ip>
+    <monitoring_status display_value="Down" sort_value="Down">Down</monitoring_status>
+  </record>
+</amp:amp_ap_search>

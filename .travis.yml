@@ -2,8 +2,8 @@ language: python
 sudo: false
 
 env:
-- TOXENV=py27
 - TOXENV=py36
+- TOXENV=py312
 
 install:
 - pip install virtualenv tox docutils coveralls

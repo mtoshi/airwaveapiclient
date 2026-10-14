@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<visualrf:sites xmlns:visualrf='http://www.airwave.com'
+xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' version='1'>
+  <site id='f6cffbef-4a17-438b-97da-1a29de9d1802' name='Office' env='4.0' floor='1.0' building_id='15' gridsize='5' height='38.6' units='ft' width='26.72'>
+    <summary ap-count='2' client-count='7'/>
+  </site>
+</visualrf:sites>

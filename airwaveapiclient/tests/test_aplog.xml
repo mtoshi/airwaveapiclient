@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<amp:amp_ap_log version="1" xmlns:amp="http://www.airwave.com"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.airwave.com amp_ap_log.xsd">
+  <ap id="79">
+    <log_message>
+      <date>2006-10-04T11:16:57-07:00</date>
+      <message>AP Client Count: Device: ORiNOCO-AP-700-55-e6-e1: &gt;= 1 clients for 15 seconds (Normal)</message>
+      <user>System</user>
+    </log_message>
+    <log_message>
+      <date>2006-10-04T11:16:07-07:00</date>
+      <message>Configuration verification: configuration on device does not match desired configuration</message>
+      <user>System</user>
+    </log_message>
+  </ap>
+  <ap id="80">
+    <log_message>
+      <date>2006-10-04T11:15:18-07:00</date>
+      <message>Status changed to 'SNMP Get Failed'</message>
+      <user>System</user>
+    </log_message>
+  </ap>
+</amp:amp_ap_log>

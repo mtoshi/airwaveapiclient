@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<amp:amp_client_search version="1" xmlns:amp="http://www.airwave.com"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.airwave.com amp_client_search.xsd">
+  <record id="310">
+    <mac ascii_value="00:0E:35:52:8C:AB" display_value="00:0E:35:52:8C:AB" sort_value="00:0E:35:52:8C:AB">00:0E:35:52:8C:AB</mac>
+    <username ascii_value="packplane" display_value="packplane" sort_value="packplane">packplane</username>
+    <device_type ascii_value="HTC" display_value="HTC" sort_value="HTC">HTC</device_type>
+  </record>
+</amp:amp_client_search>

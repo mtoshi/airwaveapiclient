@@ -6,7 +6,7 @@
 import re
 from collections import OrderedDict
 import requests
-from requests.compat import urljoin
+from urllib.parse import urljoin, urlencode
 
 
 class APGraph(OrderedDict):
@@ -794,7 +794,7 @@ class APGraph(OrderedDict):
     def urlencode(params):
         """URL Encode."""
         params = sorted(params.items())
-        return requests.packages.urllib3.request.urlencode(params)
+        return urlencode(params)
 
     @staticmethod
     def graph_time_format(seconds):

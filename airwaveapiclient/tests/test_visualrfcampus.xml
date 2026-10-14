@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<visualrf:campuses xmlns:visualrf='http://www.airwave.com'
+xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' version='1'>
+  <campus created='2007-10-31T14:57:48-05:00' id='3' name='NorthEast'>
+    <description>Main Northeast Campus</description>
+  </campus>
+  <campus created='2007-11-01T10:00:00-05:00' id='4' name='WestCoast'>
+    <description>West Coast Campus</description>
+  </campus>
+</visualrf:campuses>

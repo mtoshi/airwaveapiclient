@@ -2,19 +2,28 @@
 
 """airwaveapiclient."""
 
-import sys
-
-# pylint: disable=unused-import,import-error,relative-import,no-name-in-module
-if sys.version_info.major == 2:
-    from airwaveapiclient import AirWaveAPIClient
-    from airwaveapiclient import APList
-    from airwaveapiclient import APDetail
-    from airwaveapiclient import Report
-    from ap_graph import APGraph
-
-else:
-    from airwaveapiclient.airwaveapiclient import AirWaveAPIClient
-    from airwaveapiclient.airwaveapiclient import APList
-    from airwaveapiclient.airwaveapiclient import APDetail
-    from airwaveapiclient.airwaveapiclient import Report
-    from airwaveapiclient.ap_graph import APGraph
+from airwaveapiclient.airwaveapiclient import AirWaveAPIClient
+from airwaveapiclient.airwaveapiclient import APList
+from airwaveapiclient.airwaveapiclient import APDetail
+from airwaveapiclient.airwaveapiclient import AMPStats
+from airwaveapiclient.airwaveapiclient import AlertList
+from airwaveapiclient.airwaveapiclient import APBSSIDList
+from airwaveapiclient.airwaveapiclient import APLog
+from airwaveapiclient.airwaveapiclient import ClientDetail
+from airwaveapiclient.airwaveapiclient import UserInfo
+from airwaveapiclient.airwaveapiclient import Topology
+from airwaveapiclient.airwaveapiclient import ConfigResult
+from airwaveapiclient.airwaveapiclient import FolderList
+from airwaveapiclient.airwaveapiclient import APSearch
+from airwaveapiclient.airwaveapiclient import ClientSearch
+from airwaveapiclient.airwaveapiclient import VPNUserSearch
+from airwaveapiclient.airwaveapiclient import RogueDetail
+from airwaveapiclient.airwaveapiclient import ClientLocation
+from airwaveapiclient.airwaveapiclient import VisualRFCampus
+from airwaveapiclient.airwaveapiclient import VisualRFBuilding
+from airwaveapiclient.airwaveapiclient import VisualRFSite
+from airwaveapiclient.airwaveapiclient import VisualRFAccessPoint
+from airwaveapiclient.airwaveapiclient import VisualRFReport
+from airwaveapiclient.airwaveapiclient import VisualRFRasterize
+from airwaveapiclient.airwaveapiclient import Report
+from airwaveapiclient.ap_graph import APGraph
